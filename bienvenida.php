@@ -100,6 +100,15 @@ function checkTime(i) {
 <p >Bienvenido a su diseñador y gestor de panteón</p>
 
 </div>
+<?php
+session_start();
+$usuario = $_SESSION["User"];
+?>
+<div class="msghola" >
+	<p >
+		Bienvenido: <?php echo($usuario);?>
+	</p>
+</div>
 
 <div class="imagenpanteon">
 	<img src="pictures/50-512.png" alt="panteonimg">

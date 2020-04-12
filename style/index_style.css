@@ -734,3 +734,17 @@ position: absolute;
 
 
 }
+
+
+.msghola{
+
+	position: absolute;
+	top: 80px;
+	right: 20px;
+
+}
+.msghola p{
+
+	color: white;
+	font-size: 18px;
+}

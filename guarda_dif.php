@@ -51,9 +51,9 @@ if (isset($_POST['guarda_dif'])){
 
     $presidente = $row2['presidente'];
     
-    $usuario = "jaime0";
+    $usuario = $_SESSION["User"];
 
-    $consulta = "INSERT INTO ventas(nombre_c,ape_pa,ape_ma,fecha,referencia,id_difunto,usuario,presidente, calle, numero, colonia, num_recibo) VALUES ('$nombre_c','$ape_pa_c','$ape_ma_c',CURDATE(),'$referencia','$id_difunto','jaime0','$presidente','$calle','$numero','$colonia','$num_recibo')";
+    $consulta = "INSERT INTO ventas(nombre_c,ape_pa,ape_ma,fecha,referencia,id_difunto,usuario,presidente, calle, numero, colonia, num_recibo) VALUES ('$nombre_c','$ape_pa_c','$ape_ma_c',CURDATE(),'$referencia','$id_difunto','$usuario','$presidente','$calle','$numero','$colonia','$num_recibo')";
     $res2=mysqli_query($mysqli, $consulta);
 
     //Cambie este if
@@ -83,7 +83,7 @@ if (isset($_POST['guarda_dif'])){
 
     //Esto es para que redirija a la pagina anterior
     if (isset($_SERVER['HTTP_REFERER'])){
-        header("location:Recibo_pdf.php?variable1=$ubicacion");
+        header('location:' . $_SERVER['HTTP_REFERER']); 
     }else{
         echo "NO";
     }
