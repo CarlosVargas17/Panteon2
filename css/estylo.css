@@ -1,0 +1,499 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+
+:root {
+  /* generic */
+  --gutterSm: 0.4rem;
+  --gutterMd: 0.8rem;
+  --gutterLg: 1.6rem;
+  --gutterXl: 2.4rem;
+  --gutterXx: 7.2rem;
+  --colorPrimary400: #7e57c2;
+  --colorPrimary600: #5e35b1;
+  --colorPrimary800: #4527a0;
+  --fontFamily: "Dosis", sans-serif;
+  --fontSizeSm: 1.2rem;
+  --fontSizeMd: 1.6rem;
+  --fontSizeLg: 2.1rem;
+  --fontSizeXl: 2.8rem;
+  --fontSizeXx: 3.6rem;
+  --lineHeightSm: 1.1;
+  --lineHeightMd: 1.8;
+  --transitionDuration: 300ms;
+  --transitionTF: cubic-bezier(0.645, 0.045, 0.355, 1);
+  
+  /* floated labels */
+  --inputPaddingV: var(--gutterMd);
+  --inputPaddingH: var(--gutterLg);
+  --inputFontSize: var(--fontSizeLg);
+  --inputLineHeight: var(--lineHeightMd);
+  --labelScaleFactor: 0.8;
+  --labelDefaultPosY: 50%;
+  --labelTransformedPosY: calc(
+    (var(--labelDefaultPosY)) - 
+    (var(--inputPaddingV) * var(--labelScaleFactor)) - 
+    (var(--inputFontSize) * var(--inputLineHeight))
+  );
+  --inputTransitionDuration: var(--transitionDuration);
+  --inputTransitionTF: var(--transitionTF);
+}
+
+
+
+
+/*   ---MENU---   */
+.w3-button{
+    position:absolute; 
+    /*background-image:("colortumbasimple(id)");*/
+    background-image: url("pictures/tumbamin002.png");    /*lA IMAGEN DE EL BOTON*/
+    border:none;                                        /*AQUI SE INSERTA LA IMAGEN DEL MAPA DE FONDO*/
+    background-repeat: no-repeat;                       /* EL BACKGROUND NO SE REPITE*/
+    background-size: 100%,100%;                         /*EL TAMAÑO DE LA IMAGEN*/
+    
+    width: 25px;                                        /*ANSHO*/
+    height: 37px;                                       /*ALTO*/
+    background-color: transparent;                      /*EL FONDO GRIS DEL BOTON SE OCULTA*/
+    cursor: pointer;
+    z-index: 0;
+}
+
+.w3-modal {
+    z-index: 3;
+    display: none;
+    padding-top: 100px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: 
+    rgba(0,0,0,0.4);
+    
+
+}
+
+html, body {
+    font-family: Verdana,sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+.w3-container, .w3-panel {
+    padding: 0.01em 16px;
+}
+
+html, body {
+    font-family: Verdana,sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+.w3-modal-content {
+    width: 500px;
+}
+.w3-modal-content {
+    margin: auto;
+    background-color: 
+    #fff;
+    position: relative;
+    padding: 0;
+    outline: 0;
+    width: 650px;
+    height: 550px;
+}
+
+.datdif{
+
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    width: 130px
+}
+.datcom{
+
+    position: absolute;
+    top: 60px;
+    left: 250px;
+    width: 550px;
+}
+
+.btnvent{
+
+    position: absolute;
+    top: 460px;
+    width: 46%;
+    height: 50px;
+    color: white;
+    border: 0px;
+    background: linear-gradient(90grad, #3ED764,#A4FF91 );
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 22px;
+
+}
+
+.btncanc{
+    position: absolute;
+    width: 46%;
+    height: 50px;
+    color: white;
+    border: 0px;
+    background: linear-gradient(90grad, rgb(215, 62, 62),rgb(255, 145, 145) );
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 22px;
+    z-index: 999;
+    left: 330px;
+    top: 480px;
+
+
+}
+.btncanc a{
+
+    position: absolute;
+top: 18%;
+left: 37%;
+}
+
+
+.datdif input{
+
+    display: block;
+margin: 5px;
+padding: var(--inputPaddingV) var(--inputPaddingH);
+color: inherit;
+
+font-family: inherit;
+font-weight: inherit;
+
+border: solid;
+border-radius: 0.5rem;
+transition: box-shadow var(--transitionDuration);
+margin-top: 5px;
+margin-left: -5px;
+border-color: lightgray;
+}
+
+.datcom input{
+
+    display: initial;
+    margin: 5px;
+    padding: var(--inputPaddingV) var(--inputPaddingH);
+    color: inherit;
+    
+    font-family: inherit;
+    font-weight: inherit;
+    
+    border: solid;
+    border-radius: 0.5rem;
+    transition: box-shadow var(--transitionDuration);
+    margin-top: 5px;
+    margin-left: 5px;
+    border-color: lightgray;
+}
+
+.datcom textarea{
+    display: initial;
+    margin: 5px;
+    padding: var(--inputPaddingV) var(--inputPaddingH);
+    color: inherit;
+    
+    font-family: inherit;
+    font-weight: inherit;
+    
+    border: solid;
+    border-radius: 0.5rem;
+    transition: box-shadow var(--transitionDuration);
+    margin-top: 5px;
+    margin-left: 5px;
+    border-color: lightgray;
+
+}
+.datcom select{
+
+
+    display: initial;
+    margin: 5px;
+    padding: var(--inputPaddingV) var(--inputPaddingH);
+    color: inherit;
+    
+    font-family: inherit;
+    font-weight: inherit;
+    
+    border: solid;
+    border-radius: 0.5rem;
+    transition: box-shadow var(--transitionDuration);
+    margin-top: 5px;
+    margin-left: 5px;
+    border-color: lightgray;
+}
+.datcom label{
+
+    display: initial;
+    margin: 5px;
+   
+    color: inherit;
+    
+    font-family: inherit;
+    font-weight: inherit;
+    
+    transition: box-shadow var(--transitionDuration);
+    margin-top: 5px;
+    margin-left: 5px;
+    border-color: lightgray;
+}
+
+
+    html, body {
+        font-family: Verdana,sans-serif;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+
+    .imagenes{
+		z-index: 0;
+        display:inline-block;
+        position:relative;
+        top:90px;
+    }
+
+
+
+
+
+
+
+
+/*  --ARRASTRABLE--  */
+
+.droppable{
+    float: right;
+    width: 1150px;
+    height: 550px;
+    background: url(../imagenes/Subseccion1.png) no-repeat;
+
+    background-size: 1163px 580px;
+    margin-right: 16px;
+    background-position-x: -6px;
+    background-position-y: 38%;
+    z-index: 0;
+    top: 4%;
+    position: relative;
+        
+
+    
+}
+
+.draggable{
+    width: 30px;
+    height: 44px;
+    left: 27px;
+    top: 90px;
+    background: url(../imagenes/tumbamin002.png) no-repeat;
+    position: absolute;
+    background-size: 100% 100%;
+    z-index: 2;
+
+
+}
+.draggable2{
+    width: 140px;
+    height: 32px;
+    left: 7px;
+    top: 151px;
+    background: url(../imagenes/road_hori.png) no-repeat;
+        background-size: auto;
+    position: absolute;
+    
+    background-size: 135% 100%;
+    z-index: 2;
+}
+/*.draggable2:hover{
+    -moz-animation-name: sacudir;
+    -moz-animation-duration: 2s;
+    -moz-animation-iteration-count: infinite;
+}
+
+@-moz-keyframes sacudir {
+    
+      10%, 30%, 50%, 70%, 90% {
+        -moz-transform: scale(1.1) rotate(3deg);
+      }
+    
+      0%, 20%, 40%, 60%, 80%, 100% {
+        -moz-transform: scale(1.1) rotate(-3deg);
+      }
+    }*/
+
+
+
+.draggable3{
+    width: 32px;
+    height: 140px;
+    left: 27px;
+    top: 250px;
+    background: url(../imagenes/road_vert.png) no-repeat;
+        background-size: auto;
+    position: absolute;
+    
+    background-size: 100% 100%;
+    z-index: 2;
+}
+.draggable4{
+    width: 140px;
+    height: 32px;
+    left: 7px;
+    top: 200px;
+    background: url(../imagenes/rock_hori.png) no-repeat;
+        background-size: auto;
+    position: absolute;
+    
+    background-size: 100% 200%;
+    z-index: 2;
+}
+.draggable5{
+    width: 32px;
+    height: 140px;
+    left: 85px;
+    top: 250px;
+    background: url(../imagenes/rock_vert.png) no-repeat;
+        background-size: auto;
+    position: absolute;
+    z-index: 2;
+    
+    background-size: 200% 100%;
+}
+.draggable6{
+    width: 60px;
+    height: 75px;
+    left: 26%;
+    top: 410px;
+    background: url(../imagenes/arbol.png) no-repeat;
+        background-size: auto;
+    background-size: auto;
+    position: absolute;
+    z-index: 2;
+    background-size: 100% 100%;
+
+}
+.draggable7{
+    width: 50px;
+    height: 50px;
+    left: 85px;
+    top: 85px;
+    background: url(../imagenes/centro.png) no-repeat;
+        background-size: auto;
+    background-size: auto;
+    position: absolute;
+    z-index: 2;
+    background-size: 100% 100%;
+}
+
+
+.contenedorx {
+    width: 155px;
+    height: 84%;
+    left: 10px;
+    top: 100px;
+    background:white;
+    position: absolute;
+    
+    -webkit-box-shadow: 0px 0px 17px 0px rgba(181,181,181,1);
+    -moz-box-shadow: 0px 0px 17px 0px rgba(181,181,181,1);
+    box-shadow: 0px 0px 17px 0px rgba(181,181,181,1);
+}
+
+.boxclose{
+
+    
+    
+    cursor:pointer;
+    display: inline-block;
+    line-height: 0px;  
+    visibility:hidden; 
+    top: -14px;
+    left: 22px;
+    position: relative;
+    
+}
+.boxclose2{
+
+    
+    
+    cursor:pointer;
+    display: inline-block;
+    line-height: 0px;  
+    visibility:hidden; 
+    top: -14px;
+    left: 22px;
+    
+    position: initial;
+    
+}
+
+
+.LabelC{
+    visibility:hidden; 
+    top:32px;
+    position: relative;
+    text-align: center;
+    float: right;
+    right: 7px;
+}
+
+html, body {
+    font-family: Verdana,sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    background: linear-gradient(0deg, #017EDC 0%, #48CD82 70%);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -999;
+}
+.paleta{
+
+    width: 180px;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: #F4F8FB;;
+    position: absolute;
+    
+}
+
+.titulo{
+
+    top: 0px;
+    position: relative;
+    text-align: center;
+    float: right;
+    right: 25%;
+    font-family: 'Fredoka One';
+    color: #4fc4b7;
+    
+}
+
+.draggable p{
+
+    visibility: hidden; 
+    top:9px;
+    position: absolute;
+    text-align: center;
+    float: right;
+    right: 13px;
+    color: black;
+
+}
+
+px{
+    top:23px;
+    position: relative;
+    text-align: center;
+    float: right;
+    right: 13px;
+
+
+}
+
+
