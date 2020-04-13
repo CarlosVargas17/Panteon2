@@ -7,14 +7,16 @@
         $ele=$_REQUEST['ele'];
         ?>
         <script>
-            num=<?php echo $ele;?>;
+        num=<?php echo $ele;?>;
         var divisor = document.getElementById(num);
         $nom='p'+num;
-
         var p = document.createElement('px');
         p.innerHTML = num;
 
         divisor.appendChild(p)
+
+
+
 
 
         </script>
