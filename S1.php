@@ -49,9 +49,12 @@ else{
 
 
 <?php 
+
       if(!isset($_GET['id_s']) || $_GET['id_s']==''){
         header('Location: secciones.php');
       }
+      $id_s=$_GET['id_s'];
+      $id_ss=$_GET['id_ss'];
 ?>
 
 <?php
@@ -64,15 +67,17 @@ if ($vista == 'ven'){
 <div id="id01" class="w3-modal">
         <div class="w3-modal-content">
         <div class="w3-container">
-            <span onclick="document.getElementById('id01').style.display='none'" style="font-size: 20px;" class="w3-display-topright btncanc"><a>Cancelar</a></span>
-            <p>Ubicación:                  <a id="modal_ubicacion"></a></p>
-            <p>Nombre:                     <a id="modal_name"></a></p>
-            <p>Apellido paterno:           <a id="modal_ape_pa"></a></p>
-            <p>Apellido materno:           <a id="modal_ape_ma"></a></p>
-            <p>Fecha de nacimiento:        <a id="modal_fecha_nac"></a></p>
-            <p>Fecha de defunción:         <a id="modal_fecha_def"></a></p>
-            <br>
-            <a href="ventas.php" id="modal_boton" class="btn btn-success"></a>
+            <span onclick="document.getElementById('id01').style.display='none'" style="font-size: 20px; text-align:right;" class="w3-display-topright btncanc"><a>Cancelar</a></span>
+            <div style="text-align: center; font-size:20px; margin-top:50px">
+                <p>Ubicación:                  <a id="modal_ubicacion"></a></p>
+                <p>Nombre:                     <a id="modal_name"></a></p>
+                <p>Apellido paterno:           <a id="modal_ape_pa"></a></p>
+                <p>Apellido materno:           <a id="modal_ape_ma"></a></p>
+                <p>Fecha de nacimiento:        <a id="modal_fecha_nac"></a></p>
+                <p>Fecha de defunción:         <a id="modal_fecha_def"></a></p>
+                <br>
+                <a href="#" id="boton_r" class="b_recibo"><p>Imprimir recibo</p></a>
+            </div>
             
         </div>
         </div>
@@ -281,7 +286,7 @@ if ($vista == 'ven'){
                             <h3 style="font-size: 36px; margin-top: 5px; margin-left: 30%;" >Realizar venta</h3>
                         </div>
                         <div class="card-body">               
-                            <form action="guarda_dif.php" method="POST" id="formulario_venta">
+                            <form action="guarda_dif.php?id_s=<?php echo $id_s ?>&id_ss=<?php echo $id_ss ?>" method="POST" id="formulario_venta">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-4 mx-auto datdif">
@@ -533,13 +538,13 @@ fetch('cambios.php',{method:'POST',body:datos})
         var ape_ma=document.getElementById("modal_ape_ma")
         var fecha_nac=document.getElementById("modal_fecha_nac")
         var fecha_def=document.getElementById("modal_fecha_def")
-        var boton=document.getElementById("modal_boton")
+        var boton=document.getElementById("boton_r")
 
         var ubicacion2=document.getElementById("ubicacion")
         var ubicacion3=document.getElementById("ubi")
         
         
-        console.log("sol")
+        console.log("Zenbu")
         var datos= new FormData()
         datos.append("id",id)
         fetch('cambios.php',{method:'POST',body:datos})
@@ -560,14 +565,15 @@ fetch('cambios.php',{method:'POST',body:datos})
             }else{
                 var datos = data['datos']
                 cambiacolortumbasimple(num,datos['estado'])
+                var id_dif=datos["id"];
                 modal1.style.display='block'
-               
+                boton.href="Recibo_pdf.php?variable1="+id_dif+"&variable2="+id
                 name.innerHTML=datos["nombre"]
                 ape_pa.innerHTML=datos["ape_pa"]
                 ape_ma.innerHTML=datos["ape_ma"]
                 fecha_nac.innerHTML=datos["fecha_nac"]
                 fecha_def.innerHTML=datos["fecha_def"]
-                boton.innerHTML = ""
+
             }
             
         })

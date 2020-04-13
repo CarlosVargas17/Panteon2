@@ -154,6 +154,30 @@ top: 18%;
 left: 37%;
 }
 
+#boton_r{
+
+    position: absolute;
+    top: 460px;
+    width: 46%;
+    height: 50px;
+    color: white;
+    border: 0px;
+    background: linear-gradient(90grad, #3ED764,#A4FF91 );
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 22px;
+    top:480px;
+    left:20px;
+
+}
+
+#boton_r p{
+
+    position: absolute;
+    top: -15px;
+    left: 27%;
+}
+
 
 .datdif input{
 

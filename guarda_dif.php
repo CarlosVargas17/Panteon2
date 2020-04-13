@@ -3,6 +3,8 @@
 //Se inicia la sesión
 session_start();
 
+$id_s = $_GET['id_s'];
+$id_ss = $_GET['id_ss'];
 
 $mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
 $mysqli->set_charset("utf8");
@@ -36,6 +38,10 @@ if (isset($_POST['guarda_dif'])){
     $ape_pa_c = $_POST['ape_pa_c'];
     $ape_ma_c = $_POST['ape_ma_c'];
     $referencia = $_POST['referencia'];
+    $calle = $_POST['calle'];
+    $colonia = $_POST['colonia'];
+    $numero = $_POST['numero'];
+    $num_recibo = $_POST['num_recibo'];
 
     $query2 = "SELECT * FROM difuntos WHERE ubicacion='$ubicacion'";
     
@@ -83,11 +89,12 @@ if (isset($_POST['guarda_dif'])){
 
     //Esto es para que redirija a la pagina anterior
     if (isset($_SERVER['HTTP_REFERER'])){
-        header('location:' . $_SERVER['HTTP_REFERER']); 
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }else{
         echo "NO";
     }
-
+    
+   
     
 }
 

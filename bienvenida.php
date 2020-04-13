@@ -105,7 +105,7 @@ session_start();
 $usuario = $_SESSION["User"];
 ?>
 <div class="msghola" >
-	<p >
+	<p>
 		Bienvenido: <?php echo($usuario);?>
 	</p>
 </div>
