@@ -12,7 +12,7 @@ global $Hasta0;
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Pantalla Principal</title>
+	<title>Reportes</title>
 	<link rel="stylesheet" href="style/index_style.css">
     <link rel="stylesheet" href="css/estilos.css">
 	<link rel="stylesheet" href="md/bootstrap.min.css">

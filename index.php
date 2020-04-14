@@ -1,6 +1,11 @@
 <?php
 
-    require "codelogin.php"
+    require "codelogin.php";
+    $mysqli = new mysqli ('localhost','root','','ultratumba');
+    $mysqli->set_charset("utf8");
+    $consu="SELECT * FROM gobierno";
+    $res=$mysqli -> query($consu);
+    $mostrar=mysqli_fetch_array($res);
 ?>
 
 <html lang="en">
@@ -39,7 +44,22 @@
 
             <div class="container-all">
         <div class="container-form">
-            <img src="pictures/logogdc.jpg" class="logo">
+            <?php
+
+            $imagen="pictures/logogdc.jpg";
+            /*if (empty($mostrar)){
+                $imagen="pictures/logogdc.jpg";
+            }
+            else{
+                $consult="SELECT * FROM gobierno";
+                $resul=$mysqli -> query($consult);
+                $row= $resul ->fetch_array();
+                $logo= $row['nombre_logo']; 
+                
+                $imagen="img/".$logo;
+            }*/
+            ?>
+            <img src="<?php echo($imagen); ?>" class="logo">
             <h1 class="title"> Iniciar sesión</h1>
 
             <form method="post" action= '<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>' >
