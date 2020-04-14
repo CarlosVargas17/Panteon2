@@ -10,7 +10,8 @@
     <script src="md/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style/index_style.css">
 </head>
-<body style="background: white;">
+<body style="background: white; overflow:auto;scrollbar-color: rgba(0, 0, 0, .5) rgba(0, 0, 0, 0);
+    scrollbar-width: thin;">
 
 
 <header>
