@@ -141,7 +141,7 @@ if ($vista == 'ven'){
         if($_SESSION['loggedin']==true){
           
     ?>
-    
+
                  <!-- Aqui empieza la notificación -->
                  <?php 
                 
@@ -188,7 +188,7 @@ if ($vista == 'ven'){
 	for ($i=1000; $i>=1; $i--){
 ?>
 		<div id='<?php echo $i;?>' name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable"  
-        onmouseup="agregarEvento('<?php echo $_GET['id_s'];?>','<?php echo $_GET['id_ss'];?>','<?php echo $i;?>')" >
+        <?php if($_GET['vista']=='ven'){ ?>onmouseup="agregarEvento('<?php echo $_GET['id_s'];?>','<?php echo $_GET['id_ss'];?>','<?php echo $i;?>')"<?php } ?> >
          <a class="boxclose" id="box<?php echo $i;?>" onclick="outterFunction0('box<?php echo $i;?>','<?php echo $i;?>')">
 				<img src="./imagenes/back.png" width="20">
 			</a>
