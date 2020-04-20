@@ -142,8 +142,8 @@ if ($vista == 'ven'){
           
     ?>
     
-                <!-- Aqui empieza la notificación -->
-                <?php 
+                 <!-- Aqui empieza la notificación -->
+                 <?php 
                 
                 if (isset($_SESSION['message']) and $_SESSION['message']!="") {
                     if ($_SESSION['message']=='success'){
@@ -171,9 +171,8 @@ if ($vista == 'ven'){
                             });
                         </script>';
                     }
-                    $_SESSION['message']=''; } ?>
+                $_SESSION['message']=''; } ?>
                 <!-- Aqui termina la notificación -->
-
 
 
  <div class="paleta"></div>
