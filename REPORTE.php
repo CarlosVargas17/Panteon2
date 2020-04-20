@@ -170,9 +170,15 @@ global $Hasta0;
                                 }
                            }
                           else{
-                              echo"<div class='alert alert-warning' role='alert'>
-                                   Búsqueda sin resultados existentes.
-                                     </div>";
+                            echo'<tr>
+                            <td scope="col" width="50px">'.''.'</td>
+                            <td scope="col" width="238px">'.''.'</td>
+                            <td scope="col" width="130px">'.''.'</td>
+                            <td scope="col" width="180px">'.'Búsqueda   sin   resultados'.'</td>
+                            <td scope="col" width="150px">'.''.'</td>
+                            <td scope="col"  width="160px">'.''.'</td>
+                            <td scope="col"  width="174px">'.''.'</td>
+                            </tr>';
                            }
                           
                         }

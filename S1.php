@@ -11,6 +11,8 @@
 
 <script src="js/modernizr-2.6.2.min.js"></script>
 <script src="js/push.min.js"></script>
+	 
+
 
 
 
@@ -143,7 +145,7 @@ if ($vista == 'ven'){
                 <!-- Aqui empieza la notificación -->
                 <?php 
                 
-                if (isset($_SESSION['message'])) {
+                if (isset($_SESSION['message']) and $_SESSION['message']!="") {
                     if ($_SESSION['message']=='success'){
                         echo '<script>
                             Push.create("Éxito",{
@@ -169,7 +171,7 @@ if ($vista == 'ven'){
                             });
                         </script>';
                     }
-                session_unset(); } ?>
+                    $_SESSION['message']=''; } ?>
                 <!-- Aqui termina la notificación -->
 
 
@@ -256,6 +258,11 @@ if ($vista == 'ven'){
 	<div id="droppable" class="droppable" >
 </div>
 </div>
+	
+<script src="popper/popper.min.js"></script>	 	 	
+<!--  Plugin CtxMenu -->
+<script src="plugins/CtxMenu-Javascript-master/ctxmenu/ctxmenu.js"></script>
+<script src="codigo.js"></script> 
 
 <?php
 

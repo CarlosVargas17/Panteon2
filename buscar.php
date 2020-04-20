@@ -31,23 +31,25 @@
             </thead>
             <tbbody>";
             while($fila = $resultado->fetch_assoc()){
-                $salida.="<tr>
-                            <td>".$fila['id']."</td>
-                            <td>".$fila['nombre']."</td>
-                            <td>".$fila['ape_pa']."</td>
-                            <td>".$fila['ape_ma']."</td>
-                            <td>".$fila['fecha_nac']."</td>
-                            <td>".$fila['fecha_def']."</td>
-                            <td>".$fila['ubicacion']."</td>
-                            <td>
-                            <a class='btn btn-primary' data-toggle='modal' data-target='#modal1'>
-                                <i class='fas fa-marker'></i>
-                            </a>
-                            <a href='elimina_dif.php?id=".$fila['id']."' class='btn btn-danger'>
-                                <i class='fas fa-trash-alt'></i>
-                            </a>
-                            </td>
-                        </tr>";
+                if($fila['nombre']!=""){
+                    $salida.="<tr>
+                    <td>".$fila['id']."</td>
+                    <td>".$fila['nombre']."</td>
+                    <td>".$fila['ape_pa']."</td>
+                    <td>".$fila['ape_ma']."</td>
+                    <td>".$fila['fecha_nac']."</td>
+                    <td>".$fila['fecha_def']."</td>
+                    <td>".$fila['ubicacion']."</td>
+                    <td>
+                    <a class='btn btn-primary' data-toggle='modal' data-target='#modal1'>
+                        <i class='fas fa-marker'></i>
+                    </a>
+                    <a href='elimina_dif.php?id=".$fila['id']."' class='btn btn-danger'>
+                        <i class='fas fa-trash-alt'></i>
+                    </a>
+                    </td>
+                    </tr>";
+                }
             
             }
             $salida.="</tbody></table>";

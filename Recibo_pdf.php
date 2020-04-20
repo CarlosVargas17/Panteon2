@@ -31,7 +31,7 @@ function Header()
     // Título
     $this->SetFont('courier', 'U', 20);
     //$this->Cell(70,10,'Recibo de Compra',0,0);
-    $this->Cell(60, 50, 'Recibo de Compra', 0, 0, 'C');
+    $this->Cell(60, 50, 'Recibo de compra', 0, 0, 'C');
 
     // Salto de línea
     
@@ -88,21 +88,21 @@ $pdf->cell(95,10,utf8_decode('Ubicación de la tumba: '),1,0,false);
 
 $pdf->cell(95,10,$ubica,1,1,'C',false);
 
-$pdf->cell(190,10,'Datos del Comprador',1,1,'C',false);
+$pdf->cell(190,10,'Datos del comprador',1,1,'C',false);
 
 $pdf->cell(15,10,'ID',1,0,'C',0);
 
 $pdf->cell(120,10,'Nombre completo',1,0,'C',false);
 
-$pdf->cell(55,10,'Folio de Recibo',1,1,false);
+$pdf->cell(55,10,'Folio de recibo',1,1,false);
 
 $pdf->cell(15,10,$row['id'],1,0,'C',0);
 
-$pdf->cell(40,10,$row['nombre_c'],1,0,'C',0);
+$pdf->cell(40,10,utf8_decode($row['nombre_c']),1,0,'C',0);
 
-$pdf->cell(40,10,$row['ape_pa'],1,0,'C',0);
+$pdf->cell(40,10,utf8_decode($row['ape_pa']),1,0,'C',0);
 
-$pdf->cell(40,10,$row['ape_ma'],1,0,'C',0);
+$pdf->cell(40,10,utf8_decode($row['ape_ma']),1,0,'C',0);
 
 $pdf->cell(55,10,$row['num_recibo'],1,1,'C',0);
 
@@ -112,15 +112,15 @@ $pdf->cell(55,10,$row['num_recibo'],1,1,'C',0);
 
 $pdf->cell(30,10,' ',0,1,'C',0);
 
-$pdf->cell(15,10,'Datos Adicionales',0,1,false);
+$pdf->cell(15,10,'Datos adicionales',0,1,false);
 
 $pdf->cell(95,10,'Colonia: ',1,0,'L',false);
 
-$pdf->cell(95,10,$row['colonia'],1,1,'L',0);
+$pdf->cell(95,10,utf8_decode($row['colonia']),1,1,'L',0);
 
 $pdf->cell(95,10,'Calle: ',1,0,'L',false);
 
-$pdf->cell(95,10,$row['calle'],1,1,'L',0);
+$pdf->cell(95,10,utf8_decode($row['calle']),1,1,'L',0);
 
 $pdf->cell(95,10,utf8_decode('Número: '),1,0,'L',false);
 
@@ -128,14 +128,14 @@ $pdf->cell(95,10,$row['numero'],1,1,'L',0);
 
 $pdf->cell(95,10,'Referencia: ',1,0,'L',false);
 
-$pdf->cell(95,10,$row['referencia'],1,1,'L',0);
+$pdf->cell(95,10,utf8_decode($row['referencia']),1,1,'L',0);
 
 
 
 
 
 
-$pdf->cell(95,10,'Estado de la Fosa: ',1,0,'L');
+$pdf->cell(95,10,'Estado de la fosa: ',1,0,'L');
 $pdf->cell(95,10,$row2['estado'],1,1,'L');
 $pdf->cell(30,10," ",0,1,'C');
 $pdf->cell(30,10," ",0,1,'C');

@@ -143,7 +143,7 @@
             <select class="browser-default custom-select" name="filtro1" id="filtro1"
             style="width: 200px;">
                 <option value="id">ID</option>
-                <option value="nombre" selected>Nombre</option>
+                <option value="nombre_c" selected>Nombre</option>
                 <option value="ape_pa">Ape. Pa.</option>
                 <option value="ape_ma">Ape. Ma.</option>
                 <option value="ubicacion">Ubicación</option>
@@ -152,7 +152,7 @@
             <select class="browser-default custom-select" name="orden" id="orden"
             style="width: 200px;">
                 <option value="id">ID</option>
-                <option value="nombre">Nombre</option>
+                <option value="nombre_c">Nombre</option>
                 <option value="ape_pa">Ape. Pa.</option>
                 <option value="ape_ma">Ape. Ma.</option>
                 <option value="ubicacion">Ubicación</option>
@@ -189,7 +189,7 @@
 
             var array_ven = {
                 id : 'ID',
-                nombrec : 'Nombre',
+                nombre_c : 'Nombre',
                 ape_pa : 'Ape. Pa.',
                 ape_ma : 'Ape. Ma.',
                 calle : 'Calle',

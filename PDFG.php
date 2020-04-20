@@ -100,12 +100,12 @@ $pdf->SetFillColor(11,63,71);
 $pdf->SetTextColor(255,255,255);
 
 $pdf->Cell(15,8,utf8_decode('Nº'),1,0,'C',1);
-$pdf->Cell(47,8,'Comprador',1,0,'C',1);
+$pdf->Cell(47,8,utf8_decode('Comprador'),1,0,'C',1);
 $pdf->Cell(20,8,'Fecha',1,0,'C',1);
 $pdf->Cell(30,8,utf8_decode('Número de recibo'),1,0,'C',1);
 $pdf->Cell(25,8,"Id de difunto",1,0,'C',1);
 $pdf->Cell(30,8,utf8_decode('Ubicación'),1,0,'C',1);
-$pdf->Cell(25,8,"Usuario",1,1,'C',1);
+$pdf->Cell(25,8,utf8_decode("Usuario"),1,1,'C',1);
 $pdf->SetTextColor(0,0,0);
 
 $mysqli = new mysqli ('localhost','root','','ultratumba');
@@ -139,13 +139,13 @@ while ($row = mysqli_fetch_assoc($res_fech)){
     else{
         $pdf->SetFillColor(240,240,240);
     }
-	$pdf->Cell(15,8, $row["id"],1,0,'C',1);
-	$pdf->Cell(47,8, $row["nombre_c"]." ".$row["ape_pa"]." ".$row["ape_ma"],1,0,'C',1);
-	$pdf->Cell(20,8, $row["fecha"],1,0,'C',1);
-	$pdf->Cell(30,8, $row["num_recibo"],1,0,'C',1);
-	$pdf->Cell(25,8, $row["id_difunto"],1,0,'C',1);
-	$pdf->Cell(30,8, $row["ubicacion"],1,0,'C',1);
-    $pdf->Cell(25,8, $row["usuario"],1,1,'C',1);
+	$pdf->Cell(15,8,utf8_decode($row["id"]),1,0,'C',1);
+	$pdf->Cell(47,8,utf8_decode($row["nombre_c"])." ".utf8_decode($row["ape_pa"])." ".utf8_decode($row["ape_ma"]),1,0,'C',1);
+	$pdf->Cell(20,8,utf8_decode($row["fecha"]),1,0,'C',1);
+	$pdf->Cell(30,8,utf8_decode($row["num_recibo"]),1,0,'C',1);
+	$pdf->Cell(25,8,utf8_decode($row["id_difunto"]),1,0,'C',1);
+	$pdf->Cell(30,8,utf8_decode($row["ubicacion"]),1,0,'C',1);
+    $pdf->Cell(25,8,utf8_decode($row["usuario"]),1,1,'C',1);
     $i++;
 }
 $pdf->Close();
