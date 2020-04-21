@@ -35,7 +35,7 @@ function startTime() {
 
 		<div class="contenedor" id="dos2">
 		<a href="javascript: history.go(-1)" class="texto"><img class="icon" 
-			src="pictures/Mapa.png" > <p class="texto"  href="javascript: history.go(-1)" >Mapa</p> </a>
+			src="pictures/back.png" > <p class="texto"  href="javascript: history.go(-1)" >Atrás</p> </a>
 		</div>
 
 		<div class="contenedor" id="tres">

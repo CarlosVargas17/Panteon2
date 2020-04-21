@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Document</title>
+    <title>Subsecciones</title>
 
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
@@ -26,7 +26,7 @@
 
 		<div class="contenedor" id="dos2">
 		<a href="secciones.php" class="texto"><img class="icon" 
-			src="pictures/Mapa.png" > <p class="texto"  href="secciones.php" >Mapa</p> </a>
+			src="pictures/back.png" > <p class="texto"  href="secciones.php" >Atrás</p> </a>
 		</div>
 
 		<div class="contenedor" id="tres">
