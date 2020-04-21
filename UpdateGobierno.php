@@ -179,7 +179,7 @@ if(isset($_POST['update_datos']))
      if (in_array($type_img,$permitidos)&& $limite_kb>=$size_img){
       
         $archivo=$_FILES['logo']['tmp_name'];
-        $ruta='pictures';
+        $ruta='img';
         $ruta=$ruta."/".$name_img;
         move_uploaded_file($archivo,$ruta);
         $query="UPDATE gobierno set nombre_logo='$name_img', imagen='$ruta' WHERE 1";
