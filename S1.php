@@ -17,13 +17,6 @@ function startTime() {
 	}
 </script>
 	 
-
-
-
-
-
-
-
 </head>
 
 <body onload="startTime()">
@@ -313,9 +306,11 @@ if ($vista == 'ven'){
                                             <input id="ape_m" type="text" name="ape_ma" class="form-control" 
                                             placeholder="Apellido materno" style="margin-top:10px" >
                                             <label id="la_nac" for="fecha_nac" style="margin-top:10px">Fecha de nacimiento</label>
-                                            <input id="nac" type="date" name="fecha_nac" class="form-control" max="<?php $hoy=date("Y-m-d"); $hoy2=strtotime($hoy."- 1 days"); echo date("Y-m-d",$hoy2);?>">
+                                            <input id="nac" type="date" name="fecha_nac" class="form-control" max="<?php $hoy=date("Y-m-d"); 
+                                            $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>" onchange="fecha_n()">
                                             <label for="fecha_def" id="la_def" style="margin-top:10px">Fecha de defunción</label>
-                                            <input type="date" name="fecha_def" class="form-control" id="def"  max="<?php $hoy=date("Y-m-d"); $hoy2=strtotime($hoy."- 1 days"); echo date("Y-m-d",$hoy2);?>">
+                                            <input type="date" name="fecha_def" class="form-control" id="def"  max="<?php $hoy=date("Y-m-d"); 
+                                            $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>" onchange="fecha_d()">
                                             
 
                                             
@@ -641,8 +636,48 @@ fetch('cambios.php',{method:'POST',body:datos})
            tecla_final = String.fromCharCode(tecla);
            return patron.test(tecla_final);
         }
-        
-        
+        function fecha_n(){
+            var min = document.getElementById("nac").value;
+            if (min==""){
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                var yyyy = today.getFullYear();
+                 if(dd<10){
+                        dd='0'+dd
+                    } 
+                    if(mm<10){
+                        mm='0'+mm
+                    } 
+                
+                today = yyyy+'-'+mm+'-'+dd;
+                document.getElementById("def").setAttribute("max", today);
+            }
+            document.getElementById("def").setAttribute("min", min);
+            
+            
+        }
+        function fecha_d(){
+            var max = document.getElementById("def").value;
+            if (max==""){
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                var yyyy = today.getFullYear();
+                 if(dd<10){
+                        dd='0'+dd
+                    } 
+                    if(mm<10){
+                        mm='0'+mm
+                    } 
+                
+                today = yyyy+'-'+mm+'-'+dd;
+                document.getElementById("nac").setAttribute("max", today);
+            }else{
+                document.getElementById("nac").setAttribute("max", max);
+            }
+            
+        }
 
         
 
