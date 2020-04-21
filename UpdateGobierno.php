@@ -60,12 +60,12 @@ else{
 			src="pictures/Tumba.png" > <p class="texto"  href="busqueda.php" >Busquedas</p> </a>
 		</div>
 
-		<div class="contenedor" id="cuatro2">
+		<div class="contenedor" id="cuatro">
 			<a href="REPORTE.php" class="texto"><img class="icon" 
 			src="pictures/Libreta.png" > <p class="texto"  href="REPORTE.php" >Reportes</p> </a>
 		</div>
 
-		<div class="contenedor" id="cinco">
+		<div class="contenedor" id="cinco2">
 			<a href="UpdateGobierno.php" class="texto"><img class="icon" 
 			src="pictures/settings.png" > <p class="texto"  href="UpdateGobierno.php" >Ajustes</p> </a>
 		</div>
