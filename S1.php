@@ -11,6 +11,11 @@
 
 <script src="js/modernizr-2.6.2.min.js"></script>
 <script src="js/push.min.js"></script>
+<script language="JavaScript">
+function startTime() {
+    var today = new Date();
+	}
+</script>
 	 
 
 
@@ -21,7 +26,7 @@
 
 </head>
 
-<body>
+<body onload="startTime()">
 <div class="tapador" id="tapable"></div>
 
 <?php
@@ -308,9 +313,12 @@ if ($vista == 'ven'){
                                             <input id="ape_m" type="text" name="ape_ma" class="form-control" 
                                             placeholder="Apellido materno" style="margin-top:10px" >
                                             <label id="la_nac" for="fecha_nac" style="margin-top:10px">Fecha de nacimiento</label>
-                                            <input id="nac" type="date" name="fecha_nac" class="form-control" >
+                                            <input id="nac" type="date" name="fecha_nac" class="form-control" max="<?php $hoy=date("Y-m-d"); $hoy2=strtotime($hoy."- 1 days"); echo date("Y-m-d",$hoy2);?>">
                                             <label for="fecha_def" id="la_def" style="margin-top:10px">Fecha de defunción</label>
-                                            <input type="date" name="fecha_def" class="form-control" id="def" >
+                                            <input type="date" name="fecha_def" class="form-control" id="def"  max="<?php $hoy=date("Y-m-d"); $hoy2=strtotime($hoy."- 1 days"); echo date("Y-m-d",$hoy2);?>">
+                                            
+
+                                            
                                         </div>
                                         <div class="col-md-4 mx-auto datcom">
                                             <h5 style="margin-top:10px">Datos de la venta</h5>
@@ -323,11 +331,11 @@ if ($vista == 'ven'){
                                             <input type="text" name="calle" class="form-control" 
                                             placeholder="Calle" style="margin-top:10px" required>
                                             <input type="text" name="numero" class="form-control" 
-                                            placeholder="numero" style="margin-top:10px" required>
+                                            placeholder="Número" style="margin-top:10px" onkeypress="return check(event)" required>
                                             <input type="text" name="colonia" class="form-control" 
                                             placeholder="Colonia" style="margin-top:10px" required>
                                             <input type="text" name="num_recibo" class="form-control" style="margin-top:10px;top: 210px;position: absolute;left: 198px;"
-                                            placeholder="Numero de recibo" style="margin-top:10px" required>
+                                            placeholder="Número de recibo" style="margin-top:10px" onkeypress="return check(event)" required>
                                             <textarea style="width: 130px;" name="referencia" rows="3" placeholder="Referencia" 
                                             class="form-control" style="margin-top:10px"></textarea>
                                             <label style="margin-top:10px;position: absolute;top: 350px;left: 1px;" for="estado" style="margin-top:10px">Estado de la tumba:</label>
@@ -620,7 +628,22 @@ fetch('cambios.php',{method:'POST',body:datos})
                 document.getElementById("la_def").style.visibility = "visible";
             }
         }
+        function check(e) {
+           tecla = (document.all) ? e.keyCode : e.which;
+
+           //Tecla de retroceso para borrar, siempre la permite
+           if (tecla == 8) {
+               return true;
+           }
+       
+           // Patron de entrada, en este caso solo acepta numeros y letras
+           patron = /[A-Za-z0-9]/;
+           tecla_final = String.fromCharCode(tecla);
+           return patron.test(tecla_final);
+        }
         
+        
+
         
 
 </script>
