@@ -70,8 +70,8 @@ global $Hasta0;
 						<div id="datatable_length">
 						  <form method="GET">
 							<!-- RANGO DE FECHAS A BUSCAR Y EXPORTAR -->
-							<label style="font-weight: normal; font-family: Arial;position: absolute;left: 15px;">Desde: <input class="form-control" type="date" id="bd-desde" name="Desde"/></label>
-							<label style="font-weight: normal;font-family: Arial;position: absolute;left: 190px;">Hasta: <input class="form-control" type="date" id="bd-hasta" name="Hasta"/></label>
+							<label style="font-weight: normal; font-family: Arial;position: absolute;left: 15px;">Desde: <input class="form-control" type="date" id="bd-desde" name="Desde" max="<?php $hoy=date("Y-m-d"); $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>" name="Hasta" onchange="fecha_n()"></label>
+							<label style="font-weight: normal;font-family: Arial;position: absolute;left: 190px;">Hasta: <input class="form-control" type="date" id="bd-hasta" max="<?php $hoy=date("Y-m-d"); $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>" name="Hasta" onchange="fecha_d()"/></label>
 							<input name="buscar" id="rango_fecha" class="btn btn-sm btn-primary" type="submit" value='Buscar' style="position:absolute;left:360px;top:70px;font-family: Arial;">
 							<!-- BOTON PARA EXPORTAR EL RANGO DE FECHAS -->
 							<input name='report' type="submit" value="Exportar PDF" class=" btn btn-sm btn-danger" style="position: absolute;top: 70px;left:425px;font-family: Arial;">
@@ -190,6 +190,49 @@ global $Hasta0;
 </body>
 </html>
 
-<?php
+<script>
 
-?>
+        function fecha_n(){
+            var min = document.getElementById("bd-desde").value;
+            if (min==""){
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                var yyyy = today.getFullYear();
+                 if(dd<10){
+                        dd='0'+dd
+                    } 
+                    if(mm<10){
+                        mm='0'+mm
+                    } 
+                
+                today = yyyy+'-'+mm+'-'+dd;
+                document.getElementById("bd-hasta").setAttribute("max", today);
+            }
+            document.getElementById("bd-hasta").setAttribute("min", min);
+            
+            
+        }
+        function fecha_d(){
+            var max = document.getElementById("bd-hasta").value;
+            if (max==""){
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                var yyyy = today.getFullYear();
+                 if(dd<10){
+                        dd='0'+dd
+                    } 
+                    if(mm<10){
+                        mm='0'+mm
+                    } 
+                
+                today = yyyy+'-'+mm+'-'+dd;
+                document.getElementById("bd-desde").setAttribute("max", today);
+            }else{
+                document.getElementById("bd-desde").setAttribute("max", max);
+            }
+            
+        }
+
+</script>
