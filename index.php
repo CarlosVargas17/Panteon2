@@ -44,10 +44,11 @@
 
             <div class="container-all">
         <div class="container-form">
+        <div class="container-img">
             <?php
 
             $imagen="pictures/logogdc.jpg";
-            /*if (empty($mostrar)){
+            if (empty($mostrar)){
                 $imagen="pictures/logogdc.jpg";
             }
             else{
@@ -57,11 +58,12 @@
                 $logo= $row['nombre_logo']; 
                 
                 $imagen="img/".$logo;
-            }*/
+            }
             ?>
             <img src="<?php echo($imagen); ?>" class="logo">
             <h1 class="title"> Iniciar sesión</h1>
-
+            </div>
+            <div class="formpost">
             <form method="post" action= '<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>' >
             
             
@@ -83,11 +85,12 @@
                 echo $password_err;
                 ?>
                 </span>
-                <input class="logreg" type="submit" value="Iniciar">
+                <input class="logreg2" type="submit" value="Iniciar">
 
                 
 
             </form>
+            </div>
             <span class="text-footer">¿No te has registrado?
                                         <a href="Registro.php">Registrate</a>
             </span>

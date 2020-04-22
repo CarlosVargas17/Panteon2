@@ -23,8 +23,8 @@ body{
 .show{
     position: absolute;
 
-    top: 320px;
-    left: 870px;
+    top: 64%;
+    left: 94%;
     font-size: 20px;
     background-color: transparent;
     border-style: none;
@@ -34,8 +34,8 @@ body{
 .show2{
     position: absolute;
 
-    top: 400px;
-    left: 870px;
+    top: 71%;
+    left: 95%;
     font-size: 20px;
     background-color: transparent;
     border-style: none;
@@ -54,13 +54,33 @@ body{
 }
 .container-form{
     width: 100%;
-    padding: 40px;
-    background: #FFFFFF;
-    opacity: 0.97;
+padding: 40px;
+background: #FFFFFF;
+opacity: 0.97;
+height: 560px;
 
 }
+.container-img{
+
+    position: absolute;
+z-index: 999;
+top: 40px;
+left: 45%;
+}
+.formpost{
+
+    position: absolute;
+top: 30%;
+width: 32%;
+}
+.formpost2{
+
+    position: absolute;
+top: 22%;
+width: 32%;
+}
 .logo{
-    width: 180px;
+    width: 100px;
     display: block;
     margin: auto;
 }
@@ -105,18 +125,41 @@ input[type="text"], input[type="password"]
     font-weight: 300;
     cursor: pointer;
     font-size: 18px;
+    position: absolute;
+    top: 285px;
 
 }
 .logreg:hover{
     background: linear-gradient(90grad,  rgb(165, 229, 255), #5F9FFF );
  
 }
+.logreg2{
+    width: 100%;
+    height: 50px;
+    margin-top: 60px;
+    color: white;
+    border: 0px;
+    background: linear-gradient(90grad, #5F9FFF,rgb(165, 229, 255) );
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    top: 220px;
+
+}
+.logreg2:hover{
+    background: linear-gradient(90grad,  rgb(165, 229, 255), #5F9FFF );
+ 
+}
 .text-footer{
     display: block;
-    margin-top: 50px;
-    text-align: center;
-    color: #7a7a7a;
-    font-weight: 500;
+margin-top: 50px;
+text-align: center;
+color: #7a7a7a;
+font-weight: 500;
+position: absolute;
+top: 81%;
+width: 34%;
 }
 .text-footer a{
     color: rgb(0, 140, 255);

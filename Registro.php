@@ -3,6 +3,13 @@
     include ('coderegister.php');
 
 ?>
+<?php
+$mysqli = new mysqli ('localhost','root','','ultratumba');
+$mysqli->set_charset("utf8");
+$consu="SELECT * FROM gobierno";
+$res=$mysqli -> query($consu);
+$mostrar=mysqli_fetch_array($res);
+?>
 
 <html lang="en">
 <head>
@@ -37,11 +44,29 @@
             <li></li>
 
     <div class="container-all">
-        <div class="container-form">
-            <img src="pictures/logogdc.jpg" class="logo">
-            <h1 class="title"> Registrarse</h1>
+    <div class="container-img">
+            <?php
 
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            $imagen="pictures/logogdc.jpg";
+            if (empty($mostrar)){
+                $imagen="pictures/logogdc.jpg";
+            }
+            else{
+                $consult="SELECT * FROM gobierno";
+                $resul=$mysqli -> query($consult);
+                $row= $resul ->fetch_array();
+                $logo= $row['nombre_logo']; 
+                
+                $imagen="img/".$logo;
+            }
+            ?>
+            <img src="<?php echo($imagen); ?>" class="logo">
+            <h1 class="title"> Registrarse</h1>
+    </div>
+    <div class="container-form">
+    
+            <div class="formpost2">
+            <form method="post"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             
                 <Label for="">Nombre</Label>
                 <input type="text" name="username">
@@ -64,6 +89,7 @@
 
 
             </form>
+            </div>
             <span class="text-footer">¿Ya te has registrado?<a href="index.php">Inicia sesión</a>
             </span>
 
