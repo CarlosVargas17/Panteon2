@@ -47,7 +47,7 @@ function checkTime(i) {
 
 </head>
 <body onload="startTime()">
-<div id="clockdate" style="position: absolute;top: 67%;right: 0%;">
+<div id="clockdate" style="position: absolute;top: 67%;right: -1%;">
   <div class="clockdate-wrapper">
     <div id="clock"></div>
     <div id="date"></div>
