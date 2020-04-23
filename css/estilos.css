@@ -291,6 +291,39 @@ overflow: hidden;
 }
 
 
+.logact{
+    width: 30%;
+    height: 50px;
+    margin-top: 60px;
+    color: white;
+    border: 0px;
+    background: linear-gradient(90grad, #5F9FFF,rgb(165, 229, 255) );
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    top: 350px;
+    left: 35%;
+}
+.logact:hover{
+    background: linear-gradient(90grad,  rgb(165, 229, 255), #5F9FFF );
+ 
+}
+.container-form2{
+
+    width: 30%;
+    padding: 40px;
+    background: #FFFFFF;
+    opacity: 0.97;
+    height: 400px;
+    position: absolute;
+    top: 130px;
+    left: 33%;
+    border-radius: 2%;
+}
+
+
+
 
 /*-----------CUADRADOS----------------*/
 

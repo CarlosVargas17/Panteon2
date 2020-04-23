@@ -109,6 +109,10 @@ else{
                 session_unset(); } ?>
                 <!-- Aqui termina la notificación -->
 
+    <a class="cambiacontra" href="ccontra.php">
+      <input class='btn btn-success' type='submit' value='Cambia contraseña'>
+    </a>
+
     <div class="container">
         <form action="" method='POST' class="datos" enctype='multipart/form-data'>
         <h4 class='Gobh4'>Información del gobierno.</h4>

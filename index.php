@@ -42,7 +42,7 @@
             <li></li>
             <li></li>
 
-            <div class="container-all">
+        <div class="container-all">
         <div class="container-form">
         <div class="container-img">
             <?php
