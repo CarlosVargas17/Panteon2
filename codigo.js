@@ -12,7 +12,7 @@
 
     // Inicialice un menú personalizado especial para el div "CustomContextMenu"
     
-    for (var i = 0; i < 1000; i++) {
+    for (var i = 0; i < 500; i++) {
         var identi= "#"+i;
     var contextMenuTwo = CtxMenu(identi);
 

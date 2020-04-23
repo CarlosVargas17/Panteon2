@@ -180,11 +180,10 @@ if ($vista == 'ven'){
 
 
 
-
 <span class="contenedorx">
 <?php
 
-	for ($i=1000; $i>=1; $i--){
+	for ($i=500; $i>=1; $i--){
 ?>
 		<div id='<?php echo $i;?>' name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable"  
         <?php if($_GET['vista']=='ven'){ ?>onmouseup="agregarEvento('<?php echo $_GET['id_s'];?>','<?php echo $_GET['id_ss'];?>','<?php echo $i;?>')"<?php } ?> >
@@ -192,47 +191,57 @@ if ($vista == 'ven'){
 				<img src="./imagenes/back.png" width="20">
 			</a>
          <p id="p<?php echo $i;?>"><?php echo $i;?></p>
-		</div>
+        </div>
+        
+        <?php
+
+}
+for ($i=100; $i>=1; $i--){
+?>
+
 
 		<!--  ELEMENTO 1  -->
-		<div id='elem<?php echo $i;?>' class="draggable2">
-		<a class="boxclose2" id="boxa<?php echo $i;?>" onclick="outterFunction2('boxa<?php echo $i;?>','elem<?php echo $i;?>')">
-				<img src="./imagenes/back.png" width="20">
-			</a>
-
+		<div id='elem<?php echo $i;?>' name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable2">
 		</div>
 
 		<!--  ELEMENTO 2  -->
-		<div id='elemp<?php echo $i;?>' class="draggable3">
-		<a class="boxclose2" id="boxb<?php echo $i;?>" onclick="outterFunction3('boxb<?php echo $i;?>','elemp<?php echo $i;?>')">
-				<img src="./imagenes/back.png" width="20">
-			</a>
+		<div id='elemp<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable3">
 		</div>
 		<!--  ELEMENTO 3  -->
-		<div id='elemd<?php echo $i;?>' class="draggable4">
-		
-		<a class="boxclose2" id="boxc<?php echo $i;?>" onclick="outterFunction4('boxc<?php echo $i;?>','elemd<?php echo $i;?>')">
-				<img src="./imagenes/back.png" width="20">
-			</a>
-	
+		<div id='elemd<?php echo $i;?>' name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>"class="draggable4">
 		</div>
 		<!--  ELEMENTO 4  -->
-		<div id='eleme<?php echo $i;?>' class="draggable5">
-		<a class="boxclose2" id="boxd<?php echo $i;?>" onclick="outterFunction5('boxd<?php echo $i;?>','eleme<?php echo $i;?>')">
-				<img src="./imagenes/back.png" width="20">
-			</a>
+		<div id='eleme<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable5">
+		
         </div>
 <!--  ELEMENTO 5  -->
-        <div id='elemf<?php echo $i;?>' class="draggable6">
-		<a class="boxclose2" id="boxe<?php echo $i;?>" onclick="outterFunction6('boxe<?php echo $i;?>','elemf<?php echo $i;?>')">
-				<img src="./imagenes/back.png" width="20">
-			</a>
+        <div id='elemf<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable6">
+		
 		</div>
 <!--  ELEMENTO 6  -->
-        <div id='elemg<?php echo $i;?>' class="draggable7">
-		<a class="boxclose2" id="boxf<?php echo $i;?>" onclick="outterFunction7('boxf<?php echo $i;?>','elemg<?php echo $i;?>')">
-				<img src="./imagenes/back.png" width="20">
-			</a>
+        <div id='elemg<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable7">
+		
+        </div>
+
+
+
+
+
+<!--  SPRINT 3    -->
+<!--  ELEMENTO 7  -->
+<div id='elemh<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable8">
+        </div>
+<!--  ELEMENTO 8  -->
+<div id='elemi<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable9">
+        </div>
+<!--  ELEMENTO 9  -->
+<div id='elemj<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable10">
+        </div>
+<!--  ELEMENTO 10  -->
+<div id='elemk<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable11">
+        </div>
+<!--  ELEMENTO 11  -->
+<div id='eleml<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable12">
         </div>
         
 
@@ -691,7 +700,6 @@ fetch('cambios.php',{method:'POST',body:datos})
         $id_s=$_GET['id_s'];
         
         $id_ss=$_GET['id_ss'];
-        
         $consulta= ($id_s.'-'.$id_ss.'-');
         $nombre= ('1-1-%');
         $str=strlen($consulta);
@@ -708,6 +716,10 @@ fetch('cambios.php',{method:'POST',body:datos})
                 
                 
                 $rest = substr("$ubicacion", $str);
+
+
+   
+    
         
 
 
@@ -724,20 +736,62 @@ fetch('cambios.php',{method:'POST',body:datos})
         $nom='p'+$idn;
         document.getElementById($nom).style.visibility="visible";
 
+   
+
 </script>
 <?php
             }
+            
         }
 
+        $consulta2= ($id_s."-".$id_ss);
+        $str2=strlen($consulta);
+       
+        $stmt2 = $mysqli->query("SELECT * FROM objetos WHERE ubicacion LIKE '%$consulta2%'");
+        if($stmt2){
+            while($row2= $stmt2 ->fetch_array()){
+                $id= $row2['id'];
+                $s_top2 = $row2['s_top'];
+                $s_left2 =$row2['s_left'];
+                $ubicacion= $row2['ubicacion'];
+
+
 ?>
+<script>
+    $obb=('<?php echo $id;?>');
+
+    $obj=<?php echo $id;?>;
+
+    $top2=<?php echo $s_top2;?>;
+    $left2=<?php echo $s_left2;?>;
+    document.getElementById($obb).style.setProperty("top", (parseInt($top2))+'px');
+    document.getElementById($obb).style.setProperty("left", (parseInt($left2))+'px');
+
+
+</script>
+
+<?php
+            }
+            
+        }
+    else{
+
+?>
+<script>
+    console.log("nada");
+</script>
 
 <?php 
+}
 
 }
 
 else{
         header('Location: index.php');
     } ?>
+
+
+
 
 
 </body>

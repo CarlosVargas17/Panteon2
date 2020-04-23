@@ -1,13 +1,18 @@
 <script>
 $(document).ready(function(){
     
-    $(".draggable").draggable({snap:".draggable2,.draggable3,.draggable4,.draggable5",snapMode: "outer"});
+    $(".draggable").draggable({snap:".draggable2,.draggable3,.draggable4,.draggable5,.draggable8,.draggable9,.draggable10,.draggable11,.draggable12",snapMode: "outer"});
     $(".draggable2").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
     $(".draggable3").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
     $(".draggable4").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
     $(".draggable5").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
     $(".draggable6").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
     $(".draggable7").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
+    $(".draggable8").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
+    $(".draggable9").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
+    $(".draggable10").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
+    $(".draggable11").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
+    $(".draggable12").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
 	$(".droppable").droppable({
 		drop: function(e, ui){
             $elemento=ui.draggable.attr('id');
@@ -17,12 +22,14 @@ $(document).ready(function(){
             
             console.log("seccion",$id_s);
             console.log("subseccion",$id_ss);
-            console.log("Tumba",$elemento);
+            console.log("objeto",$elemento);
             $equal='';
-            for ($i=1000; $i>=1; $i--){
+            for ($i=500; $i>=1; $i--){
                 if ($elemento==$i){
                     $equal='a';
                 }
+            }
+            for ($i=100; $i>=1; $i--){
                 if ($elemento=="elem"+$i){
                     
                     $equal='b';
@@ -47,6 +54,26 @@ $(document).ready(function(){
 
                     $equal='g';
                 }
+                if ($elemento=="elemh"+$i){
+
+                    $equal='h';
+                }
+                if ($elemento=="elemi"+$i){
+
+                    $equal='i';
+                }
+                if ($elemento=="elemj"+$i){
+
+                    $equal='j';
+                }
+                if ($elemento=="elemk"+$i){
+
+                    $equal='k';
+                }
+                if ($elemento=="eleml"+$i){
+
+                    $equal='l';
+                }
             }
             if ($equal=='a'){
                 $elemento=ui.draggable.attr('id');
@@ -67,110 +94,115 @@ $(document).ready(function(){
                 $equal='';
             }
         if ($equal=='b'){
-            $tam=$elemento.length;
-            $elem=String($elemento).substr(4,$tam);
-            console.log($elem);
-            $x=document.getElementById(String($elemento)).style.left;
-            $y=document.getElementById(String($elemento)).style.top;
-            console.log($x);
-            console.log($y);
-            $ubicacion2='boxa'+$elem;
-            $y2a= parseInt('-37');
-            document.getElementById($ubicacion2).style.setProperty("top", (parseInt($y2a))+'px');
-            document.getElementById($ubicacion2).style.setProperty("visibility","visible");
+            $elemento=ui.draggable.attr('id');
+                $x=document.getElementById(String($elemento)).style.left;
+                $y=document.getElementById(String($elemento)).style.top;
+                console.log($x);
+                console.log($y);
             $( ".draggable2" ).draggable({ containment: "#droppable"});
+            ubica2($id_s,$id_ss,$elemento)
             $equal='';
 
         }
         if($equal=='c'){
-            $tam2=$elemento.length;
-            $elem2=String($elemento).substr(5,$tam2);
-            console.log($elem2);
-            $x=document.getElementById(String($elemento)).style.left;
-            $y=document.getElementById(String($elemento)).style.top;
-            console.log($x);
-            console.log($y);
-
-            $ubicacion3='boxb'+$elem2;
-            
-            $y2b= parseInt('-37');
-            document.getElementById($ubicacion3).style.setProperty("top", (parseInt($y2b))+'px');
-            document.getElementById($ubicacion3).style.setProperty("visibility","visible");
-
+            $elemento=ui.draggable.attr('id');
+                $x=document.getElementById(String($elemento)).style.left;
+                $y=document.getElementById(String($elemento)).style.top;
+                console.log($x);
+                console.log($y);
             $( ".draggable3" ).draggable({ containment: "#droppable"});
+            ubica2($id_s,$id_ss,$elemento)
             $equal='';
         }
         if($equal=='d'){
-            $tam2=$elemento.length;
-            $elem2=String($elemento).substr(5,$tam2);
-            console.log($elem2);
-            $x=document.getElementById(String($elemento)).style.left;
-            $y=document.getElementById(String($elemento)).style.top;
-            console.log($x);
-            console.log($y);
-
-            $ubicacion3='boxc'+$elem2;
-            
-            $y2b= parseInt('-37');
-            document.getElementById($ubicacion3).style.setProperty("top", (parseInt($y2b))+'px');
-            document.getElementById($ubicacion3).style.setProperty("visibility","visible");
-
+            $elemento=ui.draggable.attr('id');
+                $x=document.getElementById(String($elemento)).style.left;
+                $y=document.getElementById(String($elemento)).style.top;
+                console.log($x);
+                console.log($y);
             $( ".draggable4" ).draggable({ containment: "#droppable"});
+            ubica2($id_s,$id_ss,$elemento)
             $equal='';
         }
         if($equal=='e'){
-            $tam2=$elemento.length;
-            $elem2=String($elemento).substr(5,$tam2);
-            console.log($elem2);
-            $x=document.getElementById(String($elemento)).style.left;
-            $y=document.getElementById(String($elemento)).style.top;
-            console.log($x);
-            console.log($y);
-
-            $ubicacion3='boxd'+$elem2;
-            
-            $y2b= parseInt('-37');
-            document.getElementById($ubicacion3).style.setProperty("top", (parseInt($y2b))+'px');
-            document.getElementById($ubicacion3).style.setProperty("visibility","visible");
-
+            $elemento=ui.draggable.attr('id');
+                $x=document.getElementById(String($elemento)).style.left;
+                $y=document.getElementById(String($elemento)).style.top;
+                console.log($x);
+                console.log($y);
             $( ".draggable5" ).draggable({ containment: "#droppable"});
+            ubica2($id_s,$id_ss,$elemento)
             $equal='';
         }
 
         if($equal=='f'){
-            $tam2=$elemento.length;
-            $elem2=String($elemento).substr(5,$tam2);
-            console.log($elem2);
-            $x=document.getElementById(String($elemento)).style.left;
-            $y=document.getElementById(String($elemento)).style.top;
-            console.log($x);
-            console.log($y);
-
-            $ubicacion3='boxe'+$elem2;
-            
-            $y2b= parseInt('-37');
-            document.getElementById($ubicacion3).style.setProperty("top", (parseInt($y2b))+'px');
-            document.getElementById($ubicacion3).style.setProperty("visibility","visible");
-
+            $elemento=ui.draggable.attr('id');
+                $x=document.getElementById(String($elemento)).style.left;
+                $y=document.getElementById(String($elemento)).style.top;
+                console.log($x);
+                console.log($y);
             $( ".draggable6" ).draggable({ containment: "#droppable"});
+            ubica2($id_s,$id_ss,$elemento)
             $equal='';
         }
         if($equal=='g'){
-            $tam2=$elemento.length;
-            $elem2=String($elemento).substr(5,$tam2);
-            console.log($elem2);
-            $x=document.getElementById(String($elemento)).style.left;
-            $y=document.getElementById(String($elemento)).style.top;
-            console.log($x);
-            console.log($y);
-
-            $ubicacion3='boxf'+$elem2;
-            
-            $y2b= parseInt('-37');
-            document.getElementById($ubicacion3).style.setProperty("top", (parseInt($y2b))+'px');
-            document.getElementById($ubicacion3).style.setProperty("visibility","visible");
-
+            $elemento=ui.draggable.attr('id');
+                $x=document.getElementById(String($elemento)).style.left;
+                $y=document.getElementById(String($elemento)).style.top;
+                console.log($x);
+                console.log($y);
             $( ".draggable7" ).draggable({ containment: "#droppable"});
+            ubica2($id_s,$id_ss,$elemento)
+            $equal='';
+        }
+        if($equal=='h'){
+            $elemento=ui.draggable.attr('id');
+                $x=document.getElementById(String($elemento)).style.left;
+                $y=document.getElementById(String($elemento)).style.top;
+                console.log($x);
+                console.log($y);
+            $( ".draggable8" ).draggable({ containment: "#droppable"});
+            ubica2($id_s,$id_ss,$elemento)
+            $equal='';
+        }
+        if($equal=='i'){
+            $elemento=ui.draggable.attr('id');
+                $x=document.getElementById(String($elemento)).style.left;
+                $y=document.getElementById(String($elemento)).style.top;
+                console.log($x);
+                console.log($y);
+            $( ".draggable9" ).draggable({ containment: "#droppable"});
+            ubica2($id_s,$id_ss,$elemento)
+            $equal='';
+        }
+        if($equal=='j'){
+            $elemento=ui.draggable.attr('id');
+                $x=document.getElementById(String($elemento)).style.left;
+                $y=document.getElementById(String($elemento)).style.top;
+                console.log($x);
+                console.log($y);
+            $( ".draggable10" ).draggable({ containment: "#droppable"});
+            ubica2($id_s,$id_ss,$elemento)
+            $equal='';
+        }
+        if($equal=='k'){
+            $elemento=ui.draggable.attr('id');
+                $x=document.getElementById(String($elemento)).style.left;
+                $y=document.getElementById(String($elemento)).style.top;
+                console.log($x);
+                console.log($y);
+            $( ".draggable11" ).draggable({ containment: "#droppable"});
+            ubica2($id_s,$id_ss,$elemento)
+            $equal='';
+        }
+        if($equal=='l'){
+            $elemento=ui.draggable.attr('id');
+                $x=document.getElementById(String($elemento)).style.left;
+                $y=document.getElementById(String($elemento)).style.top;
+                console.log($x);
+                console.log($y);
+            $( ".draggable12" ).draggable({ containment: "#droppable"});
+            ubica2($id_s,$id_ss,$elemento)
             $equal='';
         }
         
@@ -217,6 +249,29 @@ function ubica(id_s,id_ss,num){
 
 
         $("#"+num).load('/../Panteon2/js/SST.php',{valor:valor,x3:x3,y3:y3,ele:ele});
+
+    });
+    
+
+}
+function ubica2(id_s,id_ss,ele){
+    
+    //alert("Esta es la tumba "+num+" de la sección "+id_s+" subsección "+id_ss);
+    
+    var ubicacion=id_s+"-"+id_ss;
+    
+    //alert($valor);
+    var x2=$x.substr('x',($x.length -1));
+    var x3=x2.substr('p',(x2.length -1));
+    var y2=$y.substr('x',($y.length -1));
+    var y3=y2.substr('p',(y2.length -1));
+    
+    console.log(ubicacion,x3,y3);
+    
+    $(document).ready(function(){
+
+
+        $("#"+ele).load('/../Panteon2/js/SSO.php',{ele:ele,ubicacion:ubicacion,x3:x3,y3:y3});
 
     });
     
