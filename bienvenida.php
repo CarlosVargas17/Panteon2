@@ -117,9 +117,13 @@ $usuario = $_SESSION["User"];
 <div class="lista">
 	<ul>
 		<li class="a" >Herramientas</li>
-		<li class="b">Diseña tus secciones a tu gusto</li>
-		<li class="b">Almacena registros</li>
-		<li class="b">Mejora tu control visual de secciones</li>
+		<li class="b">Genera una gran cantidad  <br>de secciones y subsecciones </li>
+		<li class="b">Diseña los espacios de subseccion a tu gusto</li>
+		<li class="b">Almacena registros de compra y entierro</li>
+		<li class="b">Realiza busquedas inteligentes de datos</li>
+		<li class="b">Genera reportes en las fechas necesarias</li>
+		<li class="b">Imprime tus recibos de compra</li>
+		<li class="b">Cambia datos gubernamentales cuando lo necesites</li>
 		
 	</ul>
 </div>
@@ -127,8 +131,10 @@ $usuario = $_SESSION["User"];
 	<ul>
 		<li class="a2" >Elementos</li>
 		<li class="b2">Tumbas con cambio de color segun estado</li>
-		<li class="b2">Caminos de piedra y pavimento</li>
-		<li class="b2">Árboles frondosos y puertas</li>
+		<li class="b2">Caminos de piedra, tierra y pavimento</li>
+		<li class="b2">Intersecciones de piedra, tierra y pavimento</li>
+		<li class="b2">Árboles, fuentes, puertas, baños</li>
+		<li class="b2">Cientos de estos elementos en cada subseccion para utilizar</li>
 		
 	</ul>
 </div>

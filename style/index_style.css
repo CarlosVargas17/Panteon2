@@ -82,7 +82,7 @@ filter: drop-shadow(0px 3px 0px #444);
 .lista{
 	
 	float: left;
-	top: 300px;
+	top: 220px;
 	position: absolute;
 	left: 25px;
 	
@@ -121,7 +121,7 @@ div.lista:hover li.b{
 .lista2{
 	
 	float: RIGHT;
-	top: 300px;
+	top: 220px;
 	position: absolute;
 	RIGHT: 25px;
 	
@@ -747,7 +747,8 @@ position: absolute;
 .msghola p{
 
 	color: white;
-	font-size: 18px;
+	font-size: 27px;
+	font-family: 'Catamaran', sans-serif;
 }
 .Gobh4{
 margin-right: 0px;
