@@ -261,12 +261,17 @@ for ($i=100; $i>=1; $i--){
 	<div id="droppable" class="droppable" >
 </div>
 </div>
-	
+
+
+<?php if($vista == 'dis'){?>
+
+
 <script src="popper/popper.min.js"></script>	 	 	
 <!--  Plugin CtxMenu -->
 <script src="plugins/CtxMenu-Javascript-master/ctxmenu/ctxmenu.js"></script>
 <script src="codigo.js"></script>
 
+<?php } ?>
 
 <?php
 

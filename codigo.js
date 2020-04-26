@@ -19,8 +19,8 @@ function rota90(element){
         console.log("objeto elemental")
         document.getElementById($obb).style.setProperty("background", "url(imagenes/road_vert.png) no-repeat");
         document.getElementById($obb).style.setProperty("background-size", "100% 100%");
-        document.getElementById($obb).style.setProperty("width", '30px');
-        document.getElementById($obb).style.setProperty("height", '100px');
+        document.getElementById($obb).style.setProperty("width", '35px');
+        document.getElementById($obb).style.setProperty("height", '130px');
         
         
     }
@@ -31,8 +31,8 @@ function rota90(element){
             console.log("objeto elemental")
             document.getElementById($obb).style.setProperty("background", "url(imagenes/rock_vert.png) no-repeat");
             document.getElementById($obb).style.setProperty("background-size", "100% 100%");
-            document.getElementById($obb).style.setProperty("width", '30px');
-            document.getElementById($obb).style.setProperty("height", '100px');
+            document.getElementById($obb).style.setProperty("width", '35px');
+            document.getElementById($obb).style.setProperty("height", '130px');
     
     
         }
@@ -40,8 +40,8 @@ function rota90(element){
         console.log("objeto elemental")
         document.getElementById($obb).style.setProperty("background", "url(imagenes/road_vert2.png) no-repeat");
         document.getElementById($obb).style.setProperty("background-size", "100% 100%");
-        document.getElementById($obb).style.setProperty("width", '30px');
-        document.getElementById($obb).style.setProperty("height", '100px');
+        document.getElementById($obb).style.setProperty("width", '35px');
+        document.getElementById($obb).style.setProperty("height", '130px');
 
 
         }
@@ -82,9 +82,9 @@ function rota0(element){
         document.getElementById($obb).style.setProperty("background-size", "100% 100%");
         console.log("width"+$width2);
         console.log("width"+$height2);
-        document.getElementById($obb).style.setProperty("width", '100px');
-        document.getElementById($obb).style.setProperty("height", '30px');
-        
+        document.getElementById($obb).style.setProperty("width", '130px');
+        document.getElementById($obb).style.setProperty("height", '35px');
+
         
     }
     else{
@@ -93,8 +93,8 @@ function rota0(element){
             console.log("objeto elemental2")
             document.getElementById($obb).style.setProperty("background", "url(imagenes/rock_hori.png) no-repeat");
             document.getElementById($obb).style.setProperty("background-size", "100% 100%");
-            document.getElementById($obb).style.setProperty("width", '100px');
-            document.getElementById($obb).style.setProperty("height", '30px');
+            document.getElementById($obb).style.setProperty("width", '130px');
+            document.getElementById($obb).style.setProperty("height", '35px');
     
     
         }
@@ -102,8 +102,8 @@ function rota0(element){
         console.log("objeto elemental2")
         document.getElementById($obb).style.setProperty("background", "url(imagenes/road_hori2.png) no-repeat");
         document.getElementById($obb).style.setProperty("background-size", "100% 100%");
-        document.getElementById($obb).style.setProperty("width", '100px');
-        document.getElementById($obb).style.setProperty("height", '30px');
+        document.getElementById($obb).style.setProperty("width", '130px');
+        document.getElementById($obb).style.setProperty("height", '35px');
 
 
         }
