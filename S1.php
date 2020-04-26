@@ -187,9 +187,6 @@ if ($vista == 'ven'){
 ?>
 		<div id='<?php echo $i;?>' name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable"  
         <?php if($_GET['vista']=='ven'){ ?>onmouseup="agregarEvento('<?php echo $_GET['id_s'];?>','<?php echo $_GET['id_ss'];?>','<?php echo $i;?>')"<?php } ?> >
-         <a class="boxclose" id="box<?php echo $i;?>" onclick="outterFunction0('box<?php echo $i;?>','<?php echo $i;?>')">
-				<img src="./imagenes/back.png" width="20">
-			</a>
          <p id="p<?php echo $i;?>"><?php echo $i;?></p>
         </div>
         
@@ -204,16 +201,10 @@ for ($i=100; $i>=1; $i--){
 		<div id='elem<?php echo $i;?>' name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable2">
 		</div>
 
-		<!--  ELEMENTO 2  -->
-		<div id='elemp<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable3">
-		</div>
+		
 		<!--  ELEMENTO 3  -->
 		<div id='elemd<?php echo $i;?>' name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>"class="draggable4">
 		</div>
-		<!--  ELEMENTO 4  -->
-		<div id='eleme<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable5">
-		
-        </div>
 <!--  ELEMENTO 5  -->
         <div id='elemf<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable6">
 		
@@ -240,11 +231,16 @@ for ($i=100; $i>=1; $i--){
 <!--  ELEMENTO 10  -->
 <div id='elemk<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable11">
         </div>
-<!--  ELEMENTO 11  -->
-<div id='eleml<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable12">
-        </div>
-        
 
+<!--  ELEMENTO 12  -->
+<div id='elemm<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable13">
+        </div>
+<!--  ELEMENTO 13  -->
+<div id='elemn<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable14">
+        </div>
+<!--  ELEMENTO 14  -->
+<div id='elemo<?php echo $i;?>'name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>" class="draggable15">
+        </div>
 
 
 		
@@ -254,7 +250,7 @@ for ($i=100; $i>=1; $i--){
 
 		}
 		?>
-		<a class="titulo"><img src="./imagenes/pintar.png" width="30"><br>PALETA DE<br>DISEÑO</a>
+		<a class="titulo"><img src="./imagenes/pintar.png" width="30"><br>PALETA DE DISEÑO</a>
 
 
 		
@@ -269,7 +265,8 @@ for ($i=100; $i>=1; $i--){
 <script src="popper/popper.min.js"></script>	 	 	
 <!--  Plugin CtxMenu -->
 <script src="plugins/CtxMenu-Javascript-master/ctxmenu/ctxmenu.js"></script>
-<script src="codigo.js"></script> 
+<script src="codigo.js"></script>
+
 
 <?php
 
@@ -707,6 +704,7 @@ fetch('cambios.php',{method:'POST',body:datos})
         $stmt = $mysqli->query("SELECT * FROM fosas WHERE ubicacion LIKE '%$consulta%'");
         if ($stmt){
             while($row= $stmt ->fetch_array()){
+                
                 $ubicacion= $row['ubicacion'];
                 $s_top = $row['s_top'];
                 $s_left =$row['s_left'];
@@ -754,6 +752,10 @@ fetch('cambios.php',{method:'POST',body:datos})
                 $s_top2 = $row2['s_top'];
                 $s_left2 =$row2['s_left'];
                 $ubicacion= $row2['ubicacion'];
+                $rotacion=$row2['rotacion'];
+                $width=$row2['width'];
+                $height=$row2['height'];
+
 
 
 ?>
@@ -764,8 +766,126 @@ fetch('cambios.php',{method:'POST',body:datos})
 
     $top2=<?php echo $s_top2;?>;
     $left2=<?php echo $s_left2;?>;
+    $rotacion2='<?php echo strval($rotacion); ?>';
+    var rotacion3=$rotacion2.substr('d',($rotacion2.length -2));
+    $obb2=$obb.substr(0,5);
+    
+    $width2=<?php echo $width;?>;
+    $height2=<?php echo $height;?>;
     document.getElementById($obb).style.setProperty("top", (parseInt($top2))+'px');
     document.getElementById($obb).style.setProperty("left", (parseInt($left2))+'px');
+    //document.getElementById($obb).style.setProperty("rotate", $rotacion2);
+    
+    
+
+    //ACTUALIZACION PARA 90 GRADOS
+    if ($rotacion2=='90deg'){
+        if($obb2=='elem1' || $obb2=='elem2'|| $obb2=='elem3'|| $obb2=='elem4'|| $obb2=='elem5'|| $obb2=='elem6'|| $obb2=='elem7'|| $obb2=='elem8'|| $obb2=='elem9'){
+            
+            document.getElementById($obb).style.setProperty("background", "url(imagenes/road_vert.png) no-repeat");
+            document.getElementById($obb).style.setProperty("background-size", "100%");
+            document.getElementById($obb).style.setProperty("width", '35px');
+            document.getElementById($obb).style.setProperty("height", '130px');
+            
+            
+        }
+        else{
+            
+            var idee=$obb2;
+            if (idee=='elemd'){
+                
+                document.getElementById($obb).style.setProperty("background", "url(imagenes/rock_vert.png) no-repeat");
+                document.getElementById($obb).style.setProperty("background-size", "100% 100%");
+                document.getElementById($obb).style.setProperty("width", '35px');
+                document.getElementById($obb).style.setProperty("height", '130px');
+        
+        
+            }
+            if (idee=='elemk'){
+            
+            document.getElementById($obb).style.setProperty("background", "url(imagenes/road_vert2.png) no-repeat");
+            document.getElementById($obb).style.setProperty("background-size", "100% 100%");
+            document.getElementById($obb).style.setProperty("width", '35px');
+            document.getElementById($obb).style.setProperty("height", '130px');
+    
+    
+            }
+            if (idee=='elemo'){
+            console.log("objeto elemental")
+            document.getElementById($obb).style.setProperty("background", "url(imagenes/puerta3.png) no-repeat");
+            document.getElementById($obb).style.setProperty("background-size", "100% 100%");
+            document.getElementById($obb).style.setProperty("width", '80px');
+            document.getElementById($obb).style.setProperty("height", '57px');
+    
+    
+            }
+                
+
+        }
+    }
+    //ACTUALIZACION PARA 0 GRADOS
+    if ($rotacion2=='0deg'){
+        if($obb2=='elem1' || $obb2=='elem2'|| $obb2=='elem3'|| $obb2=='elem4'|| $obb2=='elem5'|| $obb2=='elem6'|| $obb2=='elem7'|| $obb2=='elem8'|| $obb2=='elem9'){
+            
+            document.getElementById($obb).style.setProperty("background", "url(imagenes/road_hori.png) no-repeat");
+            document.getElementById($obb).style.setProperty("background-size", "100% 100%");
+
+            document.getElementById($obb).style.setProperty("width", '130px');
+            document.getElementById($obb).style.setProperty("height", '35px');
+            
+            
+        }
+        else{
+            var idee=$obb2;
+            if (idee=='elemd'){
+
+                document.getElementById($obb).style.setProperty("background", "url(imagenes/rock_hori.png) no-repeat");
+                document.getElementById($obb).style.setProperty("background-size", "100% 100%");
+                document.getElementById($obb).style.setProperty("width", '130px');
+                document.getElementById($obb).style.setProperty("height", '35px');
+        
+        
+            }
+            if (idee=='elemk'){
+
+            document.getElementById($obb).style.setProperty("background", "url(imagenes/road_hori2.png) no-repeat");
+            document.getElementById($obb).style.setProperty("background-size", "100% 100%");
+            document.getElementById($obb).style.setProperty("width", '130px');
+            document.getElementById($obb).style.setProperty("height", '35px');
+    
+    
+            }
+            if (idee=='elemo'){
+            console.log("objeto elemental")
+            document.getElementById($obb).style.setProperty("background", "url(imagenes/puerta.png) no-repeat");
+            document.getElementById($obb).style.setProperty("background-size", "100% 100%");
+            document.getElementById($obb).style.setProperty("width", '80px');
+            document.getElementById($obb).style.setProperty("height", '57px');
+    
+    
+            }
+            
+                
+
+            }
+    }
+
+    //ACTUALIZACION PARA 45 GRADOS
+    if ($rotacion2=='45deg'){
+        document.getElementById($obb).style.setProperty("background", "url(imagenes/puerta2.png) no-repeat");
+            document.getElementById($obb).style.setProperty("background-size", "100% 100%");
+            document.getElementById($obb).style.setProperty("width", '57px');
+            document.getElementById($obb).style.setProperty("height", '80px');
+    }
+    if ($rotacion2=='135deg'){
+        document.getElementById($obb).style.setProperty("background", "url(imagenes/puerta4.png) no-repeat");
+            document.getElementById($obb).style.setProperty("background-size", "100% 100%");
+            document.getElementById($obb).style.setProperty("width", '57px');
+            document.getElementById($obb).style.setProperty("height", '80px');
+    }
+
+    
+
 
 
 </script>

@@ -309,171 +309,165 @@ border-color: lightgray;
 }
 
 .draggable{
-    width: 30px;
-    height: 44px;
-    left: 27px;
-    top: 90px;
+    width: 25px;
+    height: 36px;
+    left: 70px;
+    top: 84px;
     background: url(../imagenes/tumbamin002.png) no-repeat;
     position: absolute;
     background-size: 100% 100%;
     z-index: 2;
+    rotate: 0deg;
 
 
 }
 .draggable2{
-    width: 140px;
-    height: 32px;
-    left: 7px;
-    top: 151px;
+    width: 130px;
+    height: 35px;
+    left: 17px;
+    top: 130px;
     background: url(../imagenes/road_hori.png) no-repeat;
         background-size: auto;
     position: absolute;
     
     background-size: 135% 100%;
     z-index: 2;
-}
-/*.draggable2:hover{
-    -moz-animation-name: sacudir;
-    -moz-animation-duration: 2s;
-    -moz-animation-iteration-count: infinite;
+    rotate: 0deg;
 }
 
-@-moz-keyframes sacudir {
-    
-      10%, 30%, 50%, 70%, 90% {
-        -moz-transform: scale(1.1) rotate(3deg);
-      }
-    
-      0%, 20%, 40%, 60%, 80%, 100% {
-        -moz-transform: scale(1.1) rotate(-3deg);
-      }
-    }*/
-
-
-
-.draggable3{
-    width: 32px;
-    height: 140px;
-    left: 17px;
-    top: 270px;
-    background: url(../imagenes/road_vert.png) no-repeat;
-        background-size: auto;
-    position: absolute;
-    
-    background-size: 100% 100%;
-    z-index: 2;
-}
 .draggable4{
-    width: 140px;
-    height: 32px;
-    left: 7px;
-    top: 190px;
+    width: 130px;
+height: 35px;
+left: 17px;
+top: 175px;
     background: url(../imagenes/rock_hori.png) no-repeat;
         background-size: auto;
     position: absolute;
     
     background-size: 100% 200%;
     z-index: 2;
-}
-.draggable5{
-    width: 32px;
-    height: 140px;
-    left: 65px;
-    top: 270px;
-    background: url(../imagenes/rock_vert.png) no-repeat;
-        background-size: auto;
-    position: absolute;
-    z-index: 2;
-    
-    background-size: 200% 100%;
+    rotate: 0deg;
 }
 .draggable6{
-    width: 60px;
-    height: 75px;
+    width: 65px;
+    height: 80px;
     left: 1%;
-    top: 413px;
+    top: 390px;
     background: url(../imagenes/arbol.png) no-repeat;
         background-size: auto;
     background-size: auto;
     position: absolute;
     z-index: 2;
     background-size: 100% 100%;
+    rotate: 0deg;
 
 }
 .draggable7{
-    width: 50px;
-    height: 50px;
-    left: 5px;
-top: 495px;
+    width: 55px;
+    height: 55px;
+    left: 20px;
+    top: 265px;
     background: url(../imagenes/centro.png) no-repeat;
         background-size: auto;
     background-size: auto;
     position: absolute;
     z-index: 2;
     background-size: 100% 100%;
+    rotate: 0deg;
 }
 
 
 
 .draggable8{
-    width: 50px;
-    height: 50px;
-    left: 58px;
-top: 495px;
+    width: 55px;
+    height: 55px;
+    left: 90px;
+    top: 265px;
     background: url(../imagenes/centro2.png) no-repeat;
         background-size: auto;
     background-size: auto;
     position: absolute;
     z-index: 2;
     background-size: 100% 100%;
+    rotate: 0deg;
 }
 .draggable9{
-    width: 50px;
-    height: 50px;
-    left: 110px;
-    top: 495px;
+    width: 55px;
+    height: 55px;
+    left: 20px;
+    top: 330px;
     background: url(../imagenes/centro3.png) no-repeat;
         background-size: auto;
     background-size: auto;
     position: absolute;
     z-index: 2;
     background-size: 100% 100%;
+    rotate: 0deg;
 }
 .draggable10{
-    width: 50px;
-    height: 50px;
-    left: 85px;
-    top: 85px;
+    width: 40px;
+    height: 40px;
+    left: 100px;
+    top: 330px;
     background: url(../imagenes/baños.png) no-repeat;
         background-size: auto;
     background-size: auto;
     position: absolute;
     z-index: 2;
     background-size: 100% 100%;
+    rotate: 0deg;
 }
 .draggable11{
-    width: 140px;
-    height: 32px;
-    left: 7px;
-    top: 230px;
+    width: 130px;
+    height: 35px;
+    left: 17px;
+    top: 220px;
     background: url(../imagenes/road_hori2.png) no-repeat;
         background-size: auto;
     background-size: auto;
     position: absolute;
     z-index: 2;
     background-size: 100% 100%;
+    rotate: 0deg;
 }
-.draggable12{
-    width: 32px;
-    height: 140px;
-    left: 110px;
-    top: 270px;
-    background: url(../imagenes/road_vert2.png) no-repeat;
+.draggable13{
+    width: 70px;
+    height: 80px;
+    left: 85px;
+    top: 391px;
+    background: url(../imagenes/arbol3.png) no-repeat;
         background-size: auto;
     background-size: auto;
     position: absolute;
     z-index: 2;
     background-size: 100% 100%;
+    rotate: 0deg;
+}
+.draggable14{
+    width: 70px;
+    height: 70px;
+    left: 90px;
+    top: 480px;
+    background: url(../imagenes/fuente02.png) no-repeat;
+        background-size: auto;
+    background-size: auto;
+    position: absolute;
+    z-index: 2;
+    background-size: 100% 100%;
+    rotate: 0deg;
+}
+.draggable15{
+    width: 80px;
+    height: 57px;
+    left: 5px;
+    top: 492px;
+    background: url(../imagenes/puerta.png) no-repeat;
+        background-size: auto;
+    background-size: auto;
+    position: absolute;
+    z-index: 2;
+    background-size: 100% 100%;
+    rotate: 0deg;
 }
 
 
@@ -558,7 +552,7 @@ html, body {
     position: relative;
     text-align: center;
     float: right;
-    right: 25%;
+    right: 8%;
     font-family: 'Fredoka One';
     color: #4fc4b7;
     
@@ -566,18 +560,18 @@ html, body {
 
 .draggable p{
 
-    visibility: hidden; 
-    top:9px;
+    visibility: hidden;
+    top: 0px;
     position: absolute;
     text-align: center;
     float: right;
-    right: 13px;
+    right: 4%;
     color: black;
 
 }
 
 px{
-    top:23px;
+    top:15px;
     position: relative;
     text-align: center;
     float: right;

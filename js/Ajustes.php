@@ -1,18 +1,21 @@
 <script>
 $(document).ready(function(){
     
-    $(".draggable").draggable({snap:".draggable2,.draggable3,.draggable4,.draggable5,.draggable8,.draggable9,.draggable10,.draggable11,.draggable12",snapMode: "outer"});
+    $(".draggable").draggable({snap:".draggable2,.draggable4,.draggable8,.draggable9,.draggable10,.draggable11,.draggable13,.draggable15",snapMode: "outer"});
     $(".draggable2").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
-    $(".draggable3").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
+    
     $(".draggable4").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
-    $(".draggable5").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
+    
     $(".draggable6").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
     $(".draggable7").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
     $(".draggable8").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
     $(".draggable9").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
     $(".draggable10").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
     $(".draggable11").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
-    $(".draggable12").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
+
+    $(".draggable13").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
+    $(".draggable14").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
+    $(".draggable15").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
 	$(".droppable").droppable({
 		drop: function(e, ui){
             $elemento=ui.draggable.attr('id');
@@ -74,6 +77,18 @@ $(document).ready(function(){
 
                     $equal='l';
                 }
+                if ($elemento=="elemm"+$i){
+
+                    $equal='m';
+                }
+                if ($elemento=="elemn"+$i){
+
+                    $equal='n';
+                }
+                if ($elemento=="elemo"+$i){
+
+                    $equal='o';
+                }
             }
             if ($equal=='a'){
                 $elemento=ui.draggable.attr('id');
@@ -83,7 +98,7 @@ $(document).ready(function(){
                 console.log($y);
                 $( ".draggable" ).draggable({ containment: "#droppable"});
                 $tama=$elemento.length;
-                console.log("tamaño "+$tama);
+                
                 ubica($id_s,$id_ss,$elemento)
                 //agregarEvento($id_s,$id_ss,$elemento)
                 /*$name="p"+($elemento);
@@ -97,22 +112,16 @@ $(document).ready(function(){
             $elemento=ui.draggable.attr('id');
                 $x=document.getElementById(String($elemento)).style.left;
                 $y=document.getElementById(String($elemento)).style.top;
-                console.log($x);
-                console.log($y);
+                
+                var el = document.getElementById(String($elemento));
+                var st = window.getComputedStyle(el, null);
+                $grad=st.getPropertyValue("rotate");
+                console.log($grad);
             $( ".draggable2" ).draggable({ containment: "#droppable"});
-            ubica2($id_s,$id_ss,$elemento)
+            
+            ubica2($id_s,$id_ss,$elemento,$grad)
             $equal='';
 
-        }
-        if($equal=='c'){
-            $elemento=ui.draggable.attr('id');
-                $x=document.getElementById(String($elemento)).style.left;
-                $y=document.getElementById(String($elemento)).style.top;
-                console.log($x);
-                console.log($y);
-            $( ".draggable3" ).draggable({ containment: "#droppable"});
-            ubica2($id_s,$id_ss,$elemento)
-            $equal='';
         }
         if($equal=='d'){
             $elemento=ui.draggable.attr('id');
@@ -121,19 +130,14 @@ $(document).ready(function(){
                 console.log($x);
                 console.log($y);
             $( ".draggable4" ).draggable({ containment: "#droppable"});
-            ubica2($id_s,$id_ss,$elemento)
+            var el = document.getElementById(String($elemento));
+                var st = window.getComputedStyle(el, null);
+                $grad=st.getPropertyValue("rotate");
+                console.log($grad);
+            ubica2($id_s,$id_ss,$elemento,$grad)
             $equal='';
         }
-        if($equal=='e'){
-            $elemento=ui.draggable.attr('id');
-                $x=document.getElementById(String($elemento)).style.left;
-                $y=document.getElementById(String($elemento)).style.top;
-                console.log($x);
-                console.log($y);
-            $( ".draggable5" ).draggable({ containment: "#droppable"});
-            ubica2($id_s,$id_ss,$elemento)
-            $equal='';
-        }
+        
 
         if($equal=='f'){
             $elemento=ui.draggable.attr('id');
@@ -142,7 +146,11 @@ $(document).ready(function(){
                 console.log($x);
                 console.log($y);
             $( ".draggable6" ).draggable({ containment: "#droppable"});
-            ubica2($id_s,$id_ss,$elemento)
+            var el = document.getElementById(String($elemento));
+                var st = window.getComputedStyle(el, null);
+                $grad=st.getPropertyValue("rotate");
+                console.log($grad);
+            ubica2($id_s,$id_ss,$elemento,$grad)
             $equal='';
         }
         if($equal=='g'){
@@ -152,7 +160,11 @@ $(document).ready(function(){
                 console.log($x);
                 console.log($y);
             $( ".draggable7" ).draggable({ containment: "#droppable"});
-            ubica2($id_s,$id_ss,$elemento)
+            var el = document.getElementById(String($elemento));
+                var st = window.getComputedStyle(el, null);
+                $grad=st.getPropertyValue("rotate");
+                console.log($grad);
+            ubica2($id_s,$id_ss,$elemento,$grad)
             $equal='';
         }
         if($equal=='h'){
@@ -162,7 +174,11 @@ $(document).ready(function(){
                 console.log($x);
                 console.log($y);
             $( ".draggable8" ).draggable({ containment: "#droppable"});
-            ubica2($id_s,$id_ss,$elemento)
+            var el = document.getElementById(String($elemento));
+                var st = window.getComputedStyle(el, null);
+                $grad=st.getPropertyValue("rotate");
+                console.log($grad);
+            ubica2($id_s,$id_ss,$elemento,$grad)
             $equal='';
         }
         if($equal=='i'){
@@ -172,7 +188,11 @@ $(document).ready(function(){
                 console.log($x);
                 console.log($y);
             $( ".draggable9" ).draggable({ containment: "#droppable"});
-            ubica2($id_s,$id_ss,$elemento)
+            var el = document.getElementById(String($elemento));
+                var st = window.getComputedStyle(el, null);
+                $grad=st.getPropertyValue("rotate");
+                console.log($grad);
+            ubica2($id_s,$id_ss,$elemento,$grad)
             $equal='';
         }
         if($equal=='j'){
@@ -182,7 +202,11 @@ $(document).ready(function(){
                 console.log($x);
                 console.log($y);
             $( ".draggable10" ).draggable({ containment: "#droppable"});
-            ubica2($id_s,$id_ss,$elemento)
+            var el = document.getElementById(String($elemento));
+                var st = window.getComputedStyle(el, null);
+                $grad=st.getPropertyValue("rotate");
+                console.log($grad);
+            ubica2($id_s,$id_ss,$elemento,$grad)
             $equal='';
         }
         if($equal=='k'){
@@ -192,20 +216,55 @@ $(document).ready(function(){
                 console.log($x);
                 console.log($y);
             $( ".draggable11" ).draggable({ containment: "#droppable"});
-            ubica2($id_s,$id_ss,$elemento)
+            var el = document.getElementById(String($elemento));
+                var st = window.getComputedStyle(el, null);
+                $grad=st.getPropertyValue("rotate");
+                console.log($grad);
+            ubica2($id_s,$id_ss,$elemento,$grad)
             $equal='';
         }
-        if($equal=='l'){
+        if($equal=='m'){
             $elemento=ui.draggable.attr('id');
                 $x=document.getElementById(String($elemento)).style.left;
                 $y=document.getElementById(String($elemento)).style.top;
                 console.log($x);
                 console.log($y);
-            $( ".draggable12" ).draggable({ containment: "#droppable"});
-            ubica2($id_s,$id_ss,$elemento)
+            $( ".draggable13" ).draggable({ containment: "#droppable"});
+            var el = document.getElementById(String($elemento));
+                var st = window.getComputedStyle(el, null);
+                $grad=st.getPropertyValue("rotate");
+                console.log($grad);
+            ubica2($id_s,$id_ss,$elemento,$grad)
             $equal='';
         }
-        
+        if($equal=='n'){
+            $elemento=ui.draggable.attr('id');
+                $x=document.getElementById(String($elemento)).style.left;
+                $y=document.getElementById(String($elemento)).style.top;
+                console.log($x);
+                console.log($y);
+            $( ".draggable14" ).draggable({ containment: "#droppable"});
+            var el = document.getElementById(String($elemento));
+                var st = window.getComputedStyle(el, null);
+                $grad=st.getPropertyValue("rotate");
+                console.log($grad);
+            ubica2($id_s,$id_ss,$elemento,$grad)
+            $equal='';
+        }
+        if($equal=='o'){
+            $elemento=ui.draggable.attr('id');
+                $x=document.getElementById(String($elemento)).style.left;
+                $y=document.getElementById(String($elemento)).style.top;
+                console.log($x);
+                console.log($y);
+            $( ".draggable15" ).draggable({ containment: "#droppable"});
+            var el = document.getElementById(String($elemento));
+                var st = window.getComputedStyle(el, null);
+                $grad=st.getPropertyValue("rotate");
+                console.log($grad);
+            ubica2($id_s,$id_ss,$elemento,$grad)
+            $equal='';
+        }       
             
         }
         
@@ -221,16 +280,6 @@ $(document).ready(function(){
     
 	
 });
-
-function outterFunction(identifi) {
-    
-    $elemen=identifi;
-    console.log($elemen.length);
-    document.getElementById(String($elemen)).style.setProperty("top", (parseInt('90')+'px'));
-    document.getElementById(String($elemen)).style.setProperty("left", parseInt('53')+'px');
-}
-
-
 function ubica(id_s,id_ss,num){
     
     //alert("Esta es la tumba "+num+" de la sección "+id_s+" subsección "+id_ss);
@@ -243,6 +292,7 @@ function ubica(id_s,id_ss,num){
     var y2=$y.substr('x',($y.length -1));
     var y3=y2.substr('p',(y2.length -1));
     var ele=num;
+    
     console.log(valor,x3,y3);
     
     $(document).ready(function(){
@@ -254,7 +304,7 @@ function ubica(id_s,id_ss,num){
     
 
 }
-function ubica2(id_s,id_ss,ele){
+function ubica2(id_s,id_ss,ele,grad){
     
     //alert("Esta es la tumba "+num+" de la sección "+id_s+" subsección "+id_ss);
     
@@ -265,102 +315,20 @@ function ubica2(id_s,id_ss,ele){
     var x3=x2.substr('p',(x2.length -1));
     var y2=$y.substr('x',($y.length -1));
     var y3=y2.substr('p',(y2.length -1));
+    var grado=grad;
+    var tama=document.getElementById(String(ele)).clientWidth;
+    var tama2=document.getElementById(String(ele)).clientHeight;
     
-    console.log(ubicacion,x3,y3);
+    console.log(ubicacion,x3,y3,grado);
     
     $(document).ready(function(){
 
 
-        $("#"+ele).load('/../Panteon2/js/SSO.php',{ele:ele,ubicacion:ubicacion,x3:x3,y3:y3});
+        $("#"+ele).load('/../Panteon2/js/SSO.php',{ele:ele,ubicacion:ubicacion,x3:x3,y3:y3,grado:grado,tama:tama,tama2:tama2});
 
     });
     
 
-}
-
-function outterFunction0(identifi,caja) {
-
-$elemen2=identifi;
-
-$cax=caja
-$name="p"+caja
-
-
-console.log($elemen2.length);
-document.getElementById($name).style.visibility="hidden";
-document.getElementById(String($cax)).style.setProperty("top", (parseInt('90')+'px'));
-document.getElementById(String($cax)).style.setProperty("left", parseInt('27')+'px');
-document.getElementById($elemen2).style.setProperty("visibility","hidden");
-}
-function outterFunction2(identifi,caja) {
-
-    $elemen2=identifi;
-
-    $cax=caja
-
-    console.log($elemen2.length);
-    document.getElementById(String($cax)).style.setProperty("top", (parseInt('151')+'px'));
-    document.getElementById(String($cax)).style.setProperty("left", parseInt('7')+'px');
-    document.getElementById($elemen2).style.setProperty("visibility","hidden");
-}
-
-function outterFunction3(identifi,caja) {
-
-    $elemen3=identifi;
-
-    $cax3=caja
-
-    console.log($elemen3.length);
-    document.getElementById(String($cax3)).style.setProperty("top", (parseInt('250')+'px'));
-    document.getElementById(String($cax3)).style.setProperty("left", parseInt('27')+'px');
-    document.getElementById($elemen3).style.setProperty("visibility","hidden");
-}
-function outterFunction4(identifi,caja) {
-
-    $elemen3=identifi;
-
-    $cax3=caja
-
-    console.log($elemen3.length);
-    document.getElementById(String($cax3)).style.setProperty("top", (parseInt('200')+'px'));
-    document.getElementById(String($cax3)).style.setProperty("left", parseInt('7')+'px');
-    document.getElementById($elemen3).style.setProperty("visibility","hidden");
-}
-function outterFunction5(identifi,caja) {
-
-    $elemen3=identifi;
-
-    $cax3=caja
-
-    console.log($elemen3.length);
-    document.getElementById(String($cax3)).style.setProperty("top", (parseInt('250')+'px'));
-    document.getElementById(String($cax3)).style.setProperty("left", parseInt('85')+'px');
-    document.getElementById($elemen3).style.setProperty("visibility","hidden");
-}
-
-function outterFunction6(identifi,caja) {
-
-$elemen3=identifi;
-
-$cax3=caja
-
-console.log($elemen3.length);
-document.getElementById(String($cax3)).style.setProperty("top", (parseInt('410')+'px'));
-document.getElementById(String($cax3)).style.setProperty("left", parseInt('26')+'%');
-document.getElementById($elemen3).style.setProperty("visibility","hidden");
-}
-
-
-function outterFunction7(identifi,caja) {
-
-$elemen3=identifi;
-
-$cax3=caja
-
-console.log($elemen3.length);
-document.getElementById(String($cax3)).style.setProperty("top", (parseInt('85')+'px'));
-document.getElementById(String($cax3)).style.setProperty("left", parseInt('85')+'px');
-document.getElementById($elemen3).style.setProperty("visibility","hidden");
 }
 
 

@@ -5,6 +5,9 @@
         $x=$_REQUEST['x3']; 
         $y=$_REQUEST['y3'];
         $ubicacion=$_REQUEST['ubicacion'];
+        $grad=$_REQUEST['grado'];
+        $tama=$_REQUEST['tama']; //width
+        $tama2=$_REQUEST['tama2']; //height
 
         $mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
         $mysqli->set_charset("utf8");
@@ -20,8 +23,7 @@
         
         }
         else {
-        $estado='Libre';
-        $query = "INSERT INTO objetos(id,ubicacion,s_top,s_left) VALUES ('$ele','$ubicacion','$y','$x')";
+        $query = "INSERT INTO objetos(id,ubicacion,s_top,s_left,rotacion,width,height) VALUES ('$ele','$ubicacion','$y','$x','$grad','$tama','$tama2')";
         $result = $mysqli->query($query);
 
         }
