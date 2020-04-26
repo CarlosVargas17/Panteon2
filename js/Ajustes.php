@@ -1,7 +1,7 @@
 <script>
 $(document).ready(function(){
     
-    $(".draggable").draggable({snap:".draggable2,.draggable4,.draggable8,.draggable9,.draggable10,.draggable11,.draggable13,.draggable15",snapMode: "outer"});
+    $(".draggable").draggable();
     $(".draggable2").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
     
     $(".draggable4").draggable({snap:true,snapTolerance:5,snapMode: "outer"});

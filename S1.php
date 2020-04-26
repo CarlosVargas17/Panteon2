@@ -250,7 +250,7 @@ for ($i=100; $i>=1; $i--){
 
 		}
 		?>
-		<a class="titulo"><img src="./imagenes/pintar.png" width="30"><br>PALETA DE DISEÑO</a>
+		<a class="titulo"><img src="./imagenes/pintar.png" width="30"><br>PALETA DE<br>DISEÑO</a>
 
 
 		
