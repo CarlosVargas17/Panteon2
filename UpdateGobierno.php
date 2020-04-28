@@ -1,5 +1,8 @@
-<?php 
+<?php
+ob_start();
+?>
 
+<?php 
 $mysqli = new mysqli ('localhost','root','','ultratumba');
 $mysqli->set_charset("utf8");
 $consu="SELECT * FROM gobierno";
@@ -8,9 +11,7 @@ $mostrar=mysqli_fetch_array($res);
 
 
 if (empty($mostrar)){
-   echo'ingreso';
-   session_start();
-   $insert_start="INSERT INTO gobierno (id, municipio, presidente, nombre_logo, imagen) VALUES(1,'Municipio','Presidente','defecto.png','pass')";
+   $insert_start="INSERT INTO gobierno (id, municipio, presidente, nombre_logo, imagen,estado) VALUES(1,'Municipio','Presidente','defecto.png','pass','Estado')";
    $res_insert=$mysqli -> query($insert_start);
    echo"<div class='logoPos'><img src='"."img/".$mostrar["nombre_logo"]."'width='480' height='350'></div>";
    header('Location: UpdateGobierno.php');
@@ -78,9 +79,9 @@ else{
 </header>
 
   <!-- Aqui empieza la notificación -->
-                <?php 
+<?php 
                 session_start();
-                if (isset($_SESSION['update'])) {
+                if (isset($_SESSION['update']) and $_SESSION['update']!="") {
                     if ($_SESSION['update']=='success'){
                         echo '<script>
                             Push.create("Éxito",{
@@ -106,12 +107,12 @@ else{
                             });
                         </script>';
                     }
-                session_unset(); } ?>
-                <!-- Aqui termina la notificación -->
+                $_SESSION['update']=''; }?> <!---ELEMENTO ERR-->
 
-    <a class="cambiacontra" href="ccontra.php">
-      <input class='btn btn-success' type='submit' value='Cambia contraseña'>
-    </a>
+<a class="cambiacontra" href="ccontra.php">
+<input class='btn btn-success' type='submit' value='Cambia contraseña'>
+</a>
+
 
     <div class="container">
         <form action="" method='POST' class="datos" enctype='multipart/form-data'>
@@ -122,6 +123,12 @@ else{
              
              <input class=" SubGob inputGob" type="text" name="nombre" id="inputId" placeholder="" pattern="^[a-zA-Z\sñáéíóúÁÉÍÓÚ .]*$"  maxlength="45">
              <script>document.getElementById("inputId").placeholder="<?php echo $mostrar['presidente'];?>"</script>
+          </div>
+          
+          <div class="form-group">
+             <label class='SubGob'>Nombre del estado:</label>
+             <input class="SubGob inputGob" type="text" name="estado" id="estadoId" placeholder="" pattern="^[a-zA-Z\sñáéíóúÁÉÍÓÚ .]*$"  maxlength="45">
+             <script>document.getElementById("estadoId").placeholder="<?php echo $mostrar['estado'];?>"</script>
           </div>
 
           <div class="form-group">
@@ -158,10 +165,12 @@ if(isset($_POST['update_datos']))
    $type_img=$_FILES['logo']['type'];
    $nombre=$_POST['nombre'];
    $municipio=$_POST['municipio'];
+   $estado=$_POST['estado'];
 ///---------------------------------------------------------------------------------------------
    $select_name="SELECT * FROM gobierno";
    $select_res=$mysqli -> query($select_name);
    $mostrar=mysqli_fetch_array($select_res);
+  
 //=========================se valida que solo ingrese nombre========================
     if ($name_img=="" and $nombre!="" and $municipio==""){//here is if
      session_start();
@@ -170,11 +179,21 @@ if(isset($_POST['update_datos']))
         if(!$result){
           $_SESSION['update']='error';
           header('Location: UpdateGobierno.php');
-          }
-      
-        $_SESSION['update']='success';
-        header('Location: UpdateGobierno.php'); 
         }
+        else{
+          if($estado==""){
+            $_SESSION['update']='success';
+            header('Location: UpdateGobierno.php');
+          }
+          elseif($estado!=""){
+            $querye="UPDATE gobierno set estado='$estado' WHERE 1";
+            $resulte=$mysqli -> query($querye);
+            $_SESSION['update']='success';
+            header('Location: UpdateGobierno.php');
+
+          }
+        }
+      }
    
    
 //==========================se valida que solo ingrese imagen====================
@@ -192,16 +211,21 @@ if(isset($_POST['update_datos']))
           $_SESSION['update']='error';
           header('Location: UpdateGobierno.php');
         }
+        else{
+          if($estado==""){
+            $_SESSION['update']='success';
+            header('Location: UpdateGobierno.php');
+          }
+          elseif($estado!=""){
+            $querye="UPDATE gobierno set estado='$estado' WHERE 1";
+            $resulte=$mysqli -> query($querye);
+            $_SESSION['update']='success';
+            header('Location: UpdateGobierno.php');
 
-        $_SESSION['update']='success';
-        header('Location: UpdateGobierno.php');
+          }
+        }
       }
-     else{
-         //elemento agregado
-        $_SESSION['update']='error';
-        header('Location: UpdateGobierno.php'); 
-     }
-   }
+    }
 //===================valida solo ingreso de municipio==========================================
 elseif($name_img=="" and $nombre=="" and $municipio!=""){
         session_start();
@@ -211,9 +235,19 @@ elseif($name_img=="" and $nombre=="" and $municipio!=""){
           $_SESSION['update']='error';
           header('Location: UpdateGobierno.php');
         }
-        $_SESSION['update']='success';
-        header('Location: UpdateGobierno.php');
+        else{
+          if($estado==""){
+            $_SESSION['update']='success';
+            header('Location: UpdateGobierno.php');
+          }
+          elseif($estado!=""){
+            $querye="UPDATE gobierno set estado='$estado' WHERE 1";
+            $resulte=$mysqli -> query($querye);
+            $_SESSION['update']='success';
+            header('Location: UpdateGobierno.php');
 
+          }
+        }
    }
 //============valida ingreso de imagen y nombre ==============================================
 elseif($name_img!="" and $nombre!="" and $municipio==""){
@@ -229,15 +263,24 @@ elseif($name_img!="" and $nombre!="" and $municipio==""){
           $_SESSION['update']='error';
           header('Location: UpdateGobierno.php');
         }
+        else{
+          if($estado==""){
+            $_SESSION['update']='success';
+            header('Location: UpdateGobierno.php');
+          }
+          elseif($estado!=""){
+            $querye="UPDATE gobierno set estado='$estado' WHERE 1";
+            $resulte=$mysqli -> query($querye);
+            $_SESSION['update']='success';
+            header('Location: UpdateGobierno.php');
 
-        $_SESSION['update']='success';
-        header('Location: UpdateGobierno.php');
-      }
-     else{
-         //elemento agregado
-        $_SESSION['update']='error';
-        header('Location: UpdateGobierno.php'); 
+          }
+        }
      }
+    else{
+      $_SESSION['update']='error';
+        header('Location: UpdateGobierno.php'); 
+    }
    }
 ///=========================valida ingreso de imagen y municipio==============
 elseif($name_img!="" and $nombre=="" and $municipio!=""){
@@ -253,15 +296,24 @@ elseif($name_img!="" and $nombre=="" and $municipio!=""){
           $_SESSION['update']='error';
           header('Location: UpdateGobierno.php');
         }
+        else{
+          if($estado==""){
+            $_SESSION['update']='success';
+            header('Location: UpdateGobierno.php');
+          }
+          elseif($estado!=""){
+            $querye="UPDATE gobierno set estado='$estado' WHERE 1";
+            $resulte=$mysqli -> query($querye);
+            $_SESSION['update']='success';
+            header('Location: UpdateGobierno.php');
 
-        $_SESSION['update']='success';
-        header('Location: UpdateGobierno.php');
+          }
+        }
       }
-     else{
-         //elemento agregado
+      else{
         $_SESSION['update']='error';
         header('Location: UpdateGobierno.php'); 
-     }
+      }
    }
 //=========================ingreso municipio y presidente---------------------------------
 elseif($name_img=="" and $nombre!="" and $municipio!=""){
@@ -272,9 +324,19 @@ elseif($name_img=="" and $nombre!="" and $municipio!=""){
           $_SESSION['update']='error';
           header('Location: UpdateGobierno.php');
         }
+        else{
+          if($estado==""){
+            $_SESSION['update']='success';
+            header('Location: UpdateGobierno.php');
+          }
+          elseif($estado!=""){
+            $querye="UPDATE gobierno set estado='$estado' WHERE 1";
+            $resulte=$mysqli -> query($querye);
+            $_SESSION['update']='success';
+            header('Location: UpdateGobierno.php');
 
-        $_SESSION['update']='success';
-        header('Location: UpdateGobierno.php');
+          }
+        }
       
    }
 
@@ -291,12 +353,22 @@ elseif($name_img=="" and $nombre!="" and $municipio!=""){
         $result=$mysqli -> query($query);
         if(!$result){
           $_SESSION['update']='error';
-          header('Location: UpdateGobierno.php');
         }
+        else{
+          if($estado==""){
+            $_SESSION['update']='success';
+            header('Location: UpdateGobierno.php');
+          }
+          elseif($estado!=""){
+            $querye="UPDATE gobierno set estado='$estado' WHERE 1";
+            $resulte=$mysqli -> query($querye);
+            $_SESSION['update']='success';
+            header('Location: UpdateGobierno.php');
 
-        $_SESSION['update']='success';
-        header('Location: UpdateGobierno.php');
-     
+          }
+        
+        }
+       
      }
     else{
         //elemento agregado
@@ -307,11 +379,31 @@ elseif($name_img=="" and $nombre!="" and $municipio!=""){
    
 //============================valida que ninguno de los tres se ingrese========
    elseif($name_img=="" and $nombre=="" and $municipio==""){
-  //elemento agregado
-    $_SESSION['update']='error';
-    header('Location: UpdateGobierno.php'); 
      
-   }   
-}
-?>
+  //elemento agregado
+    if($estado==""){
+      if(!$result){
+        $_SESSION['update']='error';
+        header('Location: UpdateGobierno.php');
+      }
+     
+       
+    }
+    elseif ($estado!="") {
+      $querye="UPDATE gobierno set estado='$estado' WHERE 1";
+      $resulte=$mysqli -> query($querye);
+      $_SESSION['update']='success';
+      header('Location: UpdateGobierno.php');
+      
+    }
 
+    
+   }   
+  }
+
+   
+  
+?>
+<?php
+ob_end_flush();
+?>

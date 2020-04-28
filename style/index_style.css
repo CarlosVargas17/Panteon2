@@ -422,7 +422,7 @@ a.texto2{
 	
 	
 	background-image: url(../imagenes/boton_rec.png);
-	background-size: 100%,100%;
+	background-size: 100% 100%;
 	border: transparent;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -784,7 +784,7 @@ box-sizing: content-box !important;
     width:600px;
     position: absolute;
     margin-left:1%;
-	margin-top:14%;
+	margin-top:10%;
 	border-radius: .25rem;
 }
 	
@@ -805,5 +805,6 @@ body{margin:0;
 .cambiacontra{
 
 	position: absolute;
-top: 100px;
+	top: 100px;
+	right: 5px;
 }
