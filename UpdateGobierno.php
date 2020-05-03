@@ -3,6 +3,7 @@ ob_start();
 ?>
 
 <?php 
+
 $mysqli = new mysqli ('localhost','root','','ultratumba');
 $mysqli->set_charset("utf8");
 $consu="SELECT * FROM gobierno";
@@ -11,6 +12,8 @@ $mostrar=mysqli_fetch_array($res);
 
 
 if (empty($mostrar)){
+   echo'ingreso';
+   session_start();
    $insert_start="INSERT INTO gobierno (id, municipio, presidente, nombre_logo, imagen,estado) VALUES(1,'Municipio','Presidente','defecto.png','pass','Estado')";
    $res_insert=$mysqli -> query($insert_start);
    echo"<div class='logoPos'><img src='"."img/".$mostrar["nombre_logo"]."'width='480' height='350'></div>";
@@ -67,8 +70,8 @@ else{
 		</div>
 
 		<div class="contenedor" id="cinco2">
-			<a href="UpdateGobierno.php" class="texto"><img class="icon" 
-			src="pictures/settings.png" > <p class="texto"  href="UpdateGobierno.php" >Ajustes</p> </a>
+			<a href="Ajustes_bi.php" class="texto"><img class="icon" 
+			src="pictures/back.png" > <p class="texto"  href="Ajustes_bi.php" >Atrás</p> </a>
 		</div>
 
 		<div class="contenedor" id="seis" >
@@ -79,9 +82,9 @@ else{
 </header>
 
   <!-- Aqui empieza la notificación -->
-<?php 
+                <?php 
                 session_start();
-                if (isset($_SESSION['update']) and $_SESSION['update']!="") {
+                if (isset($_SESSION['update'])) {
                     if ($_SESSION['update']=='success'){
                         echo '<script>
                             Push.create("Éxito",{
@@ -107,16 +110,14 @@ else{
                             });
                         </script>';
                     }
-                $_SESSION['update']=''; }?> <!---ELEMENTO ERR-->
+                $_SESSION['update']=''; } ?> <!---ELEMENTO ERR-->
 
-<a class="cambiacontra" href="ccontra.php">
-<input class='btn btn-success' type='submit' value='Cambia contraseña'>
-</a>
+
 
 
     <div class="container">
         <form action="" method='POST' class="datos" enctype='multipart/form-data'>
-        <h4 class='Gobh4'>Información del gobierno.</h4>
+        <center><h4 class='Gobh4'>Información del gobierno.</h4></center>
         <br>
           <div class="form-group">
              <label class='SubGob'>Nombre del presidente:</label>
@@ -386,7 +387,8 @@ elseif($name_img=="" and $nombre!="" and $municipio!=""){
         $_SESSION['update']='error';
         header('Location: UpdateGobierno.php');
       }
-     
+    $_SESSION['update']='error';
+    header('Location: UpdateGobierno.php'); 
        
     }
     elseif ($estado!="") {

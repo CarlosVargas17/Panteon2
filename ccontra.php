@@ -39,9 +39,9 @@
     </div>
 
     <div class="contenedor" id="cinco2">
-        <a href="UpdateGobierno.php" class="texto"><img class="icon" 
-        src="pictures/settings.png" > <p class="texto"  href="UpdateGobierno.php" >Ajustes</p> </a>
-    </div>
+			<a href="Ajustes_bi.php" class="texto"><img class="icon" 
+			src="pictures/back.png" > <p class="texto"  href="Ajustes_bi.php" >Atrás</p> </a>
+		</div>
 
     <div class="contenedor" id="seis" >
         <a href="cierrasesion.php" class="texto"><img class="icon" 
@@ -71,6 +71,7 @@
 
  <div class="container-all">
         <div class="container-form2">
+        <img class="iconos2" src="pictures/contrasena.png" >
             <h1 class="title"> Cambio de contraseña </h1>
             <form action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>' method="post">
             <?php
@@ -171,6 +172,7 @@
 
                 <input class="logact" type="submit" value="Cambiar" name="Cambiar">
             </form>
+            
         </div>
     </div>
     </ul>

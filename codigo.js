@@ -200,18 +200,89 @@ function rota135(element){
 
 
 function elimina(element){
-    alert ("ESTA A PUNTO DE ELIMINAR ESTE ELEMENTO")
+    objeto=element.id;
+    var sec=element.getAttribute("name1");
+    var subsec=element.getAttribute("name2");
+    var ubicacion=sec+"-"+subsec;
+    Swal.fire({
+        title: 'Estás seguro que quiere eliminar esto?',
+        text: 'Si eliminas el objeto tendrás que colocarlo nuevamente',
+        icon: 'warning',
+        timer: 10000,
+        showCancelButton: true,
+        confirmButtonText: 'Si, deseo eliminarlo',
+        cancelButtonText: 'No, dejalo ahí'
+      }).then((result) => {
+        if (result.value) {
+            
+
+          Swal.fire(
+            
+            
+            'Eliminado!',
+            'El elemento ha sido eliminado correctamente.',
+            'success'
+            
+          )
+          eliminaok(objeto,ubicacion);
+          
+          
+        // For more information about handling dismissals please visit
+        // https://sweetalert2.github.io/#handling-dismissals
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          Swal.fire(
+            'Cancelado',
+            'El elemento sigue ahi:)',
+            'error'
+          )
+        }
+      })
 }
+
+
+function eliminaok(objeto,ubicacion){
+    var ele=objeto;
+    var ubicacion=ubicacion;
+    
+    $(document).ready(function(){
+
+
+        $("#"+objeto).load('SSE.php',{ele:ele,ubicacion:ubicacion});
+
+    });
+    setTimeout(recarga,1000);
+    
+}
+function recarga(){
+    location.reload();
+}
+
 
 for (var i = 0; i < 100; i++) {
     var idcarret= "#elem"+i;
     var idrock= "#elemd"+i;
     var idladrillo="#elemk"+i;
     var idpuerta= "#elemo"+i;
+    var idf="#elemf"+i;
+    var idg="#elemg"+i;
+    var idh="#elemh"+i;
+    var idi="#elemi"+i;
+    var idj="#elemj"+i;
+    var idm="#elemm"+i;
+    var idn="#elemn"+i;
+
+
     var contextMenucarretera = CtxMenu(idcarret);
     var contextMenutierra = CtxMenu(idrock);
     var contextMenuladrillo = CtxMenu(idladrillo);
     var contextMenupuerta = CtxMenu(idpuerta);
+    var contextMenuidf = CtxMenu(idf);
+    var contextMenuidg = CtxMenu(idg);
+    var contextMenuidh = CtxMenu(idh);
+    var contextMenuidi = CtxMenu(idi);
+    var contextMenuidj = CtxMenu(idj);
+    var contextMenuidm = CtxMenu(idm);
+    var contextMenuidn = CtxMenu(idn);
 
 
     //MENU DE CARRETERA
@@ -263,7 +334,41 @@ for (var i = 0; i < 100; i++) {
     contextMenupuerta.addSeperator();
     contextMenupuerta.addItem("Eliminar",elimina,Icon = "imagenes/borrar.svg");
 
-
+    contextMenuidf.addItem("Eliminar",elimina,Icon = "imagenes/borrar.svg");
+    contextMenuidf.addSeperator();
+    contextMenuidf.addItem("Recargar pagina",recarga,Icon = "imagenes/reload.svg");
+    
+    
+    contextMenuidg.addItem("Eliminar",elimina,Icon = "imagenes/borrar.svg");
+    contextMenuidg.addSeperator();
+    contextMenuidg.addItem("Recargar pagina",recarga,Icon = "imagenes/reload.svg");
+    
+    
+    contextMenuidh.addItem("Eliminar",elimina,Icon = "imagenes/borrar.svg");
+    contextMenuidh.addSeperator();
+    contextMenuidh.addItem("Recargar pagina",recarga,Icon = "imagenes/reload.svg");
+    
+    
+    contextMenuidi.addItem("Eliminar",elimina,Icon = "imagenes/borrar.svg");
+    contextMenuidi.addSeperator();
+    contextMenuidi.addItem("Recargar pagina",recarga,Icon = "imagenes/reload.svg");
+    
+    
+    contextMenuidj.addItem("Eliminar",elimina,Icon = "imagenes/borrar.svg");
+    contextMenuidj.addSeperator();
+    contextMenuidj.addItem("Recargar pagina",recarga,Icon = "imagenes/reload.svg");
+    
+    
+    contextMenuidm.addItem("Eliminar",elimina,Icon = "imagenes/borrar.svg");
+    contextMenuidm.addSeperator();
+    contextMenuidm.addItem("Recargar pagina",recarga,Icon = "imagenes/reload.svg");
+    
+    
+    contextMenuidn.addItem("Eliminar",elimina,Icon = "imagenes/borrar.svg");
+    contextMenuidn.addSeperator();
+    contextMenuidn.addItem("Recargar pagina",recarga,Icon = "imagenes/reload.svg");
+    
+    
 
     
     
@@ -291,3 +396,5 @@ for (var i = 0; i < 500; i++) {
     //Para añadir mas items de menu
     contextMenuTwo.addItem("ver elemento",printa,Icon = "imagenes/info.svg");
 }
+
+

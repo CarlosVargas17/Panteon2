@@ -311,7 +311,7 @@ border-color: lightgray;
 .draggable{
     width: 25px;
     height: 36px;
-    left: 70px;
+    left: 30px;
     top: 84px;
     background: url(../imagenes/tumbamin002.png) no-repeat;
     position: absolute;
@@ -469,7 +469,29 @@ top: 175px;
     background-size: 100% 100%;
     rotate: 0deg;
 }
+.draggable16{
 
+    position: absolute;
+    z-index: 5;
+    left: 75px;
+    top: 84px;
+    width: 73px;
+    height: 40px;
+}
+
+.draggable16 a{
+    color: black;
+    font-size: 10px;
+    text-align: center;
+    position: absolute;
+    top: 25px;
+    font-family: 'Roboto', sans-serif;
+}
+.draggable16 a img{
+    position: absolute;
+    top: -30px;
+    left: 21px;
+}
 
 
 

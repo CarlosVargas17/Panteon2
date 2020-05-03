@@ -322,6 +322,18 @@ overflow: hidden;
     border-radius: 2%;
 }
 
+.container-form3{
+    width: 91.5%;
+padding: 40px;
+background: #FFFFFF;
+opacity: 0.97;
+height: 400px;
+position: absolute;
+top: 120px;
+left: 1%;
+border-radius: 2%;
+}
+
 
 
 
@@ -618,3 +630,178 @@ overflow: hidden;
 	border-bottom-width:0;
 }
 
+
+
+
+/*----------AJUSTES BI----------*/
+
+
+#logact1{
+    position:absolute;
+
+    width: 160px;
+    height: 110px;
+    background:transparent;
+    cursor: pointer;
+border-style: none;
+z-index: 99999;
+}
+
+.logact1a{
+        
+        border: 0px;
+
+        font-weight: 300;
+        cursor: pointer;
+        font-size: 18px;
+        position: absolute;
+        top: 20%;
+        left: 45px;
+        width: 160px;
+        height: 110px;
+        position: absolute;
+        background:white;
+        cursor: pointer;
+        filter: drop-shadow(3px 5px 5px #444);
+    border-style: none;
+    -webkit-border-radius: 5% 5% 5% 5%;
+    
+}
+#logact1:hover, #logact2:hover, #logact3:hover{
+    background-color: lightblue;
+    opacity: 0.4;
+}
+
+#logact2{
+
+    position:absolute;
+
+    width: 160px;
+    height: 110px;
+    background:transparent;
+    cursor: pointer;
+border-style: none;
+z-index: 99999;
+}
+
+
+.logact2a{
+
+    border: 0px;
+
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    top: 20%;
+    left: 231px;
+    
+    position:absolute;
+    width: 160px;
+    height: 110px;
+    background:white;
+    cursor: pointer;
+    filter: drop-shadow(3px 5px 5px #444);
+border-style: none;
+-webkit-border-radius: 5% 5% 5% 5%;
+
+}
+
+
+
+
+.logact3a{
+
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    top: 20%;
+    left: 417px;
+    position: absolute;
+    width: 160px;
+    height: 110px;
+    background: white;
+    cursor: pointer;
+    filter: drop-shadow(3px 5px 5px #444);
+    border-style: none;
+    -webkit-border-radius: 5% 5% 5% 5%;
+
+}
+#logact3{
+
+    position:absolute;
+
+    width: 160px;
+    height: 110px;
+    background:transparent;
+    cursor: pointer;
+border-style: none;
+z-index: 99999;
+
+}
+
+
+
+
+
+.title2{
+    text-align: center;
+    margin-top: 10px;
+    color: #7a7a7a;
+    font-size: 37px;
+    line-height: 9px;
+    letter-spacing: 0.097em;
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+.iconos{
+    width: 50px;
+    padding: 6px;
+    position: absolute;
+    z-index: 999;
+    display: block;
+    left: 50px;
+
+}
+
+.textoajus{
+    position: absolute;
+z-index: 999;
+top: 60px;
+left: 4px;
+font-size: 14px;
+line-height: 14px;
+font-style: normal;
+width: 155px;
+letter-spacing: 0.072em;line-height: 21px;font-size: 13px;font-weight: 500;
+font-family: 'Roboto', sans-serif;
+text-align: center
+}
+
+.textoajus2{
+    position: absolute;
+    z-index: 999;
+    top: 80px;
+    left: 4px;
+    font-style: normal;
+    width: 155px;
+    letter-spacing: 0.072em;
+    line-height: 21px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: darkgray;
+    font-weight: 400;
+}
+
+.iconos2{
+    width: 60px;
+position: absolute;
+z-index: 999;
+display: block;
+left: 200px;
+top: 3px;
+}

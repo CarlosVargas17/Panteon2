@@ -16,6 +16,7 @@ $(document).ready(function(){
     $(".draggable13").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
     $(".draggable14").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
     $(".draggable15").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
+    $(".draggable16").draggable({snap:true,snapTolerance:5,snapMode: "outer"});
 	$(".droppable").droppable({
 		drop: function(e, ui){
             $elemento=ui.draggable.attr('id');
@@ -89,7 +90,11 @@ $(document).ready(function(){
 
                     $equal='o';
                 }
+                
             }
+            if ($elemento=="elemp"){
+                    $equal="p"
+                }
             if ($equal=='a'){
                 $elemento=ui.draggable.attr('id');
                 $x=document.getElementById(String($elemento)).style.left;
@@ -264,7 +269,31 @@ $(document).ready(function(){
                 console.log($grad);
             ubica2($id_s,$id_ss,$elemento,$grad)
             $equal='';
-        }       
+        }  
+        
+        if ($equal=="p"){
+            $elemento=ui.draggable.attr('id');
+            $( ".draggable15" ).draggable({ containment: "#droppable"});
+            var confirm= alertify.confirm('ELIMINAR','Confirmas eliminar tu espacio de trabajo?',null,null).set('labels', {ok:'Eliminar', cancel:'No, conserva todo'}); 	
+ 
+                confirm.set({transition:'slide'});   	
+                
+                confirm.set('onok', function(){ //callbak al pulsar botón positivo
+                        eliminatodo($id_s,$id_ss,$elemento);
+                        alertify.success('Se ha eliminado tu espacio de trabajo');
+                        setTimeout(recarga,2000);
+                        
+                });
+                
+                confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+                    alertify.error('Has manetenido tu espacio de trabajo');
+                    recarga()
+                });
+
+            $equal='';
+
+
+        }
             
         }
         
@@ -329,6 +358,21 @@ function ubica2(id_s,id_ss,ele,grad){
     });
     
 
+}
+function eliminatodo(id_s,id_ss,num){
+    console.log("si se va a borrar");
+    var ubicacion=id_s+"-"+id_ss;
+    $(document).ready(function(){
+
+
+        $("#"+num).load('/../Panteon2/js/SSALL.php',{ubicacion:ubicacion});
+
+    });
+    
+}
+
+function recarga(){
+    location.reload();
 }
 
 

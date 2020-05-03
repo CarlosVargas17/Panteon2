@@ -39,9 +39,9 @@
 			src="pictures/Libreta.png" > <p class="texto"  href="Registros.php" >Registros</p> </a>
 		</div>
 
-		<div class="contenedor" id="cinco">
-			<a href="UpdateGobierno.php" class="texto"><img class="icon" 
-			src="pictures/settings.png" > <p class="texto"  href="UpdateGobierno.php" >Ajustes</p> </a>
+        <div class="contenedor" id="cinco">
+			<a href="Ajustes_bi.php" class="texto"><img class="icon" 
+			src="pictures/settings.png" > <p class="texto"  href="Ajustes_bi.php" >Ajustes</p> </a>
 		</div>
 
 		<div class="contenedor" id="seis" >

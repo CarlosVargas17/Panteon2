@@ -11,6 +11,12 @@
 
 <script src="js/modernizr-2.6.2.min.js"></script>
 <script src="js/push.min.js"></script>
+<link rel="stylesheet" href="css/alertify.min.css" />
+ 
+<link rel="stylesheet" href="css/themes/default.min.css" />
+ 
+<script src="alertify.min.js"></script>
+
 <script language="JavaScript">
 function startTime() {
     var today = new Date();
@@ -118,8 +124,8 @@ if ($vista == 'ven'){
 		</div>
 
 		<div class="contenedor" id="cinco">
-			<a href="UpdateGobierno.php" class="texto"><img class="icon" 
-			src="pictures/settings.png" > <p class="texto"  href="UpdateGobierno.php" >Ajustes</p> </a>
+			<a href="Ajustes_bi.php" class="texto"><img class="icon" 
+			src="pictures/settings.png" > <p class="texto"  href="Ajustes_bi.php" >Ajustes</p> </a>
 		</div>
 
 		<div class="contenedor" id="seis" >
@@ -246,11 +252,17 @@ for ($i=100; $i>=1; $i--){
 		
 
 
-        <?php
+<?php
 
-		}
-		?>
-		<a class="titulo"><img src="./imagenes/pintar.png" width="30"><br>PALETA DE<br>DISEÑO</a>
+}
+?>
+<a class="titulo"><img src="./imagenes/pintar.png" width="30"><br>PALETA DE<br>DISEÑO</a>
+
+
+<div id="elemp" class="draggable16" name1="<?php echo $_GET['id_s'];?>" name2="<?php echo $_GET['id_ss'];?>">
+    <a title="VACIAR TODO" class="todoselem" ><img  src="./imagenes/borrar.svg" width="30">ELIMINA TODO</a>
+</div>
+        
 
 
 		
@@ -269,6 +281,7 @@ for ($i=100; $i>=1; $i--){
 <script src="popper/popper.min.js"></script>	 	 	
 <!--  Plugin CtxMenu -->
 <script src="plugins/CtxMenu-Javascript-master/ctxmenu/ctxmenu.js"></script>
+<script src="plugins/sweetAlert2/sweetalert2.all.min.js"></script>
 <script src="codigo.js"></script>
 
 <?php } ?>

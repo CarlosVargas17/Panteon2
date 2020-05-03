@@ -8,10 +8,9 @@
     <link rel="stylesheet" href="font_awesome/css/all.min.css">
     <script src="js/jquery.js"></script>
     <script src="md/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style/index_style.css">
+    <link rel="stylesheet" href="style/index_style.css" importance="999">
 </head>
-<body style="background: white; overflow:auto;scrollbar-color: rgba(0, 0, 0, .5) rgba(0, 0, 0, 0);
-    scrollbar-width: thin;">
+<body style="background: linear-gradient(180deg, #017EDC 0%, #48CD82 100%);" >
 
 
 <header>
@@ -36,9 +35,9 @@
 			src="pictures/Libreta.png" > <p class="texto"  href="REPORTE.php" >Reportes</p> </a>
 		</div>
 
-		<div class="contenedor" id="cinco">
-			<a href="UpdateGobierno.php" class="texto"><img class="icon" 
-			src="pictures/settings.png" > <p class="texto"  href="UpdateGobierno.php" >Ajustes</p> </a>
+        <div class="contenedor" id="cinco">
+			<a href="Ajustes_bi.php" class="texto"><img class="icon" 
+			src="pictures/settings.png" > <p class="texto"  href="Ajustes_bi.php" >Ajustes</p> </a>
 		</div>
 
 		<div class="contenedor" id="seis" >
@@ -46,7 +45,11 @@
 			src="pictures/exit2.png" > <p class="texto"  href="cierrasesion.php" >Cerrar</p> </a>
 		</div>
 		
-    </header>
+</header>
+
+
+        
+
     
 
 
@@ -79,7 +82,7 @@
                 placeholder="Apellido materno" style="margin-top:10px" required>
                 
                 
-                <label for="fecha_nac" style="margin-top:10px">Fecha de nacimiento</label>
+                <label  for="fecha_nac" style="margin-top:10px">Fecha de nacimiento</label>
                 <input type="date" name="fecha_nac" class="form-control" required>
                 <label for="fecha_def" id="la_def" style="margin-top:10px">Fecha de defunción</label>
                 <input type="date" name="fecha_def" class="form-control" id="def" required>
@@ -129,98 +132,107 @@
     </div>
   </div>
 </div>
+
+
+
+<div class="tablabusqueda">
+<section style="position: absolute;left: 1%;text-align:center; width: 98%; top: 60px;" >
+
+<h1 style="position: absolute;left: 45%;top: -40px;text-align: center;margin-top: 10px;color: #7a7a7a;font-size: 37px;line-height: 9px;letter-spacing: 0.097em;font-weight: 700;font-style: normal;">Búsqueda</h1>
+<br>
+<hr> </hr>
+<div class="div1" style="font-size: 20px;">
+    <label for="caja_busqueda">Buscar:</label>
+    <input type="text" name="caja_busqueda" id="caja_busqueda">
+
+</div>
+<div class="div1" style="font-size: 20px;">
+    <label style="margin-left: 50px" for="filtro1">Buscar por:</label>
+    <select class="browser-default custom-select" name="filtro1" id="filtro1"
+    style="width: 200px;">
+        <option value="id">ID</option>
+        <option value="nombre_c" selected>Nombre</option>
+        <option value="ape_pa">Ape. Pa.</option>
+        <option value="ape_ma">Ape. Ma.</option>
+        <option value="ubicacion">Ubicación</option>
+    </select>
+    <label style="margin-left: 50px" for="orden">Ordenar por:</label>
+    <select class="browser-default custom-select" name="orden" id="orden"
+    style="width: 200px;">
+        <option value="id">ID</option>
+        <option value="nombre_c">Nombre</option>
+        <option value="ape_pa">Ape. Pa.</option>
+        <option value="ape_ma">Ape. Ma.</option>
+        <option value="ubicacion">Ubicación</option>
+    </select>
+    <label style="margin-left: 50px" for="tabla">Buscar en:</label>
+    <select class="browser-default custom-select" name="tabla" id="tabla"
+    style="width: 200px;" onchange="actualiza()">
+        <option value="difuntos" selected>Difuntos</option>
+        <option value="ventas">Ventas</option>
+    </select>
     
-   <section style="position: absolute;top: 100px;left: 7%;text-align:center;" >
+</div>
 
-        <h1 style="font-size:32px;">Búsqueda</h1>
-        <div class="div1" style="font-size: 20px;">
-            <label for="caja_busqueda">Buscar:</label>
-            <input type="text" name="caja_busqueda" id="caja_busqueda">
+<div id="datos" style="font-size:18px;margin-top:20px;text-align:center;">
 
-        </div>
-        <div class="div1" style="font-size: 20px;">
-            <label style="margin-left: 50px" for="filtro1">Buscar por:</label>
-            <select class="browser-default custom-select" name="filtro1" id="filtro1"
-            style="width: 200px;">
-                <option value="id">ID</option>
-                <option value="nombre_c" selected>Nombre</option>
-                <option value="ape_pa">Ape. Pa.</option>
-                <option value="ape_ma">Ape. Ma.</option>
-                <option value="ubicacion">Ubicación</option>
-            </select>
-            <label style="margin-left: 50px" for="orden">Ordenar por:</label>
-            <select class="browser-default custom-select" name="orden" id="orden"
-            style="width: 200px;">
-                <option value="id">ID</option>
-                <option value="nombre_c">Nombre</option>
-                <option value="ape_pa">Ape. Pa.</option>
-                <option value="ape_ma">Ape. Ma.</option>
-                <option value="ubicacion">Ubicación</option>
-            </select>
-            <label style="margin-left: 50px" for="tabla">Buscar en:</label>
-            <select class="browser-default custom-select" name="tabla" id="tabla"
-            style="width: 200px;" onchange="actualiza()">
-                <option value="difuntos" selected>Difuntos</option>
-                <option value="ventas">Ventas</option>
-            </select>
-            
-        </div>
-        
-        <div id="datos" style="font-size:18px;margin-top:20px;text-align:center;">
+</div>
+</section>
+<script src="md/jquery.min.js"></script>
+<script src="js/main_busq.js"></script>
+<script>
+function actualiza(){
+    var select1 = document.getElementById("filtro1");
+    select1.options.length = 0;
+    var select2 = document.getElementById("orden");
+    select2.options.length = 0;
 
-        </div>
-    </section>
-    <script src="md/jquery.min.js"></script>
-    <script src="js/main_busq.js"></script>
-    <script>
-        function actualiza(){
-            var select1 = document.getElementById("filtro1");
-            select1.options.length = 0;
-            var select2 = document.getElementById("orden");
-            select2.options.length = 0;
+    var array_dif = {
+        id : 'ID',
+        nombre : 'Nombre',
+        ape_pa : 'Ape. Pa.',
+        ape_ma : 'Ape. Ma.',
+        ubicacion : 'Ubicación'
+    };
 
-            var array_dif = {
-                id : 'ID',
-                nombre : 'Nombre',
-                ape_pa : 'Ape. Pa.',
-                ape_ma : 'Ape. Ma.',
-                ubicacion : 'Ubicación'
-            };
+    var array_ven = {
+        id : 'ID',
+        nombre_c : 'Nombre',
+        ape_pa : 'Ape. Pa.',
+        ape_ma : 'Ape. Ma.',
+        calle : 'Calle',
+        numero : 'Número',
+        colonia : 'Colonia',
+        num_recibo: 'Num. Recibo',
+        usuario : 'Usuario',
+        presidente: 'Presidente'
+    };
 
-            var array_ven = {
-                id : 'ID',
-                nombre_c : 'Nombre',
-                ape_pa : 'Ape. Pa.',
-                ape_ma : 'Ape. Ma.',
-                calle : 'Calle',
-                numero : 'Número',
-                colonia : 'Colonia',
-                num_recibo: 'Num. Recibo',
-                usuario : 'Usuario',
-                presidente: 'Presidente'
-            };
-
-            var sel = document.getElementById("tabla").value;
-            if (sel=="difuntos"){
-                for(index in array_dif) {
-                    select1.options[select1.options.length] = new Option(array_dif[index], index);
-                    select2.options[select2.options.length] = new Option(array_dif[index], index);
-                }
-            }else{
-                for(index in array_ven) {
-                    select1.options[select1.options.length] = new Option(array_ven[index], index);
-                    select2.options[select2.options.length] = new Option(array_ven[index], index);
-                }
-            }
-
+    var sel = document.getElementById("tabla").value;
+    if (sel=="difuntos"){
+        for(index in array_dif) {
+            select1.options[select1.options.length] = new Option(array_dif[index], index);
+            select2.options[select2.options.length] = new Option(array_dif[index], index);
         }
-
-        function abremodal(){
-            var modal = document.getElementById('id02');
-            modal.style.display='block';
+    }else{
+        for(index in array_ven) {
+            select1.options[select1.options.length] = new Option(array_ven[index], index);
+            select2.options[select2.options.length] = new Option(array_ven[index], index);
         }
-    </script>
+    }
 
+}
+
+function abremodal(){
+    var modal = document.getElementById('id02');
+    modal.style.display='block';
+}
+</script>
+
+
+</div>
 
 </body>
+
+  
 </html>
