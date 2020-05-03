@@ -22,10 +22,6 @@ if (empty($mostrar)){
 else{
   echo"<div class='logoPos'><img src='"."img/".$mostrar["nombre_logo"]."'width='480' height='350'></div>";
 }
-
-
-//fault how refresh window because in the moment it doesnt do the dates and create validations
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +57,7 @@ else{
 
 		<div class="contenedor" id="tres">
 		<a href="busqueda.php" class="texto"><img class="icon" 
-			src="pictures/Tumba.png" > <p class="texto"  href="busqueda.php" >Busquedas</p> </a>
+			src="pictures/Tumba.png" > <p class="texto"  href="busqueda.php" >Búsquedas</p> </a>
 		</div>
 
 		<div class="contenedor" id="cuatro">
@@ -84,7 +80,7 @@ else{
   <!-- Aqui empieza la notificación -->
                 <?php 
                 session_start();
-                if (isset($_SESSION['update'])) {
+                if (isset($_SESSION['update']) and $_SESSION['update']!="") {
                     if ($_SESSION['update']=='success'){
                         echo '<script>
                             Push.create("Éxito",{

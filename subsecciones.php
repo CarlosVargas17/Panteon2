@@ -1,9 +1,20 @@
+<?php 
+
+    if(!isset($_GET['id'])){
+    header('Location: secciones.php');
+    }
+    $id_s=$_GET['id'];
+
+      $nombre="Seccion ".$id_s." Subsecciones";
+?>
+
+
 <!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
 
-    <title>Subsecciones</title>
+    <title><?php echo($nombre);?></title>
 
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
@@ -31,7 +42,7 @@
 
 		<div class="contenedor" id="tres">
 		<a href="busqueda.php" class="texto"><img class="icon" 
-			src="pictures/Tumba.png" > <p class="texto"  href="busqueda.php" >Busquedas</p> </a>
+			src="pictures/Tumba.png" > <p class="texto"  href="busqueda.php" >Búsquedas</p> </a>
 		</div>
 
 		<div class="contenedor" id="cuatro">

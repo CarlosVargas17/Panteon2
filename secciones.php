@@ -33,7 +33,7 @@
 
 		<div class="contenedor" id="tres">
 		<a href="busqueda.php" class="texto"><img class="icon" 
-			src="pictures/Tumba.png" > <p class="texto"  href="busqueda.php" >Busquedas</p> </a>
+			src="pictures/Tumba.png" > <p class="texto"  href="busqueda.php" >Búsquedas</p> </a>
 		</div>
 
 		<div class="contenedor" id="cuatro">

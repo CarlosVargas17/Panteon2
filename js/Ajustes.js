@@ -1,4 +1,3 @@
-<script>
 $(document).ready(function(){
     
     $(".draggable").draggable();
@@ -327,18 +326,12 @@ function ubica(id_s,id_ss,num){
     $(document).ready(function(){
 
 
-        $("#"+num).load('/../Panteon2/js/SST.php',{valor:valor,x3:x3,y3:y3,ele:ele});
-
+        $("#"+num).load('js/SST.php',{valor:valor,x3:x3,y3:y3,ele:ele});
     });
-    
-
 }
-function ubica2(id_s,id_ss,ele,grad){
-    
+function ubica2(id_s,id_ss,ele,grad){   
     //alert("Esta es la tumba "+num+" de la sección "+id_s+" subsección "+id_ss);
-    
     var ubicacion=id_s+"-"+id_ss;
-    
     //alert($valor);
     var x2=$x.substr('x',($x.length -1));
     var x3=x2.substr('p',(x2.length -1));
@@ -347,34 +340,17 @@ function ubica2(id_s,id_ss,ele,grad){
     var grado=grad;
     var tama=document.getElementById(String(ele)).clientWidth;
     var tama2=document.getElementById(String(ele)).clientHeight;
-    
     console.log(ubicacion,x3,y3,grado);
-    
     $(document).ready(function(){
-
-
-        $("#"+ele).load('/../Panteon2/js/SSO.php',{ele:ele,ubicacion:ubicacion,x3:x3,y3:y3,grado:grado,tama:tama,tama2:tama2});
-
+        $("#"+ele).load('js/SSO.php',{ele:ele,ubicacion:ubicacion,x3:x3,y3:y3,grado:grado,tama:tama,tama2:tama2});
     });
-    
-
 }
 function eliminatodo(id_s,id_ss,num){
-    console.log("si se va a borrar");
     var ubicacion=id_s+"-"+id_ss;
     $(document).ready(function(){
-
-
-        $("#"+num).load('/../Panteon2/js/SSALL.php',{ubicacion:ubicacion});
-
+        $("#"+num).load('js/SSALL.php',{ubicacion:ubicacion});
     });
-    
 }
-
 function recarga(){
     location.reload();
 }
-
-
-
-</script>

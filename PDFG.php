@@ -33,14 +33,17 @@ function Header()
     ///-----------VARIABLES---------------------------------------------------
     $Desde0=$_GET['Desde0'];
     $Hasta0=$_GET['Hasta0'];
+    $var0=$_GET['var'];
+    $Seccion0=$_GET['Seccion0'];
+    $Subseccion0=$_GET['Subseccion0'];
     $Panteon="Administrador y gestor de espacios de panteón";
     $Desde0=$Desde0;
     $Hasta0=$Hasta0;
     $fechaactual=getdate();
     $Consulta=date("d") . " del " . date("m") . " de " . date("Y");
-    if(empty($Desde0) and empty($Hasta0)){           
+    if(empty($Desde0) and empty($Hasta0) ){           
               $Desde0="";                     
-              $Hasta0="";                              
+              $Hasta0="";                           
         }
     ///-----------------------------------------------------------------------
     ////LINEA
@@ -70,12 +73,85 @@ function Header()
     $this->SetFont('Arial','',10);
     $this->Cell(50,5,utf8_decode("Fecha de consulta: ".$Consulta));
     $this->Ln(7);
-    $this->SetFont('Arial','',10);
-    $this->Cell(50,5,utf8_decode("Fecha inicial: ".$Desde0));
-    $this->Ln(7);
-    $this->SetFont('Arial','',10);
-    $this->Cell(50,5,utf8_decode("Fecha final: ".$Hasta0));
-    $this->Ln(7);
+    if ($Desde0!="" and $Hasta0!="" and $Desde0!=$Hasta0 and $var0==""){
+        $this->SetFont('Arial','',10);
+        $this->Cell(50,5,utf8_decode("Fecha inicial: ".$Desde0));
+        $this->Ln(7);
+        $this->SetFont('Arial','',10);
+        $this->Cell(50,5,utf8_decode("Fecha final: ".$Hasta0));
+        $this->Ln(7);
+    }
+    elseif($Desde0==$Hasta0 and $Desde0=="" and $Hasta0=="" and $Seccion0!="" and $Subseccion0!=""){
+        $this->SetFont('Arial','',10);
+        $this->Cell(50,5,utf8_decode("Sección: ".$Seccion0));
+        $this->Ln(7);
+        $this->SetFont('Arial','',10);
+        $this->Cell(50,5,utf8_decode("Subsección: ".$Subseccion0));
+        $this->Ln(7);
+    }
+    elseif($Desde0==$Hasta0 and $Desde0!="" and $Hasta0!="" and $Seccion0==0){
+        $this->SetFont('Arial','',10);
+        $this->Cell(50,5,utf8_decode("Fecha consultada: ".$Desde0));
+        $this->Ln(7);}
+    elseif($Desde0==$Hasta0 and $Desde0!="" and $Hasta0!="" and $Seccion0!="" and $Subseccion0!=""){
+        $fecha_cc="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
+        v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
+        WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' AND d.ubicacion LIKE '".$var0."%' ";
+        
+        $res_fechcc=$mysqli -> query($fecha_cc);
+        $rowc = mysqli_fetch_assoc($res_fechcc);
+        if(empty($rowc)){
+            $this->SetFont('Arial','',10);
+            $this->Cell(50,5,utf8_decode("Fecha consultada: ".$Desde0));
+            $this->Ln(7);
+        }
+        else{
+            $this->SetFont('Arial','',10);
+            $this->Cell(50,5,utf8_decode("Fecha consultada: ".$Desde0));
+            $this->Ln(7);
+            $this->Cell(50,5,utf8_decode("Sección: ".$Seccion0));
+            $this->Ln(7);
+            $this->SetFont('Arial','',10);
+            $this->Cell(50,5,utf8_decode("Subsección: ".$Subseccion0));
+            $this->Ln(7);
+        }
+            
+
+    }
+    elseif($Desde0!="" and $Hasta0!="" and $Seccion0==0){
+        $this->SetFont('Arial','',10);
+        $this->Cell(50,5,utf8_decode("Fecha inicial: ".$Desde0));
+        $this->Ln(7);
+        $this->SetFont('Arial','',10);
+        $this->Cell(50,5,utf8_decode("Fecha final: ".$Hasta0));
+        $this->Ln(7);
+
+    }
+    elseif($Desde0=="" and $Hasta0==""  and $Seccion0!=0 and $Subseccion0==""){
+        $this->Ln(7);
+    }
+    elseif($Desde0!="" and $Hasta0!="" and $Desde0==$Hasta0 and $Subseccion0=="" and $Seccion0!=""){
+        $this->SetFont('Arial','',10);
+        $this->Cell(50,5,utf8_decode("Fecha consultada: ".$Desde0));
+        $this->Ln(7);
+        
+    }
+    elseif($Desde0!="" and $Hasta0!="" and $var0!="" and $Seccion0!=""){
+        $this->SetFont('Arial','',10);
+        $this->Cell(50,5,utf8_decode("Fecha inicial: ".$Desde0));
+        $this->Ln(7);
+        $this->SetFont('Arial','',10);
+        $this->Cell(50,5,utf8_decode("Fecha final: ".$Hasta0));
+        $this->Ln(7);
+        $this->SetFont('Arial','',10);
+        $this->Cell(50,5,utf8_decode("Sección: ".$Seccion0));
+        $this->Ln(7);
+        $this->SetFont('Arial','',10);
+        $this->Cell(50,5,utf8_decode("Subsección: ".$Subseccion0));
+        $this->Ln(7);
+    }
+    
+   
 }
 
 // Pie de página
@@ -90,7 +166,6 @@ function Footer()
     }
 }
    
-
 // Creación del objeto de la clase heredada
 $pdf = new PDF();
 $pdf->AliasNbPages();
@@ -119,19 +194,70 @@ $mysqli = new mysqli ('localhost','root','','ultratumba');
 $mysqli->set_charset("utf8");
 $Desde0=$_GET['Desde0'];
 $Hasta0=$_GET['Hasta0'];
+$Seccion0=$_GET['Seccion0'];
+$Subseccion0=$_GET['Subseccion0'];
+$var0=$_GET['var'];
 if(empty($Desde0) and empty($Hasta0)){
               $Desde0="";                     
               $Hasta0="";                              
 }
 
-//---------------------------------------------------------------------------------------------
-$fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
-                      v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
-                      WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' ORDER BY v.fecha";
-//----------------------------------------------------------
+
+
+//---------------------------------------------------------------------------------------------------------------
+if($Desde0!="" and $Hasta0!=""and $Desde0!=$Hasta0  and $Seccion0!="" and $Subseccion0!=""){
+    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
+v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
+WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' AND d.ubicacion LIKE '".$var0."%' ";
+}
+elseif($Desde0==$Hasta0 and $Desde0==""and  $Hasta0=="" and $Seccion0!="" and $Subseccion0==""){
+    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
+    v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
+    WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' AND d.ubicacion LIKE '".$var0."%'";
+}
+elseif($Desde0==$Hasta0 and $Desde0!="" and  $Hasta0!="" and $Seccion0!="" and $Subseccion0!=""){
+    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
+    v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
+    WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' AND d.ubicacion LIKE '".$var0."%'";
+}
+elseif($Desde0!="" and $Hasta0!="" and $Desde0==$Hasta0 and $Subseccion0=="" and $Seccion0!=""){
+    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
+    v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
+    WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' AND d.ubicacion LIKE '".$var0."%'";}
+elseif($var0==""){
+    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
+    v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
+    WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' ORDER BY v.fecha";
+}
+elseif($Seccion0!="" and $Desde0=="" and $Hasta0==""){
+    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
+    v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
+    WHERE v.id_difunto = d.id AND d.ubicacion LIKE '".$var0."%'";
+}
+
+//---------------------------------------------------------------------------------------------------------------
+elseif($Desde0=="" and $Hasta0=="" or $Desde0!="" and $Hasta0!=""){
+    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
+    v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
+    WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' ORDER BY v.fecha";
+}
+
+else{
+    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
+    v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
+    WHERE v.id_difunto = d.id AND d.ubicacion LIKE '".$var0."%'";
+}
+//----------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 $i=1;
 $res_fech=$mysqli -> query($fecha_c);
+$count=1;
 while ($row = mysqli_fetch_assoc($res_fech)){
+    
     if ($i%2==0)
     { 
         $pdf->SetFillColor(255,255,255);
@@ -139,7 +265,7 @@ while ($row = mysqli_fetch_assoc($res_fech)){
     else{
         $pdf->SetFillColor(240,240,240);
     }
-	$pdf->Cell(15,8,utf8_decode($row["id"]),1,0,'C',1);
+	$pdf->Cell(15,8,$count,1,0,'C',1);
 	$pdf->Cell(47,8,utf8_decode($row["nombre_c"])." ".utf8_decode($row["ape_pa"])." ".utf8_decode($row["ape_ma"]),1,0,'C',1);
 	$pdf->Cell(20,8,utf8_decode($row["fecha"]),1,0,'C',1);
 	$pdf->Cell(30,8,utf8_decode($row["num_recibo"]),1,0,'C',1);
@@ -147,6 +273,7 @@ while ($row = mysqli_fetch_assoc($res_fech)){
 	$pdf->Cell(30,8,utf8_decode($row["ubicacion"]),1,0,'C',1);
     $pdf->Cell(25,8,utf8_decode($row["usuario"]),1,1,'C',1);
     $i++;
+    $count++;
 }
 $pdf->Close();
 $pdf->Output('I','Reporte_ventas.pdf');

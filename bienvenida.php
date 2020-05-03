@@ -74,7 +74,7 @@ function checkTime(i) {
 
 		<div class="contenedor" id="tres">
 		<a href="busqueda.php" class="texto"><img class="icon" 
-			src="pictures/Tumba.png" > <p class="texto"  href="busqueda.php" >Busquedas</p> </a>
+			src="pictures/Tumba.png" > <p class="texto"  href="busqueda.php" >Búsquedas</p> </a>
 		</div>
 
 		<div class="contenedor" id="cuatro">
@@ -120,7 +120,7 @@ $usuario = $_SESSION["User"];
 		<li class="b">Genera una gran cantidad  <br>de secciones y subsecciones </li>
 		<li class="b">Diseña los espacios de subseccion a tu gusto</li>
 		<li class="b">Almacena registros de compra y entierro</li>
-		<li class="b">Realiza busquedas inteligentes de datos</li>
+		<li class="b">Realiza búsquedas inteligentes de datos</li>
 		<li class="b">Genera reportes en las fechas necesarias</li>
 		<li class="b">Imprime tus recibos de compra</li>
 		<li class="b">Cambia datos gubernamentales cuando lo necesites</li>

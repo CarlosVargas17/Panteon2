@@ -1,10 +1,22 @@
+<?php 
+
+    if(!isset($_GET['id_s']) || $_GET['id_s']==''){
+    header('Location: secciones.php');
+    }
+    $id_s=$_GET['id_s'];
+    $id_ss=$_GET['id_ss'];
+
+      $nombre="Seccion ".$id_s." Subseccion ".$id_ss." Vista";
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style/index_style.css">
-	<title>Vista de subsección</title>
+	<title><?php echo($nombre);?></title>
 <script language="JavaScript">
 function startTime() {
     var today = new Date();
@@ -40,7 +52,7 @@ function startTime() {
 
 		<div class="contenedor" id="tres">
 		<a href="busqueda.php" class="texto"><img class="icon" 
-			src="pictures/Tumba.png" > <p class="texto"  href="busqueda.php" >Busquedas</p> </a>
+			src="pictures/Tumba.png" > <p class="texto"  href="busqueda.php" >Búsquedas</p> </a>
 		</div>
 
 		<div class="contenedor" id="cuatro">

@@ -4,16 +4,23 @@
     $salida="";
     $o = $mysqli->real_escape_string($_POST['orden']);
     $t = $mysqli->real_escape_string($_POST['tabla']);
-    $query="SELECT * FROM $t ORDER BY $o";
+    $num_pp = $mysqli->real_escape_string($_POST['num_pp']);
+    $start = $mysqli->real_escape_string($_POST['start']);
+    $query="SELECT * FROM $t where ape_pa <> '' order by $o+0 limit $start,$num_pp";
+    $q2 = "SELECT * FROM $t where ape_pa <> ''";
+
+    $r2 = $mysqli->query($q2);
+    $total = mysqli_num_rows($r2);
+    $tot_pages = ceil($total/$num_pp);
 
     if(isset($_POST['consulta']) and $_POST['consulta']!=''){
         $q = $mysqli->real_escape_string($_POST['consulta']);
         $f = $mysqli->real_escape_string($_POST['filtro']);
-        $query = "SELECT * FROM $t WHERE $f LIKE '%".$q."%' ORDER BY $o+0";
+        $query = "SELECT * FROM $t WHERE $f LIKE '%".$q."%' and ape_pa <> '' ORDER BY $o+0 limit $start,$num_pp";
     }
 
     $resultado = $mysqli->query($query);
-
+    $c=0;
     if($resultado->num_rows > 0){
         if ($t=='difuntos'){
             $salida.="<table class='table table-striped table-bordered table-hover'>
@@ -32,6 +39,7 @@
             <tbbody>";
             while($fila = $resultado->fetch_assoc()){
                 if($fila['nombre']!=""){
+                    $nombre=strval($fila['nombre']);
                     $salida.="<tr>
                     <td>".$fila['id']."</td>
                     <td>".$fila['nombre']."</td>
@@ -41,7 +49,7 @@
                     <td>".$fila['fecha_def']."</td>
                     <td>".$fila['ubicacion']."</td>
                     <td>
-                    <a class='btn btn-primary' data-toggle='modal' data-target='#modal1'>
+                    <a class='btn btn-primary' id='boton' onclick='abre(this)'>
                         <i class='fas fa-marker'></i>
                     </a>
                     <a href='elimina_dif.php?id=".$fila['id']."' class='btn btn-danger'>
@@ -91,7 +99,7 @@
                             <td>".$fila['presidente']."</td>
                             <td>".$fila2['ubicacion']."</td>
                             <td>
-                            <a class='btn btn-primary' data-toggle='modal' data-target='#modal1'>
+                            <a class='btn btn-primary' id='boton' onclick='abre2(this)'>
                                 <i class='fas fa-marker'></i>
                             </a>
                             <a href='elimina_dif.php?id=".$fila2['id']."' class='btn btn-danger'>
@@ -106,8 +114,10 @@
     }else{
         $salida.="No hay datos";
     }
-
     echo $salida;
+    for($i=1;$i<=$tot_pages;$i++){
+        echo "<a href='busqueda.php?page=".$i."&table=".$t."' class='btn btn-success'>$i</>";
+    }
     $mysqli->close();
 
 ?>

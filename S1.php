@@ -1,7 +1,29 @@
+<?php
+    session_start();
+?>
+
+<?php 
+
+    if(!isset($_GET['id_s']) || $_GET['id_s']==''){
+    header('Location: secciones.php');
+    }
+    $id_s=$_GET['id_s'];
+    $id_ss=$_GET['id_ss'];
+    $vista=$_GET['vista'];
+    if ($vista=="ven"){
+        $tip="Ventas";
+    }
+    else{
+        $tip="Diseño";
+    }
+
+      $nombre="Seccion ".$id_s." Subseccion ".$id_ss." ".$tip;
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Diseño y venta</title>
+	<title><?php echo($nombre);?></title>
     
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
@@ -41,8 +63,9 @@ if ($vista == 'ven'){
 <?php
 }
 else{
-    include("js/Ajustes.php");
+    
 ?>
+<script type="text/javascript" src="js/Ajustes.js"></script>
     <script>
     document.getElementById('tapable').style.setProperty("visibility","hidden");
     </script>
@@ -54,14 +77,7 @@ else{
 
 
 
-<?php 
 
-      if(!isset($_GET['id_s']) || $_GET['id_s']==''){
-        header('Location: secciones.php');
-      }
-      $id_s=$_GET['id_s'];
-      $id_ss=$_GET['id_ss'];
-?>
 
 <?php
 
@@ -96,6 +112,7 @@ if ($vista == 'ven'){
 ?>
 
 <!--   AQUI COMIENZA EL MENÚ   -->
+
 <header>
 	
 		<div class="contenedor" id="uno">
@@ -115,7 +132,7 @@ if ($vista == 'ven'){
 
 		<div class="contenedor" id="tres">
 		<a href="busqueda.php" class="texto"><img class="icon" 
-			src="pictures/Tumba.png" > <p class="texto"  href="busqueda.php" >Busquedas</p> </a>
+			src="pictures/Tumba.png" > <p class="texto"  href="busqueda.php" >Búsquedas</p> </a>
 		</div>
 
 		<div class="contenedor" id="cuatro">
@@ -141,7 +158,7 @@ if ($vista == 'ven'){
 
 
  <?php 
-        session_start();
+        
         $_SESSION['loggedin']=true;
         if($_SESSION['loggedin']==true){
           
@@ -927,10 +944,6 @@ fetch('cambios.php',{method:'POST',body:datos})
 else{
         header('Location: index.php');
     } ?>
-
-
-
-
 
 </body>
 </html>
