@@ -16,6 +16,7 @@
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style/index_style.css">
+	<link rel="icon"  type="image/png" href="Icon.png">
 	<title><?php echo($nombre);?></title>
 <script language="JavaScript">
 function startTime() {

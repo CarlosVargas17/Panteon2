@@ -23,6 +23,7 @@ $res_secc=$mysqli -> query($seccion);
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
+  <link rel="icon"  type="image/png" href="Icon.png">
 	<title>Reportes</title>
 	<link rel="stylesheet" href="style/index_style.css">
     <link rel="stylesheet" href="css/estilos.css">

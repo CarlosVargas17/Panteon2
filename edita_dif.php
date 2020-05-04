@@ -1,8 +1,7 @@
 <?php
-require_once "Conector.php";
-
 
 session_start();
+require_once "Conector.php";
 
 
 $mysqli->begin_transaction();
@@ -26,13 +25,15 @@ $query = "UPDATE difuntos
 SET nombre='$nombre', ape_pa='$ape_pa', ape_ma='$ape_ma', fecha_nac='$fecha_nac', fecha_def='$fecha_def',
 ubicacion='$ubicacion' WHERE id=$id";
 echo $query;
-$res=mysqli_query($mysqli, $query);
-
-if (!$res){
-    $mysqli->rollback();
-    $_SESSION['message']='error';
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+if($nombre!="" and $ape_pa!="" and $ape_ma!="" and $fecha_nac!="" and $fecha_def!=""){
+    $res=$mysqli->query($query);
+    if (!$res){
+        $mysqli->rollback();
+        $_SESSION['message']='error';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
 }
+
 
 $query = "UPDATE ventas
 SET calle='$calle',numero=$numero,colonia='$colonia',referencia='$referencia'

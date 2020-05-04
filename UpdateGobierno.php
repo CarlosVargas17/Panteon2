@@ -4,8 +4,8 @@ ob_start();
 
 <?php 
 
-$mysqli = new mysqli ('localhost','root','','ultratumba');
-$mysqli->set_charset("utf8");
+require_once "Conector.php";
+
 $consu="SELECT * FROM gobierno";
 $res=$mysqli -> query($consu);
 $mostrar=mysqli_fetch_array($res);
@@ -35,6 +35,7 @@ else{
     <link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
     <link href="css/estilosGob.css" rel="stylesheet">
     <script src="js/push.min.js"></script>
+    <link rel="icon"  type="image/png" href="Icon.png">
     <title>Cambiar información gubernamental</title>
 </head>
 <body>
@@ -155,8 +156,7 @@ if(isset($_POST['update_datos']))
   {
    $permitidos=array("image/jpeg","image/gif","image/png",'image/jpg');
    $limite_kb=1024*1024*35;
-   $mysqli = new mysqli ('localhost','root','','ultratumba');
-   $mysqli->set_charset("utf8");
+   require "Conector.php";
    $name_img=$_FILES['logo']['name'];
    $size_img=$_FILES['logo']['size'];
    $type_img=$_FILES['logo']['type'];

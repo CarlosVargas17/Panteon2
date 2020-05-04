@@ -7,7 +7,7 @@ require_once "Conector.php";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
+    <link rel="icon"  type="image/png" href="Icon.png">
     <title>Panteón</title>
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>

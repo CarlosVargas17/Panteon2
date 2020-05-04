@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,
     maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon"  type="image/png" href="Icon.png">
     <title>Ajustes</title>
 </head>
 <body>
@@ -81,7 +82,7 @@
             <img class="iconos" src="pictures/prueba.png" >
             <a class="textoajus" >Cambiar información</a>
             <a class="textoajus2" >de gobierno</a>
-			<input   id="logact1" type="submit" value=" ">
+			<input id="logact1" type="submit" value=" ">
 			</form>
 
 			<form class="logact2a"  action="ccontra.php" method="get">
@@ -103,6 +104,7 @@
     </div>
     </ul>
     </section>
+    
 
 </body>
 </html>

@@ -1,7 +1,6 @@
 <?php 
+require_once "Conector.php";
 
-$mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-    $mysqli->set_charset("utf8");
     $id = $_GET['id'];
     echo $id;
     $query = "SELECT * FROM subsecciones WHERE seccion = '$id'";

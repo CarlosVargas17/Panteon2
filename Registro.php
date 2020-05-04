@@ -21,6 +21,7 @@ $mostrar=mysqli_fetch_array($res);
     <meta name="viewport" content="width=device-width, initial-scale=1.0,
     maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon"  type="image/png" href="Icon.png">
     <title>Registro de usuario</title>
 </head>
 <body>

@@ -7,13 +7,16 @@
 
       $nombre="Seccion ".$id_s." Subsecciones";
 ?>
+<?php
+require_once "Conector.php";
 
+?>
 
 <!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
+    <link rel="icon"  type="image/png" href="Icon.png">
     <title><?php echo($nombre);?></title>
 
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -81,8 +84,7 @@
             <?php
                 
                 $id = $_GET['id'];
-                $mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-                $mysqli->set_charset("utf8");
+                
                 $query = "SELECT * FROM subsecciones WHERE seccion = '$id' ORDER BY id+0";
                 $result = $mysqli->query($query);
                 if ($result->num_rows > 0){

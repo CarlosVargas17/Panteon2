@@ -1,13 +1,16 @@
 <?php
-require_once "Conector.php";
+    require_once "Conector.php";
 
-    
     $salida="";
     $o = $mysqli->real_escape_string($_POST['orden']);
     $t = $mysqli->real_escape_string($_POST['tabla']);
     $num_pp = $mysqli->real_escape_string($_POST['num_pp']);
     $start = $mysqli->real_escape_string($_POST['start']);
-    $query="SELECT * FROM $t where ape_pa <> '' order by $o+0 limit $start,$num_pp";
+    if ($o=="id"){
+        $query="SELECT * FROM $t where ape_pa <> '' order by $o+0 limit $start,$num_pp";
+    }else{
+        $query="SELECT * FROM $t where ape_pa <> '' order by $o limit $start,$num_pp";
+    }
     $q2 = "SELECT * FROM $t where ape_pa <> ''";
 
     $r2 = $mysqli->query($q2);
@@ -17,7 +20,11 @@ require_once "Conector.php";
     if(isset($_POST['consulta']) and $_POST['consulta']!=''){
         $q = $mysqli->real_escape_string($_POST['consulta']);
         $f = $mysqli->real_escape_string($_POST['filtro']);
-        $query = "SELECT * FROM $t WHERE $f LIKE '%".$q."%' and ape_pa <> '' ORDER BY $o+0 limit $start,$num_pp";
+        if($o=="id"){
+            $query = "SELECT * FROM $t WHERE $f LIKE '%".$q."%' and ape_pa <> '' ORDER BY $o+0 limit $start,$num_pp";
+        }else{
+            $query = "SELECT * FROM $t WHERE $f LIKE '%".$q."%' and ape_pa <> '' ORDER BY $o limit $start,$num_pp";
+        }
     }
 
     $resultado = $mysqli->query($query);

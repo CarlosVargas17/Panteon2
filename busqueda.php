@@ -2,7 +2,7 @@
 <html lang="en" style="overflow:auto;background:white;">
 <head>
     <meta charset="UTF-8">
-
+    <link rel="icon"  type="image/png" href="Icon.png">
     <title>Búsqueda</title>
     <link rel="stylesheet" href="style/index_style.css">
     <link rel="stylesheet" href="md/bootstrap.min.css">
@@ -299,6 +299,7 @@
             document.getElementsByName("fecha_nac")[0].readOnly = true;
             document.getElementsByName("fecha_def")[0].readOnly = true;
 
+
             var tabla = document.getElementById("tabla");
             var strta = tabla.options[tabla.selectedIndex].value;
 
@@ -324,6 +325,11 @@
                 document.getElementsByName("num_recibo")[0].value=datos['num_recibo'];
                 document.getElementsByName("referencia")[0].value=datos['referencia'];
                 document.getElementById("es").value=estado['estado'];
+                if (estado['estado']=='ocupada'){
+                    document.getElementById("es").disabled=true;
+                }else{
+                    document.getElementById("es").disabled=false;
+                }
             })
 
             $("#modal1").modal("show"); 
@@ -351,6 +357,7 @@
             document.getElementsByName("num_recibo")[0].value=num_recibo;
             document.getElementsByName("ubicacion")[0].value=ubicacion;
             document.getElementsByName("ubicacion2")[0].value=ubicacion;
+            document.getElementById("id_v").value=id;
 
             var tabla = document.getElementById("tabla");
             var strta = tabla.options[tabla.selectedIndex].value;
@@ -366,18 +373,33 @@
                 console.log(data);
                 var datos = data['datos']
                 var estado = data['estado']
+                document.getElementById("id_d").value=datos['id'];
                 document.getElementsByName("nombre")[0].value=datos['nombre'];
                 document.getElementsByName("ape_pa")[0].value=datos['ape_pa'];
                 document.getElementsByName("ape_ma")[0].value=datos['ape_ma'];
                 document.getElementsByName("fecha_nac")[0].value=datos['fecha_nac'];
                 document.getElementsByName("fecha_def")[0].value=datos['fecha_def'];
                 document.getElementById("es").value=estado['estado'];
+                if (estado['estado']=='ocupada'){
+                    document.getElementById("es").disabled=true;
+                }else{
+                    document.getElementById("es").disabled=false;
+                }
                 if (datos['nombre']!=""){
                     document.getElementsByName("nombre")[0].readOnly = true;
                     document.getElementsByName("ape_pa")[0].readOnly = true;
                     document.getElementsByName("ape_ma")[0].readOnly = true;
                     document.getElementsByName("fecha_nac")[0].readOnly = true;
                     document.getElementsByName("fecha_def")[0].readOnly = true;
+                }else{
+                    document.getElementsByName("nombre")[0].readOnly = false;
+                    document.getElementsByName("ape_pa")[0].readOnly = false;
+                    document.getElementsByName("ape_ma")[0].readOnly = false;
+                    document.getElementsByName("fecha_nac")[0].readOnly = false;
+                    document.getElementsByName("fecha_def")[0].readOnly = false;
+                    document.getElementById("nac").value="";
+                    document.getElementById("def").value="";
+
                 }
             })
 

@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Pantalla Principal</title>
+	<link rel="icon"  type="image/png" href="Icon.png">
 	<link rel="stylesheet" href="style/index_style.css">
 	<link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
 

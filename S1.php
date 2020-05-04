@@ -24,6 +24,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon"  type="image/png" href="Icon.png">
 	<title><?php echo($nombre);?></title>
     
 <script type="text/javascript" src="jquery.min.js"></script>
