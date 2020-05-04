@@ -1,3 +1,8 @@
+<?php
+require_once "Conector.php";
+
+?>
+
 <!DOCTYPE html> 
 <html lang="en">
 <head>
@@ -68,8 +73,7 @@
       
         <div class="botones">
             <?php 
-                $mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-                $mysqli->set_charset("utf8");
+                
                 $query = "SELECT * FROM secciones ORDER BY id+0";
                 $result = $mysqli->query($query);
                 $val="adios";

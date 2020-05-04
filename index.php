@@ -1,8 +1,8 @@
 <?php
 
+require_once "Conector.php";
+
     require "codelogin.php";
-    $mysqli = new mysqli ('localhost','root','','ultratumba');
-    $mysqli->set_charset("utf8");
     $consu="SELECT * FROM gobierno";
     $res=$mysqli -> query($consu);
     $mostrar=mysqli_fetch_array($res);

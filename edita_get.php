@@ -1,8 +1,9 @@
 <?php
+require_once "Conector.php";
+
 
 if(isset($_POST["id"])){
-    $mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-    $mysqli->set_charset("utf8");
+
 
     $id = $_POST["id"];
     $t = $_POST["tabla"];

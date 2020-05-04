@@ -8,7 +8,6 @@
 
         exit;
     }
-
     require_once "Conexion.php";
     $User= $password ="";
     $User_err =$password_err = "";

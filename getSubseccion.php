@@ -1,7 +1,8 @@
-
+<?php
+require_once "Conector.php";
+?>
 <?php 
-$mysqli = new mysqli ('localhost','root','','ultratumba');
-$mysqli->set_charset("utf8");
+
 $id_seccion=$_POST['id'];
 $subseccion="SELECT  * FROM subsecciones where seccion='$id_seccion' ORDER BY nombre ASC ";
 $res_subsecc=$mysqli -> query($subseccion);

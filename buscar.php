@@ -1,6 +1,7 @@
 <?php
-    $mysqli = new mysqli("localhost","root","","ultratumba");
+require_once "Conector.php";
 
+    
     $salida="";
     $o = $mysqli->real_escape_string($_POST['orden']);
     $t = $mysqli->real_escape_string($_POST['tabla']);

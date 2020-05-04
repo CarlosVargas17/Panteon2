@@ -1,4 +1,6 @@
 <?php
+require_once "Conector.php";
+
 
 //Se inicia la sesión
 session_start();
@@ -6,8 +8,6 @@ session_start();
 $id_s = $_GET['id_s'];
 $id_ss = $_GET['id_ss'];
 
-$mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-$mysqli->set_charset("utf8");
 
 if (isset($_POST['guarda_dif'])){
     //Agregue esta parte para la transaccion
@@ -20,8 +20,7 @@ if (isset($_POST['guarda_dif'])){
     $fecha_nac = $_POST['fecha_nac'];
     $fecha_def = $_POST['fecha_def'];
     $ubicacion = $_POST['ubicacion'];
-    $mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-    $mysqli->set_charset("utf8");
+    
     $query = "INSERT INTO difuntos(nombre,ape_pa,ape_ma,fecha_nac,fecha_def,ubicacion) VALUES ('$nombre','$ape_pa','$ape_ma','$fecha_nac','$fecha_def','$ubicacion')";
     $res=$mysqli->query($query);
 

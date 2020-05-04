@@ -1,13 +1,18 @@
+<?php
+require_once "Conector.php";
+?> 
  <?php
 require('fpdf/fpdf.php');
 class PDF extends FPDF
 {
 function Header()
 { 
+
+require_once "Conector.php";
+
     // Logo
     //(ruta,posicionx,posiciony,alto,ancho,tipo,link)
-    $mysqli = new mysqli ('localhost','root','','ultratumba');
-    $mysqli->set_charset("utf8");
+    
     //------------------------MANDAR A LLAMAR EL LOGO DE LA BD--------------------------------
     $consulta_logo="SELECT * FROM gobierno";
     $result=$mysqli -> query($consulta_logo);
@@ -183,15 +188,13 @@ $pdf->Cell(30,8,utf8_decode('Ubicación'),1,0,'C',1);
 $pdf->Cell(25,8,utf8_decode("Usuario"),1,1,'C',1);
 $pdf->SetTextColor(0,0,0);
 
-$mysqli = new mysqli ('localhost','root','','ultratumba');
-$mysqli->set_charset("utf8");
+
 $pdf->SetFont('Arial','',8);
 $pdf->SetTextColor(40,40,40);
 $pdf->SetDrawColor(255,255,255);
 //------------------------------------------------------------------------------------------
 //=======================================VALIDAR DATOS=====================================
-$mysqli = new mysqli ('localhost','root','','ultratumba');
-$mysqli->set_charset("utf8");
+
 $Desde0=$_GET['Desde0'];
 $Hasta0=$_GET['Hasta0'];
 $Seccion0=$_GET['Seccion0'];

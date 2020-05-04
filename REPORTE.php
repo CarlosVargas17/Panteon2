@@ -1,11 +1,13 @@
 <?php
+require "Conector.php";
+?> 
+
+<?php
 ob_start();
 ?>
 <?php
 session_start();
 
-$mysqli = new mysqli ('localhost','root','','ultratumba');
-$mysqli->set_charset("utf8");
 
 global $Desde0;
 global $Hasta0;
@@ -182,8 +184,7 @@ $res_secc=$mysqli -> query($seccion);
                                         }
                                }
                                elseif(empty($Desde0) and empty($Hasta0) and $Subseccion0!='' and $Seccion0!=''){
-                                    $mysqli = new mysqli ('localhost','root','','ultratumba');
-                                    $mysqli->set_charset("utf8");
+                                    
                                     $seccion01=$_GET['cbx_seccion'];
                                     $subseccion01=$_GET['cbx_subseccion'];
                                     $num_seccion="SELECT id,nombre from secciones where id='$seccion01'";
@@ -202,8 +203,7 @@ $res_secc=$mysqli -> query($seccion);
                                     
                                }
                                elseif($Desde0!='' and $Hasta0!='' and $Subseccion0!='' and $Seccion0!=''){
-                                   $mysqli = new mysqli ('localhost','root','','ultratumba');
-                                   $mysqli->set_charset("utf8");
+                                   
             //===================subseccion y secciones========================================
                                     $seccion01=$_GET['cbx_seccion'];
                                     $subseccion01=$_GET['cbx_subseccion'];
@@ -281,8 +281,9 @@ $res_secc=$mysqli -> query($seccion);
 
                    //===================================FUNCIONES MIXTAS FECHA Y SECCIONES===========================
                    function Mixer($var,$Desde0,$Hasta0){
-                    $mysqli = new mysqli ('localhost','root','','ultratumba');
-                    $mysqli->set_charset("utf8");
+                   
+                    require "Conector.php";
+
                     $mixt="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
                     v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
                     WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' AND d.ubicacion LIKE '".$var."%'";
@@ -333,8 +334,7 @@ $res_secc=$mysqli -> query($seccion);
 //-----------------------------------------------------------------------------------------------
                       function DATOS($Desde0,$Hasta0){
                           if($Desde0!="" and $Hasta0!=""){
-                            $mysqli = new mysqli ('localhost','root','','ultratumba');
-                            $mysqli->set_charset("utf8");
+                            require "Conector.php";
                             $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
                             v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
                             WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' ORDER BY v.fecha";
@@ -375,8 +375,9 @@ $res_secc=$mysqli -> query($seccion);
                       $_SESSION['var']=$var;
 
                       if($var!=""){
-                        $mysqli = new mysqli ('localhost','root','','ultratumba');
-                        $mysqli->set_charset("utf8");
+                        
+                          require "Conector.php";
+
                         $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
                         v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
                         WHERE v.id_difunto = d.id AND d.ubicacion LIKE '".$var."%'";

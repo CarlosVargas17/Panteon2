@@ -1,6 +1,6 @@
 <?php
 
-
+require_once "Conector.php";
 
 
 try{
@@ -11,9 +11,6 @@ try{
     $rot=$_REQUEST['rot'];
     $width=$_REQUEST['tama'];
     $height=$_REQUEST['tama2'];
-
-    $mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-    $mysqli->set_charset("utf8");
 
     $stmt = $mysqli->query("SELECT * FROM objetos WHERE id = '$ide' and ubicacion = '$ubicacion' ");
     $res = (mysqli_fetch_row($stmt));

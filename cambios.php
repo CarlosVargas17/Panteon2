@@ -1,12 +1,13 @@
 
 <?php
+require_once "Conector.php";
+
 
 
 if(isset($_POST['tumbas'])){
     $sec = $_POST['sec'];
     $subsec = $_POST['subsec'];
-    $mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-    $mysqli->set_charset("utf8");
+    
 
     /* Cambiando el like verificar si vale 'return-return-%' solo seria agreagasr esto el de solicitud parece ser mas igual*/
 
@@ -25,8 +26,7 @@ if(isset($_POST['tumbas'])){
 
 
 elseif(isset($_POST['id'])){
-    $mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-    $mysqli->set_charset("utf8");
+    
 
     /* Cambiando el like verificar si vale 'return-return-%' solo seria agreagasr esto el de solicitud parece ser mas igual*/
 
@@ -40,8 +40,7 @@ elseif(isset($_POST['id'])){
 
 
 elseif(isset($_POST['idventa'])){
-    $mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-    $mysqli->set_charset("utf8");
+    
 
     /* Cambiando el like verificar si vale 'return-return-%' solo seria agreagasr esto el de solicitud parece ser mas igual*/
 

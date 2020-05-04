@@ -1,4 +1,6 @@
-
+<?php
+require_once "Conector.php";
+?>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/estilos.css">
@@ -77,8 +79,7 @@
             <?php
             if (isset($_POST['Cambiar'])){
                 session_start();
-                $mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-                $mysqli->set_charset("utf8");  
+                
                 //$passActual=$mysqli->real_escape_string ($_POST['anti']) ; 
                 $passActual = $mysqli->real_escape_string($_POST['anti']);
                 $pass1=$mysqli->real_escape_string ( $_POST['new'] ) ; 

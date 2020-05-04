@@ -1,4 +1,6 @@
 <?php
+require_once "Conector.php";
+
 //Se inicia la sesión
 require('fpdf/fpdf.php');
 date_default_timezone_set('America/Mexico_City');
@@ -7,8 +9,7 @@ $time = time();
 
 session_start();
 
-$mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-$mysqli->set_charset("utf8");
+
 
 
 class PDF extends FPDF

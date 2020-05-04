@@ -1,3 +1,7 @@
+<?php
+require_once "Conector.php";
+?>
+
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/estilos.css">
@@ -75,8 +79,7 @@
                     <?php
                     if (isset($_POST['Confirmar'])){
                         session_start();
-                        $mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-                        $mysqli->set_charset("utf8");  
+                        
                         //$passActual=$mysqli->real_escape_string ($_POST['anti']) ; 
                         $Clave=$mysqli->real_escape_string ( $_POST['nomb'] ) ; 
                         $Nombre=$mysqli->real_escape_string ( $_POST['nombc'] ) ;

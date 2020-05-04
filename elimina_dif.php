@@ -1,6 +1,6 @@
 <?php
+require_once "Conector.php";
 
-$mysqli = new mysqli("localhost","root","","ultratumba");
 if (isset($_GET['id'])){
     $id=$_GET['id'];
     $query = "DELETE FROM ventas WHERE id_difunto=$id";

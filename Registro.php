@@ -4,8 +4,10 @@
 
 ?>
 <?php
-$mysqli = new mysqli ('localhost','root','','ultratumba');
-$mysqli->set_charset("utf8");
+require_once "Conector.php";
+?> 
+<?php
+
 $consu="SELECT * FROM gobierno";
 $res=$mysqli -> query($consu);
 $mostrar=mysqli_fetch_array($res);

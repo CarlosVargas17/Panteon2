@@ -1,9 +1,9 @@
 <?php
+require_once "Conector.php";
+
 
 session_start();
 
-$mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-$mysqli->set_charset("utf8");
 
 $mysqli->begin_transaction();
 

@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once "Conector.php";
 ?>
 
 <?php 
@@ -727,8 +728,7 @@ fetch('cambios.php',{method:'POST',body:datos})
 
 <?php
 
-        $mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-        $mysqli->set_charset("utf8");
+        
         $id_s=$_GET['id_s'];
         
         $id_ss=$_GET['id_ss'];

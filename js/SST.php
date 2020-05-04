@@ -1,5 +1,5 @@
 <?php
-    
+    require_once "../Conector.php";
     try{
         $v=$_REQUEST['valor'];
         $x=$_REQUEST['x3']; 
@@ -24,8 +24,7 @@
         <?php
         
 
-        $mysqli = new mysqli('localhost', 'root', '', 'ultratumba');
-        $mysqli->set_charset("utf8");
+        
 
         $stmt = $mysqli->query("SELECT * FROM fosas WHERE ubicacion = '$v'");
         $res = (mysqli_fetch_row($stmt));
