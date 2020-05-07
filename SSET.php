@@ -1,18 +1,16 @@
 <?php
     require_once "Conector.php";
     try{
-        $ele=$_REQUEST['ele'];
+        
         $ubicacion=$_REQUEST['ubicacion'];
 
 
-        
-
-        $stmt = $mysqli->query("SELECT * FROM objetos WHERE id = '$ele' and ubicacion = '$ubicacion' ");
+        $stmt = $mysqli->query("SELECT * FROM fosas WHERE ubicacion = '$ubicacion' and estado='Libre' ");
         $res = (mysqli_fetch_row($stmt));
 
         
         if ($res[0]) {
-            $query= "DELETE FROM objetos WHERE id = '$ele' and ubicacion = '$ubicacion' ";
+            $query= "DELETE FROM fosas WHERE ubicacion = '$ubicacion' and estado='Libre' ";
             $result = $mysqli->query($query);
             ?>
             <script>
@@ -35,6 +33,11 @@
     }
     catch(Exception $e){
 
-        echo ("Error");
+        ?>
+            <script>
+            alertify.error('HA OCURRIDO UN ERROR INESPERADO');
+            setTimeout(recarga,1000);
+            </script>
+            <?php
     }
 ?>

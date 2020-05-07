@@ -130,7 +130,6 @@ function rota0(element){
 
     
 }
-
 function printa (element){
         identificador=element.id
         seccion=element.getAttribute("name1");
@@ -141,7 +140,6 @@ function printa (element){
 
         alert("propiedades(" + tama+tama2+")");
 }
-
 function rota45(element){
     //element.style.setProperty("rotate", '90deg');
     var ide=element.id;
@@ -169,7 +167,6 @@ function rota45(element){
 
     });
 }
-
 function rota135(element){
     //element.style.setProperty("rotate", '90deg');
     var ide=element.id;
@@ -197,49 +194,27 @@ function rota135(element){
 
     });
 }
-
-
 function elimina(element){
     objeto=element.id;
     var sec=element.getAttribute("name1");
     var subsec=element.getAttribute("name2");
     var ubicacion=sec+"-"+subsec;
-    Swal.fire({
-        title: 'Estás seguro que quiere eliminar esto?',
-        text: 'Si eliminas el objeto tendrás que colocarlo nuevamente',
-        icon: 'warning',
-        timer: 10000,
-        showCancelButton: true,
-        confirmButtonText: 'Si, deseo eliminarlo',
-        cancelButtonText: 'No, dejalo ahí'
-      }).then((result) => {
-        if (result.value) {
-            
+    var confirm= alertify.confirm('ELIMINAR','Confirmas eliminar este elemento?',null,null).set('labels', {ok:'Eliminar', cancel:'No, conservalo'}); 	
+ 
+                confirm.set({transition:'slide'});   	
+                
+                confirm.set('onok', function(){ //callbak al pulsar botón positivo
+                        eliminaok(objeto,ubicacion);
+                        
+                        
+                });
+                
+                confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+                    alertify.error('Has manetenido este elemento');
+                    
+                });
 
-          Swal.fire(
-            
-            
-            'Eliminado!',
-            'El elemento ha sido eliminado correctamente.',
-            'success'
-            
-          )
-          eliminaok(objeto,ubicacion);
-          
-          
-        // For more information about handling dismissals please visit
-        // https://sweetalert2.github.io/#handling-dismissals
-        } else if (result.dismiss === Swal.DismissReason.cancel) {
-          Swal.fire(
-            'Cancelado',
-            'El elemento sigue ahi:)',
-            'error'
-          )
-        }
-      })
 }
-
-
 function eliminaok(objeto,ubicacion){
     var ele=objeto;
     var ubicacion=ubicacion;
@@ -250,14 +225,12 @@ function eliminaok(objeto,ubicacion){
         $("#"+objeto).load('SSE.php',{ele:ele,ubicacion:ubicacion});
 
     });
-    setTimeout(recarga,1000);
+    
     
 }
 function recarga(){
     location.reload();
 }
-
-
 for (var i = 0; i < 100; i++) {
     var idcarret= "#elem"+i;
     var idrock= "#elemd"+i;
@@ -270,8 +243,7 @@ for (var i = 0; i < 100; i++) {
     var idj="#elemj"+i;
     var idm="#elemm"+i;
     var idn="#elemn"+i;
-
-
+    
     var contextMenucarretera = CtxMenu(idcarret);
     var contextMenutierra = CtxMenu(idrock);
     var contextMenuladrillo = CtxMenu(idladrillo);
@@ -379,9 +351,45 @@ for (var i = 0; i < 100; i++) {
 
 
 
+function eliminatumba(element){
+    objeto=element.id;
+    var sec=element.getAttribute("name1");
+    var subsec=element.getAttribute("name2");
+    var ubicacion=sec+"-"+subsec+"-"+objeto;
+    console.log( "Ubicacion"+ubicacion);
+    var confirm= alertify.confirm('ELIMINAR','Confirmas eliminar este elemento?',null,null).set('labels', {ok:'Eliminar', cancel:'No, conservalo'}); 	
+ 
+                confirm.set({transition:'slide'});   	
+                
+                confirm.set('onok', function(){ //callbak al pulsar botón positivo
+                        eliminatumbaok(objeto,ubicacion);
+                        
+                        
+                        
+                });
+                
+                confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+                    alertify.error('Has manetenido este elemento');
+                    
+                });
+    
+}
+
+function eliminatumbaok(objeto,ubicacion){
+    var ubicacion=ubicacion;
+    
+    $(document).ready(function(){
+
+
+        $("#"+objeto).load('SSET.php',{ubicacion:ubicacion});
+
+    });
+    
+    
+}
 //menu tumba
 for (var i = 0; i < 500; i++) {
-    var identi= "#l"+i;
+    var identi= "#"+i;
     var contextMenuTwo = CtxMenu(identi);
     // Añade un seperador
     contextMenuTwo.addSeperator();
@@ -394,7 +402,7 @@ for (var i = 0; i < 500; i++) {
     );
     contextMenuTwo.addSeperator();    
     //Para añadir mas items de menu
-    contextMenuTwo.addItem("ver elemento",printa,Icon = "imagenes/info.svg");
+    contextMenuTwo.addItem("Eliminar",eliminatumba,Icon = "imagenes/borrar.svg");
 }
 
 
