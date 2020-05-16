@@ -258,8 +258,7 @@ for (var i = 0; i < 100; i++) {
 
 
     //MENU DE CARRETERA
-    contextMenucarretera.addItem("Ver elemento",printa,Icon = "imagenes/info.svg");
-    contextMenucarretera.addSeperator();
+
     contextMenucarretera.addItem("Recargar Página",function(){location.reload();},Icon = "imagenes/reload.svg");
     contextMenucarretera.addSeperator();
     contextMenucarretera.addItem("Rotar 90°",rota90,Icon = "imagenes/angulo90.svg");
@@ -270,8 +269,7 @@ for (var i = 0; i < 100; i++) {
 
 
     //MENU DE TIERRA
-    contextMenutierra.addItem("Ver elemento",printa,Icon = "imagenes/info.svg");
-    contextMenutierra.addSeperator();
+
     contextMenutierra.addItem("Recargar Página",function(){location.reload();},Icon = "imagenes/reload.svg");
     contextMenutierra.addSeperator();
     contextMenutierra.addItem("Rotar 90°",rota90,Icon = "imagenes/angulo90.svg");
@@ -281,8 +279,7 @@ for (var i = 0; i < 100; i++) {
     contextMenutierra.addItem("Eliminar",elimina,Icon = "imagenes/borrar.svg");
 
     //MENU DE LADRILLO GRIS
-    contextMenuladrillo.addItem("Ver elemento",printa,Icon = "imagenes/info.svg");
-    contextMenuladrillo.addSeperator();
+
     contextMenuladrillo.addItem("Recargar Página",function(){location.reload();},Icon = "imagenes/reload.svg");
     contextMenuladrillo.addSeperator();
     contextMenuladrillo.addItem("Rotar 90°",rota90,Icon = "imagenes/angulo90.svg");
@@ -292,8 +289,7 @@ for (var i = 0; i < 100; i++) {
     contextMenuladrillo.addItem("Eliminar",elimina,Icon = "imagenes/borrar.svg");
 
     //MENU DE PUERTA
-    contextMenupuerta.addItem("Ver elemento",printa,Icon = "imagenes/info.svg");
-    contextMenupuerta.addSeperator();
+
     contextMenupuerta.addItem("Recargar Página",function(){location.reload();},Icon = "imagenes/reload.svg");
     contextMenupuerta.addSeperator();
     contextMenupuerta.addItem("Rotar 45°",rota45,Icon = "imagenes/angulo45.svg");

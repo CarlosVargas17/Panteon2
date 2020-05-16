@@ -481,7 +481,7 @@ top: 175px;
 
 .draggable16 a{
     color: black;
-    font-size: 76%;
+    font-size: 10px;
     text-align: center;
     position: absolute;
     top: 25px;
@@ -602,51 +602,4 @@ px{
 
 }
 
-.ajs-ok{
-color: #E93C3A !important;
-font-family: 'Roboto', sans-serif !important;
-}
-.ajs-cancel{
-    color: #019A48 !important;
-    font-family: 'Roboto', sans-serif !important;
-}
-.ajs-error{
-    background-color: #E93C3A !important ;
-    font-family: 'Roboto', sans-serif !important;
-    color: white !important;
-}
-.ajs-warning{
-    background-color: rgb(230, 21, 143) !important ;
-    font-family: 'Roboto', sans-serif !important;
-    color: white !important;
-}
-.ajs-success{
-    background-color: #019A48 !important ;
-    font-family: 'Roboto', sans-serif !important;
-    color: white !important;
 
-}
-.ajs-header{
-    font-family: 'Roboto', sans-serif !important;
-    background-color: #3F4D64 !important;
-    color: white !important;
-}
-.ajs-content{
-    font-family: 'Roboto', sans-serif !important;
-}
-.ajs-close{
-    background-color: #E93C3A !important;
-    border-radius: 50% !important;
-    background-image: none !important;
-    width: 1px !important;
-    height: 1px !important;
-    position: absolute !important;
-    right: -15px !important;
-    top: 5px !important;
-}
-
-.ajs-footer{
-    background-color: white !important;
-    border-top: white !important;
-
-}

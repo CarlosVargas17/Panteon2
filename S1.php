@@ -763,6 +763,16 @@ fetch('cambios.php',{method:'POST',body:datos})
     $idn=<?php echo $rest;?>;
     $top=<?php echo $s_top;?>;
     $left=<?php echo $s_left;?>;
+    $widthdisplay=screen.width-150;
+    $heightdisplay=screen.height-150;
+    console.log("Width: "+$widthdisplay);
+    console.log("Height: "+$heightdisplay);
+    $medida1=($widthdisplay*100)/1366;
+    $medida2=($heightdisplay*100)/768;
+    console.log("Width%: "+$medida1);
+    console.log("Height%: "+$medida2);
+    $top3=(($medida1*$top)/100);
+    $left3=(($medida2*$left)/100);
     document.getElementById($idn).style.setProperty("top", (parseInt($top))+'px');
     document.getElementById($idn).style.setProperty("left", (parseInt($left))+'px');
     $est="<?php echo $estado;?>";
@@ -805,6 +815,7 @@ fetch('cambios.php',{method:'POST',body:datos})
     $rotacion2='<?php echo strval($rotacion); ?>';
     var rotacion3=$rotacion2.substr('d',($rotacion2.length -2));
     $obb2=$obb.substr(0,5);
+
     
     $width2=<?php echo $width;?>;
     $height2=<?php echo $height;?>;

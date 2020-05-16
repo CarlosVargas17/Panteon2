@@ -333,6 +333,16 @@ top: 120px;
 left: 1%;
 border-radius: 2%;
 }
+.container-form4{
+    width: 91.5% !important;
+padding: 40px;
+background: #FFFFFF;
+opacity: 0.97;
+height: 400px;
+position: absolute;
+top: 120px;
+left: 1%;
+}
 
 
 
@@ -667,7 +677,7 @@ z-index: 99999;
     -webkit-border-radius: 5% 5% 5% 5%;
     
 }
-#logact1:hover, #logact2:hover, #logact3:hover{
+#logact1:hover, #logact2:hover, #logact3:hover,#logact4:hover,#logact5:hover{
     background-color: lightblue;
     opacity: 0.4;
 }
@@ -729,6 +739,68 @@ border-style: none;
 
 }
 #logact3{
+
+    position:absolute;
+
+    width: 160px;
+    height: 110px;
+    background:transparent;
+    cursor: pointer;
+border-style: none;
+z-index: 99999;
+
+}
+
+.logact4a{
+
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    top: 20%;
+    left: 603px;
+    position: absolute;
+    width: 160px;
+    height: 110px;
+    background: white;
+    cursor: pointer;
+    filter: drop-shadow(3px 5px 5px #444);
+    border-style: none;
+    -webkit-border-radius: 5% 5% 5% 5%;
+
+}
+#logact4{
+
+    position:absolute;
+
+    width: 160px;
+    height: 110px;
+    background:transparent;
+    cursor: pointer;
+border-style: none;
+z-index: 99999;
+
+}
+
+.logact5a{
+
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    top: 20%;
+    left: 789px;
+    position: absolute;
+    width: 160px;
+    height: 110px;
+    background: white;
+    cursor: pointer;
+    filter: drop-shadow(3px 5px 5px #444);
+    border-style: none;
+    -webkit-border-radius: 5% 5% 5% 5%;
+
+}
+#logact5{
 
     position:absolute;
 
@@ -805,3 +877,64 @@ display: block;
 left: 200px;
 top: 3px;
 }
+
+
+
+.container-forminfo{
+    width: 70.5%;
+padding: 40px;
+background: #FFFFFF;
+opacity: 1;
+height: 405px;
+position: absolute;
+top: 110px;
+left: 11%;
+border-radius: 2%;
+font-style:Verdana;
+}
+
+.container-forminfo2{
+    width: 38%;
+padding: 10px;
+background: rgb(232, 237, 240);
+opacity: 1;
+height: 350px;
+position:absolute;
+top: 101px;
+left: 5%;
+border-radius: 2%;
+font-style:Verdana;
+}
+
+
+
+.logo-Fab{
+        position: absolute;
+        margin-left:500px;
+        margin-top: 10px;
+        
+    }
+.logo-Fab2{
+        position: absolute;
+        margin-left:0px;
+        margin-top: -85px;
+    }
+
+.logo-Fab3{
+        position: absolute;
+        margin-left:470px;
+        margin-top: 335px;
+    }
+
+.listainfo ul li.al2{
+
+        color:black;
+        font-family: fantasy;
+        line-height: 22px;
+        font-size: 16px;
+        list-style-type: none;
+       
+        
+    
+    }
+   

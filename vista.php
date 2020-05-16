@@ -14,7 +14,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<link rel="stylesheet" href="style/index_style.css">
 	<link rel="icon"  type="image/png" href="Icon.png">
 	<title><?php echo($nombre);?></title>
@@ -76,9 +76,8 @@ function startTime() {
 
 
  <!--   AQUI TERMINA EL MENU -->
-
-
-    <?php 
+<div class="vistadivis">
+<?php 
         $id_s=$_GET['id_s'];
         $id_ss=$_GET['id_ss'];
 	?>  
@@ -107,6 +106,11 @@ function startTime() {
 	<div class="tu3" style="left: 596px;bottom: 1px;-webkit-transform: scaleX(-1);"></div>
 	<div class="tu4" style="left: 396px;bottom: 1px;"></div>
 	
+
+
+</div>
+
+    
 
 </body>
 </html>

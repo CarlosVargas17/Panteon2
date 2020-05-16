@@ -18,10 +18,8 @@ require_once "Conector.php";
     <meta charset="UTF-8">
     <link rel="icon"  type="image/png" href="Icon.png">
     <title><?php echo($nombre);?></title>
-
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
-
     <link rel="stylesheet" href="style/index_style.css">
 	<link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
 </head>
@@ -63,7 +61,7 @@ require_once "Conector.php";
 			src="pictures/exit2.png" > <p class="texto"  href="cierrasesion.php" >Cerrar</p> </a>
 		</div>
 		
-	</header>
+</header>
  
 <div class="fondo">
 

@@ -91,7 +91,7 @@ $res_secc=$mysqli -> query($seccion);
 </header>
 
 
-<div class="centrado" style="text-align: center;margin-top:10px;font-size:1px"><p>Reportes de ventas</p></div>
+<div class="centrado" style="text-align: center;margin-top:10px;font-size:1px"><p>Reportes</p></div>
 <div class="container" style="margin-top:140px" >
 
           <div class="col-sm-12">

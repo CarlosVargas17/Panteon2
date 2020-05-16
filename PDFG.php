@@ -8,7 +8,7 @@ class PDF extends FPDF
 function Header()
 { 
 
-require_once "Conector.php";
+require "Conector.php";
 
     // Logo
     //(ruta,posicionx,posiciony,alto,ancho,tipo,link)

@@ -1,4 +1,7 @@
-<html lang="en">
+<?php
+    session_start();
+    $usuario = $_SESSION["User"];
+?>
 <head>
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="style/index_style.css">
@@ -50,7 +53,6 @@
     
 </header>
 <section class="example2">
-        
         <ul class="cuadrados">
             <li></li>
             <li></li>
@@ -97,6 +99,20 @@
             <a type="submit" class="textoajus" >Cambiar nombre</a>
             <a type="submit" class="textoajus2" >de usuario</a>
 			<input  id="logact3" type="submit" value="   ">
+            </form>
+            
+            <form class="logact4a"  action="gestorusuarios.php" method="get">
+            <img type="submit" class="iconos" src="pictures/perfil.png" >
+            <a type="submit" class="textoajus" >Gestor</a>
+            <a type="submit" class="textoajus2" >de usuarios</a>
+			<input  id="logact4" type="submit" value="   ">
+            </form>
+
+            <form class="logact5a"  action="info.php" method="get">
+            <img type="submit" class="iconos" src="pictures/icon.png" >
+            <a type="submit" class="textoajus" >Acerca de</a>
+            <a type="submit" class="textoajus2" >:)</a>
+			<input  id="logact5" type="submit" value="   ">
 			</form>
 			
 
@@ -108,3 +124,9 @@
 
 </body>
 </html>
+
+<?php
+
+
+
+?>
