@@ -1,15 +1,27 @@
 <?php
 require_once "Conector.php";
 ?>
+<?php
+
+session_start();
+$usuario = $_SESSION["User"];
+$stmt = $mysqli->query("SELECT * FROM usuarios WHERE User='$usuario' ");
+
+$res = (mysqli_fetch_row($stmt));
+
+      if ($res[5]=='No aprobado' or $usuario==''){
+        header("Location: denegado.php");
+      }
+?>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="style/index_style.css">
     <script type="text/javascript" src="showpass.js"></script>
     <script src="js/push.min.js"></script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,
-    maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon"  type="image/png" href="Icon.png">
     <title>Cambio de contraseña</title>

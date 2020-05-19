@@ -1,6 +1,17 @@
 <?php
 require_once "Conector.php";
 ?>
+<?php
+session_start();
+$usuario = $_SESSION["User"];
+$stmt = $mysqli->query("SELECT * FROM usuarios WHERE User='$usuario' ");
+
+$res = (mysqli_fetch_row($stmt));
+
+      if ($res[5]=='No aprobado' or $usuario==''){
+        header("Location: denegado.php");
+      }
+?>
 
 <html lang="en">
 <head>

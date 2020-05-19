@@ -28,23 +28,23 @@ $mostrar=mysqli_fetch_array($res);
     
 <section class="example2">
         
-        <ul class="cuadrados">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+<ul class="cuadrados">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
 
     <div class="container-all">
     <div class="container-img">
@@ -93,15 +93,15 @@ $mostrar=mysqli_fetch_array($res);
 
             </form>
             </div>
-            <span class="text-footer">¿Ya te has registrado?<a href="index.php">Inicia sesión</a>
+            <span class="text-footer" style="top: 74% !important;">¿Ya te has registrado?<a href="index.php">Inicia sesión</a>
             </span>
 
         </div>
 
         
-    </div>
-    </ul>
-    </section>
+</div>
+</ul>
+</section>
     
 
 

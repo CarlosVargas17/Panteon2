@@ -1,3 +1,34 @@
+<?php
+require "Conector.php";
+session_start();
+$usuario = $_SESSION["User"];
+$stmt = $mysqli->query("SELECT * FROM usuarios WHERE User='$usuario' ");
+$stmt2 = $mysqli->query("SELECT * FROM ventanas WHERE ventana='Busqueda' ");
+$res = (mysqli_fetch_row($stmt));
+$res2 = (mysqli_fetch_row($stmt2));
+$accesoedit=$res2[1];
+if ($res[4]=='Administrador'){
+    if ($accesoedit=='Administrador'){
+        $acceder='Administrador';
+    }
+    else{
+    $acceder='Administrador/Usuario';
+}
+}
+else{
+	$acceder='Administrador/Usuario';
+}
+if ($res[5]=='No aprobado' or $usuario==''){
+    header("Location: denegado.php");
+  }
+
+else{
+if ($accesoedit!=$acceder){
+    header("Location: denegado2.php");
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en" style="overflow:auto;background:white;">
 <head>
@@ -54,7 +85,7 @@
 
   <!-- Aqui empieza la notificación -->
   <?php 
-    session_start();
+
     if (isset($_SESSION['message']) and $_SESSION['message']!="") {
         if ($_SESSION['message']=='success'){
             echo '<script>
@@ -95,7 +126,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="padding: 1% !important; width: 86% !important;">
       <form action="edita_dif.php" method="POST" id="formulario_venta">
     <div class="form-group">
         <div class="row">

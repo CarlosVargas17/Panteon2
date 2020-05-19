@@ -21,10 +21,10 @@ body{
 }
 
 .show{
-    position: absolute;
+    position: fixed;
 
-    top: 64%;
-    left: 94%;
+    top: 45%;
+    left: 70%;
     font-size: 20px;
     background-color: transparent;
     border-style: none;
@@ -32,10 +32,10 @@ body{
     color: rgb(122, 122, 122);
 }
 .show2{
-    position: absolute;
+    position: fixed;
 
-    top: 71%;
-    left: 95%;
+    top: 56%;
+    left: 70%;
     font-size: 20px;
     background-color: transparent;
     border-style: none;
@@ -43,50 +43,54 @@ body{
     color: rgb(122, 122, 122);
 }
 .container-all{
-    width: 100%;
-    max-width: 500px;
+    width: 90%;
+
     margin: auto;
-    margin-top: 30px;
+    margin-top: 2%;
     display: flex;
     border-radius: 20px;
     overflow: hidden;
 
+
 }
 .container-form{
     width: 100%;
-padding: 40px;
-background: #FFFFFF;
-opacity: 0.97;
-height: 560px;
+    padding: 8%;
+    background: #FFFFFF;
+    opacity: 0.97;
+    height: 600px;
+
 
 }
 .container-img{
 
-    position: absolute;
+    position: fixed;
 z-index: 999;
 top: 40px;
 left: 45%;
 }
 .formpost{
 
-    position: absolute;
-top: 30%;
-width: 30%;
+    position: fixed;
+    top: 27%;
+    width: 40%;
+    left: 31%;
 }
 .formpost2{
 
-    position: absolute;
-top: 22%;
-width: 30%;
+    position: fixed;
+    top: 25%;
+    width: 40%;
+    left: 31%;
 }
 .logo{
-    width: 140px;
+    width: 100px;
     display: block;
     margin: auto;
 }
 .title{
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
     font-weight: 300;
     color: #7a7a7a;
 
@@ -94,7 +98,7 @@ width: 30%;
 label {
     display: block;
     margin-top: 30px;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 300;
     color: #7a7a7a;
 
@@ -118,7 +122,6 @@ input[type="text"], input[type="password"]
 .logreg{
     width: 100%;
     height: 50px;
-    margin-top: 60px;
     color: white;
     border: 0px;
     background: linear-gradient(90grad, #5F9FFF,rgb(165, 229, 255) );
@@ -136,7 +139,6 @@ input[type="text"], input[type="password"]
 .logreg2{
     width: 100%;
     height: 50px;
-    margin-top: 60px;
     color: white;
     border: 0px;
     background: linear-gradient(90grad, #5F9FFF,rgb(165, 229, 255) );
@@ -153,13 +155,13 @@ input[type="text"], input[type="password"]
 }
 .text-footer{
     display: block;
-margin-top: 50px;
-text-align: center;
-color: #7a7a7a;
-font-weight: 500;
-position: absolute;
-top: 74%;
-width: 30%;
+    text-align: center;
+    color: #7a7a7a;
+    font-weight: 500;
+    position: fixed;
+    top: 72%;
+    width: 30%;
+    left: 37%;
 }
 .text-footer a{
     color: rgb(0, 140, 255);
@@ -649,8 +651,8 @@ left: 1%;
 #logact1{
     position:absolute;
 
-    width: 160px;
-    height: 110px;
+    width: 100%;
+height: 100%;
     background:transparent;
     cursor: pointer;
 border-style: none;
@@ -664,12 +666,10 @@ z-index: 99999;
         font-weight: 300;
         cursor: pointer;
         font-size: 18px;
-        position: absolute;
-        top: 20%;
-        left: 45px;
-        width: 160px;
+        
+        width: 78%;
         height: 110px;
-        position: absolute;
+        
         background:white;
         cursor: pointer;
         filter: drop-shadow(3px 5px 5px #444);
@@ -686,8 +686,8 @@ z-index: 99999;
 
     position:absolute;
 
-    width: 160px;
-    height: 110px;
+    width: 100%;
+height: 100%;
     background:transparent;
     cursor: pointer;
 border-style: none;
@@ -702,12 +702,8 @@ z-index: 99999;
     font-weight: 300;
     cursor: pointer;
     font-size: 18px;
-    position: absolute;
-    top: 20%;
-    left: 231px;
     
-    position:absolute;
-    width: 160px;
+    width: 78%;
     height: 110px;
     background:white;
     cursor: pointer;
@@ -725,11 +721,8 @@ border-style: none;
     font-weight: 300;
     cursor: pointer;
     font-size: 18px;
-    position: absolute;
-    top: 20%;
-    left: 417px;
-    position: absolute;
-    width: 160px;
+    
+    width: 78%;
     height: 110px;
     background: white;
     cursor: pointer;
@@ -742,8 +735,8 @@ border-style: none;
 
     position:absolute;
 
-    width: 160px;
-    height: 110px;
+    width: 100%;
+    height: 100%;
     background:transparent;
     cursor: pointer;
 border-style: none;
@@ -756,11 +749,9 @@ z-index: 99999;
     font-weight: 300;
     cursor: pointer;
     font-size: 18px;
-    position: absolute;
-    top: 20%;
-    left: 603px;
-    position: absolute;
-    width: 160px;
+
+    
+    width: 78%;
     height: 110px;
     background: white;
     cursor: pointer;
@@ -773,8 +764,8 @@ z-index: 99999;
 
     position:absolute;
 
-    width: 160px;
-    height: 110px;
+    width: 100%;
+height: 100%;
     background:transparent;
     cursor: pointer;
 border-style: none;
@@ -787,11 +778,8 @@ z-index: 99999;
     font-weight: 300;
     cursor: pointer;
     font-size: 18px;
-    position: absolute;
-    top: 20%;
-    left: 789px;
-    position: absolute;
-    width: 160px;
+    
+    width: 78%;
     height: 110px;
     background: white;
     cursor: pointer;
@@ -804,8 +792,8 @@ z-index: 99999;
 
     position:absolute;
 
-    width: 160px;
-    height: 110px;
+    width: 100%;
+height: 100%;
     background:transparent;
     cursor: pointer;
 border-style: none;
@@ -813,6 +801,34 @@ z-index: 99999;
 
 }
 
+
+.logact6a{
+
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 18px;
+    
+    width: 78%;
+    height: 110px;
+    background: white;
+    cursor: pointer;
+    filter: drop-shadow(3px 5px 5px #444);
+    border-style: none;
+    -webkit-border-radius: 5% 5% 5% 5%;
+
+}
+#logact6{
+
+    position:absolute;
+
+    width: 100%;
+height: 100%;
+    background:transparent;
+    cursor: pointer;
+border-style: none;
+z-index: 99999;
+
+}
 
 
 
@@ -830,12 +846,12 @@ z-index: 99999;
 }
 
 .iconos{
-    width: 50px;
+    width: 31.3%;
     padding: 6px;
     position: absolute;
     z-index: 999;
     display: block;
-    left: 50px;
+    left: 30%;
 
 }
 
@@ -843,12 +859,13 @@ z-index: 99999;
     position: absolute;
 z-index: 999;
 top: 60px;
-left: 4px;
-font-size: 14px;
-line-height: 14px;
+left: 0px;
+line-height: 12px;
 font-style: normal;
-width: 155px;
-letter-spacing: 0.072em;line-height: 21px;font-size: 13px;font-weight: 500;
+width: 100%;
+letter-spacing: 0.072em;
+font-size: 60%;
+font-weight: 500;
 font-family: 'Roboto', sans-serif;
 text-align: center
 }
@@ -856,13 +873,12 @@ text-align: center
 .textoajus2{
     position: absolute;
     z-index: 999;
-    top: 80px;
-    left: 4px;
+    top: 80%;
+    left: 0px;
     font-style: normal;
-    width: 155px;
+    width: 100%;
     letter-spacing: 0.072em;
-    line-height: 21px;
-    font-size: 14px;
+    font-size: 60%;
     font-family: 'Roboto', sans-serif;
     text-align: center;
     color: darkgray;

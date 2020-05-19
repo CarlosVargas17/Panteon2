@@ -1,3 +1,15 @@
+<?php
+require "Conector.php";
+session_start();
+$usuario = $_SESSION["User"];
+$stmt = $mysqli->query("SELECT * FROM usuarios WHERE User='$usuario' ");
+
+$res = (mysqli_fetch_row($stmt));
+
+      if ($res[5]=='No aprobado' or $usuario==''){
+        header("Location: denegado.php");
+      }
+?>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/estilos.css">
@@ -86,7 +98,7 @@
     <div class="container-forminfo2" >
     <div class="listainfo" style="text-align:left;">
     
-    <h4 style='font-family: fantasy;font-size: 22px;' >Información</h4>
+    <h4 style='font-family: fantasy;font-size: 22px;' >Acerca de:</h4>
 	   <ul>
       
         <h4 class="al2" style='font-weight: bold;font-family: fantasy;font-size: 15px; color:#2b6931;line-height:30px;'>Nombre del sistema:</h4>
@@ -95,9 +107,9 @@
         <h4 class="al2" style='font-size: 12px;font-family: fantasy;'>Ing. Flavio Lamas Salas.</h4>
         <h4 class="al2" style='font-size: 12px;font-family: fantasy;'>Ing. Lorena Aguilar Montes.</h4>
         <h4 class="al2" style='font-weight: bold;font-size: 15px; color:#2b6931;line-height:30px;font-family: fantasy;'>Asesores:</h4>
-        <h4 class="al2" style='font-size: 12px;font-family: fantasy;'>Maestro Rafael Campa García.</h4>
-        <h4 class="al2" style='font-size: 12px;font-family: fantasy;'>Maestra María Estrellita González Radilla.</h4>
-        <h4 class="al2" style='font-size: 12px;font-family: fantasy;'>Maestra Luz Elvira Luna Ayala.</h4>
+        <h4 class="al2" style='font-size: 12px;font-family: fantasy;'>Mtro. Rafael Campa García.</h4>
+        <h4 class="al2" style='font-size: 12px;font-family: fantasy;'>MIS. Ma. Estrellita González Radilla.</h4>
+        <h4 class="al2" style='font-size: 12px;font-family: fantasy;'>MAE. Luz Elvira Luna Ayala.</h4>
 		<h4 class="al2" style='font-weight: bold;font-size: 15px; color:#2b6931;line-height:30px;font-family: fantasy;'>Equipo de desarrollo:</h4>
 		<h4 class="al2" style='font-size: 12px;font-family: fantasy;'>Jaime Josue García Hernández.</h4>
 		<h4 class="al2" style='font-size: 12px;font-family: fantasy;'>Carlos Eduardo Vargas Salazar.</h4>

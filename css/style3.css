@@ -1,0 +1,9 @@
+html, body{
+
+    max-width: 1366px !important;
+    max-height: 768px !important;
+    min-width: 1366px !important;
+    min-height: 768px !important;
+    background: white !important;
+
+}

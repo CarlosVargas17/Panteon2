@@ -12,9 +12,10 @@ require_once "Conector.php";
 <head>
     <link rel="stylesheet" href="css/estilos.css">
     <script type="text/javascript" src="showpass.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon"  type="image/png" href="Icon.png">
     <title>Login</title>
@@ -42,8 +43,7 @@ require_once "Conector.php";
             <li></li>
             <li></li>
 
-        <div class="container-all">
-        <div class="container-form">
+    <div class="container-all">
         <div class="container-img">
             <?php
 
@@ -62,7 +62,9 @@ require_once "Conector.php";
             ?>
             <img src="<?php echo($imagen); ?>" class="logo">
             <h1 class="title"> Iniciar sesión</h1>
-            </div>
+        </div>
+        <div class="container-form">
+        
             <div class="formpost">
             <form method="post" action= '<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>' >
             

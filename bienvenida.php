@@ -1,3 +1,17 @@
+<?php
+require "Conector.php";
+session_start();
+$usuario = $_SESSION["User"];
+$stmt = $mysqli->query("SELECT * FROM usuarios WHERE User='$usuario' ");
+
+$res = (mysqli_fetch_row($stmt));
+
+      if ($res[5]=='No aprobado' or $usuario==''){
+        header("Location: denegado.php");
+      }
+?>
+
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -101,10 +115,7 @@ function checkTime(i) {
 <p >Bienvenido a su diseñador y gestor de panteón</p>
 
 </div>
-<?php
-session_start();
-$usuario = $_SESSION["User"];
-?>
+
 <div class="msghola" >
 	<p>
 		Bienvenido: <?php echo($usuario);?>

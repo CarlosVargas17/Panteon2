@@ -27,7 +27,7 @@ $res = (mysqli_fetch_row($stmt));
     <script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
     <script src="md/bootstrap.min.js"></script>
     <script src="js/push.min.js"></script>
-    <script src="funcionedita.js"></script>
+    <script src="funcionedita2.js"></script>
     <script src="alertify.min.js"></script>
     <link rel="stylesheet" href="css/themes/default.min.css" />
     <link rel="stylesheet" href="css/alertify.min.css" />
@@ -114,7 +114,7 @@ $res = (mysqli_fetch_row($stmt));
         ?>
           <div class="table-responsive">
             <div class="container-all">
-              <div id="tablausers" class="container-form4" >
+              <div id="tablapaginas" class="container-form4" >
               </div>
             </div>
           </div>
@@ -151,92 +151,46 @@ $res = (mysqli_fetch_row($stmt));
   
 
 </section>   
+
+
 <div class="modal fade" id="modalmodificar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel" style="position: absolute">Edicion de usuario</h4>
+        <h4 class="modal-title" id="myModalLabel" style="position: absolute">Edición de permisos de página</h4>
       </div>
       <div class="modal-body">
-        <label>User</label>
-        <input type="text" name="" id="user" class="form-control input-sm" style="width: 90%; height:20px;">
-        <label>Nombre</label>
-        <input type="text" name="" id="nombre" class="form-control input-sm" style="width: 90%; height:20px;">
-        <label>Rol</label>
-        <select class="browser-default custom-select" name="" id="rol" style="width: 90%; height:20px;" >
+        <label>Página</label>
+        <input type="text" name="" id="pagina" class="form-control input-sm" style="width: 90%; height:20px;" disabled>
+        
+        <label>Permisos</label>
+        <select class="browser-default custom-select" name="" id="Permisos" style="width: 90%; height:20px;" >
+                <option value="Administrador/Usuario">Administrador/Usuario</option>
                 <option value="Administrador">Administrador</option>
-                <option value="Usuario">Usuario</option>
         </select>
-        <label>Estado</label>
-        <select class="browser-default custom-select" name="" id="estado" style="width: 90%; height:20px;">
-                <option value="Aprobado">Aprobado</option>
-                <option value="No aprobado">No aprobado</option>
-        </select>
+        
       </div>
       <div class="modal-footer">
-        <button id="actualizadatos" type="button" class="btn btn-primary" data-dismiss="modal">Actualizar</button>
+        <button id="actualizaperm" type="button" class="btn btn-primary" data-dismiss="modal">Actualizar</button>
 
       </div>
     </div>
   </div>
 </div>
 
-
-
-<div class="modal fade" id="modalnuevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel" style="position: absolute">Agregar usuario</h4>
-      </div>
-      <div class="modal-body">
-        <label style="margin-top: 10px !important;">User</label>
-        <input type="text" name="" id="usern" class="form-control input-sm" style="width: 90%; height:20px;">
-        <label style="margin-top: 10px !important;">Nombre</label>
-        <input type="text" name="" id="nombren" class="form-control input-sm" style="width: 90%; height:20px;">
-        <label style="margin-top: 10px !important;">Contraseña</label>
-        <input type="text" name="" id="password" class="form-control input-sm" style="width: 90%; height:20px;">
-        <label style="margin-top: 10px !important;">Rol</label>
-        <select class="browser-default custom-select" name="" id="roln" style="width: 90%; height:20px;" >
-                <option value="Usuario">Usuario</option>
-                <option value="Administrador">Administrador</option>
-        </select>
-        <label style="margin-top: 10px !important;">Estado</label>
-        <select class="browser-default custom-select" name="" id="estadon" style="width: 90%; height:20px;">
-                <option value="Aprobado">Aprobado</option>
-                <option value="No aprobado">No aprobado</option>
-        </select>
-      </div>
-      <div class="modal-footer">
-        <button id="insertadatos" type="button" class="btn btn-success" data-dismiss="modal">Insertar</button>
-
-      </div>
-    </div>
-  </div>
-</div>
 
 </body>
 </html>
 
 <script type="text/javascript">
     $(document).ready(function(){
-         $('#tablausers').load('tablaguarda.php');
+         $('#tablapaginas').load('tablapaginas.php');
 
-         $('#actualizadatos').click(function(){
+         $('#actualizaperm').click(function(){
             actualizadatos();
 
             });
-        $('#insertadatos').click(function(){
-            User=$('#usern').val();
-            Nombre=$('#nombren').val();
-            password=$('#password').val();
-            Rol=$('#roln').val();
-            Estado=$('#estadon').val();
-            insertadatos(User,Nombre,password,Rol,Estado);
-
-        });
 
     });
 

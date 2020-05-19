@@ -23,6 +23,7 @@ html, body {
 	height: 100%;
 	overflow: hidden;
 	background-size: 100% 100%;
+
 }
 .clockdate-wrapper {
     
@@ -207,6 +208,15 @@ header{
 div.contenedor{
 	width: 16.5%;
 	height: 95px;
+	float:left;
+	-webkit-transition: height .4s;
+	/*-webkit-border-radius: 25%;*/
+}
+
+
+div.contenedor20{
+	width: 16.5%;
+	height: 110px;
 	float:left;
 	-webkit-transition: height .4s;
 	/*-webkit-border-radius: 25%;*/
@@ -872,6 +882,14 @@ border-radius: 1%;
 		transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 #tablausers{
+	overflow-x: hidden;
+	overflow-y: scroll;
+	scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0);
+	scrollbar-width: thin;
+
+}
+
+#tablapaginas{
 	overflow-x: hidden;
 	overflow-y: scroll;
 	scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0);

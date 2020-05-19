@@ -1,3 +1,35 @@
+<?php
+require_once "Conector.php";
+session_start();
+$usuario = $_SESSION["User"];
+$stmt = $mysqli->query("SELECT * FROM usuarios WHERE User='$usuario' ");
+$stmt2 = $mysqli->query("SELECT * FROM ventanas WHERE ventana='Selector Diseño | Ventas' ");
+$res = (mysqli_fetch_row($stmt));
+$res2 = (mysqli_fetch_row($stmt2));
+$accesoedit=$res2[1];
+if ($res[4]=='Administrador'){
+    if ($accesoedit=='Administrador'){
+        $acceder='Administrador';
+    }
+    else{
+    $acceder='Administrador/Usuario';
+}
+}
+else{
+	$acceder='Administrador/Usuario';
+}
+
+if ($res[5]=='No aprobado' or $usuario==''){
+    header("Location: denegado.php");
+  }
+
+else{
+if ($accesoedit!=$acceder){
+    header("Location: denegado2.php");
+    }
+}
+?>
+
 <?php 
 
     if(!isset($_GET['id_s']) || $_GET['id_s']==''){
@@ -13,8 +45,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	    
     <meta charset="UTF-8">
-	
+	<link rel="stylesheet" href="css/style2.css">
 	<link rel="stylesheet" href="style/index_style.css">
 	<link rel="icon"  type="image/png" href="Icon.png">
 	<title><?php echo($nombre);?></title>

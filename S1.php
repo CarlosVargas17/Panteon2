@@ -13,20 +13,68 @@
     $vista=$_GET['vista'];
     if ($vista=="ven"){
         $tip="Ventas";
+        $selected='Ventana de ventas';
     }
     else{
         $tip="Diseño";
+        $selected='Ventana de diseño';
     }
 
       $nombre="Seccion ".$id_s." Subseccion ".$id_ss." ".$tip;
+?>
+
+<?php
+require "Conector.php";
+$usuario = $_SESSION["User"];
+$stmt = $mysqli->query("SELECT * FROM usuarios WHERE User='$usuario' ");
+$stmt2 = $mysqli->query("SELECT * FROM ventanas WHERE ventana='$selected' ");
+$res = (mysqli_fetch_row($stmt));
+$res2 = (mysqli_fetch_row($stmt2));
+$accesoedit=$res2[1];
+if ($res[4]=='Administrador'){
+    if ($accesoedit=='Administrador'){
+        $acceder='Administrador';
+    }
+    else{
+    $acceder='Administrador/Usuario';
+}
+}
+else{
+	$acceder='Administrador/Usuario';
+}
+
+if ($res[5]=='No aprobado' or $usuario==''){
+    header("Location: denegado.php");
+  }
+
+else{
+if ($accesoedit!=$acceder){
+    header("Location: denegado2.php");
+    }
+}
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="icon"  type="image/png" href="Icon.png">
-	<title><?php echo($nombre);?></title>
-    
+    <title><?php echo($nombre);?></title>
+    <script>
+       if( screen.width < screen.height){
+           
+        document.write('<link rel="stylesheet" type="text/css" href="css/style3.css">');
+
+
+       }
+       else{
+        document.write('<link rel="stylesheet" type="text/css" href="css/style2.css">');
+
+
+       }
+    </script>
+       
+        
+
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="style/index_style.css">
@@ -320,7 +368,6 @@ if ($vista == 'ven'){
 }
 
 ?>
-
 
 <div id="id02" class="w3-modal">
     <div class="w3-modal-content">

@@ -1,10 +1,42 @@
 <?php
+require_once "Conector.php";
+session_start();
+$usuario = $_SESSION["User"];
+$stmt = $mysqli->query("SELECT * FROM usuarios WHERE User='$usuario' ");
+$stmt2 = $mysqli->query("SELECT * FROM ventanas WHERE ventana='Actualiza gobierno' ");
+$res = (mysqli_fetch_row($stmt));
+$res2 = (mysqli_fetch_row($stmt2));
+$accesoedit=$res2[1];
+if ($res[4]=='Administrador'){
+    if ($accesoedit=='Administrador'){
+        $acceder='Administrador';
+    }
+    else{
+    $acceder='Administrador/Usuario';
+}
+}
+else{
+	$acceder='Administrador/Usuario';
+}
+
+if ($res[5]=='No aprobado' or $usuario==''){
+  header("Location: denegado.php");
+}
+
+else{
+if ($accesoedit!=$acceder){
+  header("Location: denegado2.php");
+  }
+}
+?>
+
+<?php
 ob_start();
 ?>
 
 <?php 
 
-require_once "Conector.php";
+require "Conector.php";
 
 $consu="SELECT * FROM gobierno";
 $res=$mysqli -> query($consu);
@@ -13,7 +45,7 @@ $mostrar=mysqli_fetch_array($res);
 
 if (empty($mostrar)){
    echo'ingreso';
-   session_start();
+
    $insert_start="INSERT INTO gobierno (id, municipio, presidente, nombre_logo, imagen,estado) VALUES(1,'Municipio','Presidente','defecto.png','pass','Estado')";
    $res_insert=$mysqli -> query($insert_start);
    echo"<div class='logoPos'><img src='"."img/".$mostrar["nombre_logo"]."'width='480' height='350'></div>";
@@ -80,7 +112,7 @@ else{
 
   <!-- Aqui empieza la notificación -->
                 <?php 
-                session_start();
+                
                 if (isset($_SESSION['update']) and $_SESSION['update']!="") {
                     if ($_SESSION['update']=='success'){
                         echo '<script>
@@ -170,7 +202,7 @@ if(isset($_POST['update_datos']))
   
 //=========================se valida que solo ingrese nombre========================
     if ($name_img=="" and $nombre!="" and $municipio==""){//here is if
-     session_start();
+     
         $query="UPDATE gobierno set presidente='$nombre' WHERE 1";
         $result=$mysqli -> query($query);
         if(!$result){
@@ -195,7 +227,7 @@ if(isset($_POST['update_datos']))
    
 //==========================se valida que solo ingrese imagen====================
    elseif($name_img!="" and $nombre=="" and $municipio==""){
-    session_start();
+    
      if (in_array($type_img,$permitidos)&& $limite_kb>=$size_img){
       
         $archivo=$_FILES['logo']['tmp_name'];
@@ -225,7 +257,7 @@ if(isset($_POST['update_datos']))
     }
 //===================valida solo ingreso de municipio==========================================
 elseif($name_img=="" and $nombre=="" and $municipio!=""){
-        session_start();
+        
         $query="UPDATE gobierno set municipio='$municipio' WHERE 1";
         $result=$mysqli -> query($query);
         if(!$result){
@@ -248,7 +280,7 @@ elseif($name_img=="" and $nombre=="" and $municipio!=""){
    }
 //============valida ingreso de imagen y nombre ==============================================
 elseif($name_img!="" and $nombre!="" and $municipio==""){
-    session_start();
+    
      if (in_array($type_img,$permitidos)&& $limite_kb>=$size_img){
         $archivo=$_FILES['logo']['tmp_name'];//contiene el archivo como tal
         $ruta='img';
@@ -281,7 +313,7 @@ elseif($name_img!="" and $nombre!="" and $municipio==""){
    }
 ///=========================valida ingreso de imagen y municipio==============
 elseif($name_img!="" and $nombre=="" and $municipio!=""){
-    session_start();
+   
      if (in_array($type_img,$permitidos)&& $limite_kb>=$size_img){
         $archivo=$_FILES['logo']['tmp_name'];//contiene el archivo como tal
         $ruta='img';
@@ -314,7 +346,7 @@ elseif($name_img!="" and $nombre=="" and $municipio!=""){
    }
 //=========================ingreso municipio y presidente---------------------------------
 elseif($name_img=="" and $nombre!="" and $municipio!=""){
-    session_start();
+    
         $query="UPDATE gobierno set municipio='$municipio',presidente='$nombre' WHERE 1";
         $result=$mysqli -> query($query);
         if(!$result){
@@ -340,7 +372,7 @@ elseif($name_img=="" and $nombre!="" and $municipio!=""){
 //============================ingreso de imagen,nombre y municipio===================================================
 
    elseif($name_img!="" and $nombre!="" and $municipio!=""){
-    session_start();
+    
     if (in_array($type_img,$permitidos)&& $limite_kb>=$size_img){
         $archivo=$_FILES['logo']['tmp_name'];//contiene el archivo como tal
         $ruta='img';
