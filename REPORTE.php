@@ -458,7 +458,7 @@ $res_secc=$mysqli -> query($seccion);
 				      	?>
 				    </tbody>
 			</table>
-</div>
+
 </div>
 
 

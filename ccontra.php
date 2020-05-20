@@ -87,7 +87,7 @@ $res = (mysqli_fetch_row($stmt));
 
  <div class="container-all">
         <div class="container-form2">
-        <img class="iconos2" src="pictures/contrasena.png" >
+        
             <h1 class="title"> Cambio de contraseña </h1>
             <form action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>' method="post">
             <?php

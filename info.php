@@ -13,11 +13,10 @@ $res = (mysqli_fetch_row($stmt));
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
     <link rel="stylesheet" href="style/index_style.css">
     <script type="text/javascript" src="showpass.js"></script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,
-    maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon"  type="image/png" href="Icon.png">
     <title>Información</title>
@@ -91,9 +90,9 @@ $res = (mysqli_fetch_row($stmt));
     <br>
     
     <br>
-    <div class='logo-Fab2'><img src='pictures/header.png'width='970' height='75'></div>
+    <div class='logo-Fab2'><img src='pictures/header.png'></div>
     <div class='logo-Fab'><img src='pictures/fabrica.png'width='400' height='270'></div>
-    <div class='logo-Fab3'><img src='pictures/ref.png'width='500' height='50'></div>
+    <div class='logo-Fab3'><img src='pictures/ref.png'></div>
     <hr style="height: 2px;border: 0;color: #2860c1; background-color: #40c68d;">
     <div class="container-forminfo2" >
     <div class="listainfo" style="text-align:left;">

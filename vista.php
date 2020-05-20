@@ -117,8 +117,20 @@ function startTime() {
 	 <h1 class="vish1" >ELEGIR VISTA</h1>
     <div class="divdisenoimg" >
 		<div class="divdiseno" ></div>
-        <a title="Aquí podrás ubicar solamente tus tumbas y decoración" href='S1.php?id_s=<?php echo $id_s;?>&id_ss=<?php echo $id_ss;?>&vista=dis'
-		class='mybutton'>Diseño</a>
+		<script>
+       if( screen.width <'1280' || screen.height<'720'){
+           
+        document.write('<a title="Aquí podrás ubicar solamente tus tumbas y decoración" href="denegado3.php" class="mybutton">Diseño</a>');
+
+
+       }
+       else{
+        document.write('<a title="Aquí podrás ubicar solamente tus tumbas y decoración" href="S1.php?id_s=<?php echo $id_s;?>&id_ss=<?php echo $id_ss;?>&vista=dis" class="mybutton">Diseño</a>');
+
+
+       }
+    </script>
+        
 	</div>
 
 

@@ -85,7 +85,7 @@ $res = (mysqli_fetch_row($stmt));
             <li></li>
 			<div class="container-all">
                 <div class="container-form2">
-                <img type="submit" class="iconos2" src="pictures/usuario.png" >
+
                     <h1 class="title"> Actualizar cuenta </h1>
                     <form action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>' method="post">
                     <?php

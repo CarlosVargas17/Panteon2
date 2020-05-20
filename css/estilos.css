@@ -926,8 +926,8 @@ font-style:Verdana;
 
 .logo-Fab{
         position: absolute;
-        margin-left:500px;
-        margin-top: 10px;
+        left: 47%;
+        top: 20%;
         
     }
 .logo-Fab2{
@@ -935,12 +935,21 @@ font-style:Verdana;
         margin-left:0px;
         margin-top: -85px;
     }
+.logo-Fab2 img{
+    width: 98%;
+    height: 75px;
+}
 
 .logo-Fab3{
+        
         position: absolute;
-        margin-left:470px;
-        margin-top: 335px;
+        left: 45%;
+top: 85%;
     }
+.logo-Fab3 img{
+    width:90%;
+         height: 50px;
+}
 
 .listainfo ul li.al2{
 
@@ -953,4 +962,3 @@ font-style:Verdana;
         
     
     }
-   
