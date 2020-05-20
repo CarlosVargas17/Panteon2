@@ -43,24 +43,14 @@ $res=$mysqli -> query($consu);
 $mostrar=mysqli_fetch_array($res);
 
 
-if (empty($mostrar)){
-   echo'ingreso';
 
-   $insert_start="INSERT INTO gobierno (id, municipio, presidente, nombre_logo, imagen,estado) VALUES(1,'Municipio','Presidente','defecto.png','pass','Estado')";
-   $res_insert=$mysqli -> query($insert_start);
-   echo"<div class='logoPos'><img src='"."img/".$mostrar["nombre_logo"]."'width='480' height='350'></div>";
-   header('Location: UpdateGobierno.php');
-}
-else{
-  echo"<div class='logoPos'><img src='"."img/".$mostrar["nombre_logo"]."'width='480' height='350'></div>";
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     
     <meta charset="UTF-8">
-    
+    <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="style/index_style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="md/bootstrap.min.css">
@@ -144,8 +134,22 @@ else{
 
 
 
-    <div class="container">
-        <form action="" method='POST' class="datos" enctype='multipart/form-data'>
+    <div class="containergob" style="position: absolute;top: 100px;width: 100%;height: 66%;">
+      <?php
+      if (empty($mostrar)){
+        echo'ingreso';
+     
+        $insert_start="INSERT INTO gobierno (id, municipio, presidente, nombre_logo, imagen,estado) VALUES(1,'Municipio','Presidente','defecto.png','pass','Estado')";
+        $res_insert=$mysqli -> query($insert_start);
+        echo"<div class='logoPos'><img src='"."img/".$mostrar["nombre_logo"]."></div>";
+        header('Location: UpdateGobierno.php');
+     }
+     else{
+       echo"<div class='logoPos'><img src='"."img/".$mostrar["nombre_logo"]."'></div>";
+     }
+      
+      ?>
+        <form action="" method='POST' enctype='multipart/form-data' style="background-color: white;position: absolute !important ;left: 10px !important;border: 2px solid rgb(25, 16, 54);padding: 17px;width: 50%;border-radius: .25rem;" >
         <center><h4 class='Gobh4'>Información del gobierno.</h4></center>
         <br>
           <div class="form-group">

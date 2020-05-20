@@ -87,17 +87,14 @@ html, body {
     font-size: 15px;
     line-height: 1.5;
 }
-.w3-modal-content {
-    width: 500px;
-}
+
 .w3-modal-content {
     margin: auto;
-    background-color: 
-    #fff;
+    background-color: rgb(255, 255, 255);
     position: relative;
     padding: 0;
     outline: 0;
-    width: 650px;
+    width: 50%;
     height: 550px;
 }
 
@@ -106,16 +103,18 @@ html, body {
     position: absolute;
     top: 50px;
     left: 20px;
-    width: 130px
+    width: 27%;
 }
 .datcom{
 
     position: absolute;
     top: 60px;
     left: 250px;
-    width: 550px;
+    width: 80%;
 }
-
+#la_def{
+    line-height: 5px;
+}
 .btnvent{
 
     position: absolute;
@@ -203,7 +202,7 @@ border-color: lightgray;
     margin: 5px;
     padding: var(--inputPaddingV) var(--inputPaddingH);
     color: inherit;
-    
+    width: 25%;
     font-family: inherit;
     font-weight: inherit;
     

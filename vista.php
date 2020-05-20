@@ -140,9 +140,9 @@ function startTime() {
         class='mybutton2'>Ventas</a>
 	</div>
 
-	<div class="arbol"></div>
+
 	<div class="jouse"></div>
-	<div class="angel"></div>
+
 
 	<div class="tu1" style="right: 116px;bottom: 95px;"></div>
 	<div class="tu1" style="right: 196px;bottom: 1px;"></div>
