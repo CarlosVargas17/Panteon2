@@ -42,13 +42,7 @@ if (isset($_POST['guarda_dif'])){
     $numero = $_POST['numero'];
     $num_recibo = $_POST['num_recibo'];
 
-    $query2 = "SELECT * FROM difuntos WHERE ubicacion='$ubicacion'";
-    
-    $resul=mysqli_query($mysqli, $query2);
    
-    $row = mysqli_fetch_assoc($resul);
-    
-    $id_difunto = $row['id'];
 
     $query3 = "SELECT * FROM gobierno";
     $result3 = mysqli_query($mysqli, $query3);
@@ -58,7 +52,7 @@ if (isset($_POST['guarda_dif'])){
     
     $usuario = $_SESSION["User"];
 
-    $consulta = "INSERT INTO ventas(nombre_c,ape_pa,ape_ma,fecha,referencia,id_difunto,usuario,presidente, calle, numero, colonia, num_recibo) VALUES ('$nombre_c','$ape_pa_c','$ape_ma_c',CURDATE(),'$referencia','$id_difunto','$usuario','$presidente','$calle','$numero','$colonia','$num_recibo')";
+    $consulta = "INSERT INTO ventas(nombre_c,ape_pa,ape_ma,fecha,referencia,ubicacion,usuario,presidente, calle, numero, colonia, num_recibo) VALUES ('$nombre_c','$ape_pa_c','$ape_ma_c',CURDATE(),'$referencia','$ubicacion','$usuario','$presidente','$calle','$numero','$colonia','$num_recibo')";
     $res2=mysqli_query($mysqli, $consulta);
 
     //Cambie este if

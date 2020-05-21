@@ -102,10 +102,10 @@ $res = (mysqli_fetch_row($stmt));
                     }
                     ?>
                     <Label for="">Actualizar Nombre de Usuario (ID)</Label>
-                    <input type="text" name="nomb" required>
+                    <input type="text" name="nomb" placeholder="ID de usuario" required>
         
-                    <Label for="">Actualizar Nombre</Label>
-                    <input type="text" name="nombc" required>
+                    <Label for="">Actualizar correo</Label>
+                    <input placeholder="correo@dominio.com" type="email" name="nombc" required>
                         
                         
 

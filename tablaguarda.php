@@ -19,7 +19,7 @@ require_once "Conector.php";
         <thead class="thead-dark">
             <tr>
                 <th>User</th>
-                <th>Nombre</th>
+                <th>Correo</th>
                 <th>Rol</th>
                 <th>Estado</th>
                 <th style="width:15%;">Acción</th>

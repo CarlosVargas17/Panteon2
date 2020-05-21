@@ -382,21 +382,18 @@ a.texto2{
 /*-----------------------------------------------*/
 .seccionescss{
 
-	width: 100%;
-    padding: 50px;
-    background: transparent;
+	width: 85%;
+	background: transparent;
 	opacity: 0.97;
-	top: 110px;
-	position: relative;
+	top: 200px;
+	position: absolute;
 	border-color: white;
 	height: 200px;
-	left: 10px;
+	left: 2.5%;
 }
 
 
 #añade{
-	top: -20px;
-	
 	position: relative;
 	border-color: white;
 	left: 40%;
@@ -463,15 +460,15 @@ a.texto2{
 }
 
 .inferior{
-
-	width: 100%;
-    background: transparent;
-	opacity: 0.97;
-	top: -280px;;
-	position: relative;
-	border-color: white;
-	height: 15px;
-	z-index: 0;
+	width: 90%;
+background: transparent;
+opacity: 0.97;
+position: absolute;
+border-color: white;
+height: 68px;
+z-index: 0;
+top: 90px;
+left: 2.5%;
 	
 }
 
@@ -481,12 +478,9 @@ a.texto2{
 	font-family: 'Catamaran', sans-serif;
 	font-weight: 600;
 	line-height: 20%;
-	font-size: 52px;
+	font-size: 250%;
 	left: 30%;
 	filter: drop-shadow(0px 3px 0px #444);
-	position: absolute;
-	top: 20px;
-	
 
 
 }

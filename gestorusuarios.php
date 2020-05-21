@@ -106,7 +106,7 @@ $res = (mysqli_fetch_row($stmt));
 
 
 <?php
-      session_start();
+      
       $usuario = $_SESSION["User"];
       $stmt = $mysqli->query("SELECT * FROM usuarios WHERE User='$usuario' ");
       $res = (mysqli_fetch_row($stmt));
@@ -161,8 +161,8 @@ $res = (mysqli_fetch_row($stmt));
       <div class="modal-body">
         <label>User</label>
         <input type="text" name="" id="user" class="form-control input-sm" style="width: 90%; height:20px;">
-        <label>Nombre</label>
-        <input type="text" name="" id="nombre" class="form-control input-sm" style="width: 90%; height:20px;">
+        <label>Correo</label>
+        <input type="email" name="" id="nombre" class="form-control input-sm" style="width: 90%; height:20px;">
         <label>Rol</label>
         <select class="browser-default custom-select" name="" id="rol" style="width: 90%; height:20px;" >
                 <option value="Administrador">Administrador</option>
@@ -189,22 +189,22 @@ $res = (mysqli_fetch_row($stmt));
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel" style="position: absolute">Agregar usuario</h4>
+        <h4 class="modal-title" id="myModalLabel" style="position: absolute; color: black; font-family: roboto;">Agregar usuario</h4>
       </div>
       <div class="modal-body">
         <label style="margin-top: 10px !important;">User</label>
-        <input type="text" name="" id="usern" class="form-control input-sm" style="width: 90%; height:20px;">
-        <label style="margin-top: 10px !important;">Nombre</label>
-        <input type="text" name="" id="nombren" class="form-control input-sm" style="width: 90%; height:20px;">
+        <input required placeholder="User ID" type="text" name="" id="usern" class="form-control input-sm" style="width: 90%; height:20px;">
+        <label style="margin-top: 10px !important;">Correo</label>
+        <input required  placeholder="Correo@dominio.com" type="email" name="" id="nombren" class="form-control input-sm" style="width: 90%; height:20px;">
         <label style="margin-top: 10px !important;">Contraseña</label>
-        <input type="text" name="" id="password" class="form-control input-sm" style="width: 90%; height:20px;">
+        <input required placeholder="Contraseña" minlength="8" type="text" name="" id="password" class="form-control input-sm" style="width: 90%; height:20px;">
         <label style="margin-top: 10px !important;">Rol</label>
-        <select class="browser-default custom-select" name="" id="roln" style="width: 90%; height:20px;" >
+        <select required class="browser-default custom-select" name="" id="roln" style="width: 90%; height:20px;" >
                 <option value="Usuario">Usuario</option>
                 <option value="Administrador">Administrador</option>
         </select>
         <label style="margin-top: 10px !important;">Estado</label>
-        <select class="browser-default custom-select" name="" id="estadon" style="width: 90%; height:20px;">
+        <select required class="browser-default custom-select" name="" id="estadon" style="width: 90%; height:20px;">
                 <option value="Aprobado">Aprobado</option>
                 <option value="No aprobado">No aprobado</option>
         </select>
@@ -243,3 +243,48 @@ $res = (mysqli_fetch_row($stmt));
 
     
 </script>
+
+<style>
+
+input:valid{
+  border-width: 1px;
+  border-style: solid;
+  border-color: green;
+}
+input:invalid {
+  border-width: 1px;
+  border-style: solid;
+  border-color: red;
+}
+
+select:valid{
+  border-width: 1px;
+  border-style: solid;
+  border-color: green;
+}
+select:invalid {
+  border-width: 1px;
+  border-style: solid;
+  border-color: red;
+}
+modal-body{
+  color: black;
+  font-family: roboto;
+}
+select{
+  color: black;
+font-family: roboto;
+font-weight: 400;
+font-style: normal;
+}
+input::placeholder{
+  font-weight: 400;
+font-style: italic;
+}
+label{
+  color: black;
+font-family: roboto;
+font-weight: 400;
+font-style: normal;
+}
+</style>

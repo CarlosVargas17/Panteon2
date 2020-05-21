@@ -93,8 +93,9 @@ require_once "Conector.php";
 
             </form>
             </div>
-            <span class="text-footer">¿No te has registrado?
-                                        <a href="Registro.php">Registrate</a>
+            <span class="text-footer">¿No te has registrado?<a href="Registro.php">Registrate</a>
+            </span>
+            <span class="text-footer" style="top: 76%;">¿Olvidaste tu contraseña?<a href="Recovery.php" style="color: red;">Recuperar</a>
             </span>
         </div>
         

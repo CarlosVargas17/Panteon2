@@ -71,8 +71,8 @@ $mostrar=mysqli_fetch_array($res);
             <div class="formpost2">
             <form method="post"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             
-                <Label for="">Nombre</Label>
-                <input type="text" name="username">
+                <Label for="">Correo</Label>
+                <input type="email" name="username">
                 <span class="msg-error">
                 <?php echo $username_err;?>
                 </span>
