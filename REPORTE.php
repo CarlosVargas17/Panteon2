@@ -30,6 +30,7 @@ if ($accesoedit!=$acceder){
 }
 ?>
 
+
 <?php
 require "Conector.php";
 ?> 
@@ -57,10 +58,13 @@ $res_secc=$mysqli -> query($seccion);
 	<meta charset="UTF-8">
   <link rel="icon"  type="image/png" href="Icon.png">
 	<title>Reportes</title>
+  <link rel="stylesheet" href="css/style2.css">
 	<link rel="stylesheet" href="style/index_style.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/report.css">
 	<link rel="stylesheet" href="md/bootstrap.min.css">
-	<script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    
   <link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style/index_style.css">
@@ -122,41 +126,43 @@ $res_secc=$mysqli -> query($seccion);
 		
 </header>
 
+<div class="centrado" style="text-align: center;font-size:1px"><p>Reportes</p></div>
+        <div>
+         
+                  <form method="GET" >
+				<!-- RANGO DE FECHAS A BUSCAR Y EXPORTAR -->
+						<label style="font-weight: normal; font-family: Arial;position: absolute;margin-top:16%;left: 3%;color:#fff">Desde: <input style='' class="formControlReport" type="date" id="bd-desde" name="Desde" max="<?php $hoy=date("Y-m-d"); $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>" onchange="fecha_n()"/></label>
+						<label style="font-weight: normal;font-family: Arial;position: absolute;margin-top:16%;left:20%;color:#fff;">Hasta: <input style='' class="formControlReport" type="date" id="bd-hasta" name="Hasta"  max="<?php $hoy=date("Y-m-d"); $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>"  onchange="fecha_d()"/></label>
+                        
+                        <input name="buscar" id="rango_fecha" class="btn btn-sm btn-primary" type="submit" value='Buscar' style="position:absolute;margin-top:18%;left:68%;font-family: Arial;">
+						   <!-- BOTON PARA EXPORTAR EL RANGO DE FECHAS -->
+						<input name='report' id='reporte' type="submit" value="Exportar PDF" class=" btn btn-sm btn-danger" style="position: absolute;margin-top:18%;left:76%;font-family: Arial;">
+                        <input name='todo' type="submit" value="Mostrar todo" class=" btn btn-sm btn-success" style="position: absolute;margin-top:18%;left:87%;font-family: Arial;">
+                        
+                        <!---SELECT PARA SELECCIONAR SECCIONES-->
+                       
+                        
+                        <label style="font-weight: normal; font-family: Arial;position: absolute;margin-top:16%;left:37%;color:#fff;">Secciones:
+                              <select class="formControlSelect"  name="cbx_seccion" id="cbx_seccion"  style="">
+                               <option value="0">Sección</option>
+                               <?php while($row=$res_secc->fetch_assoc()){?>
+                               <option value="<?php echo $row['id'];?>"><?php echo $row['nombre'];?>
+                               </option>
+                               <?php } ?> 
+                               </select> 
+                        </label>
+                        <label style="font-weight: normal; font-family: Arial;position: absolute;margin-top:16%;left:50%;color:#fff;">Subsecciones:
+                                <!---SELECT PARA SELECCIONAR SUBSECCIONES-->
+                                <select  onchange="valida()" class="formControlSelect2" id="cbx_subseccion" name="cbx_subseccion"  style="">   
+                               </select>
+                        </label>
+                       
+                        <!--<input name="buscar2"  class="btn btn-sm btn-primary" type="submit" value='Buscar' style="position:absolute;left:1075px;top:70px;font-family: Arial;">--> 
+                  </form>
+               
 
-<div class="centrado" style="text-align: center;margin-top:10px;font-size:1px"><p>Reportes</p></div>
-<div class="container" style="margin-top:140px" >
-
-          <div class="col-sm-12">
-						<div id="datatable_length">
-						  <form method="GET" >
-							<!-- RANGO DE FECHAS A BUSCAR Y EXPORTAR -->
-							<label style="font-weight: normal; font-family: Arial;position: absolute;left: 15px;color:#fff;">Desde: <input class="formControlReport" type="date" id="bd-desde" name="Desde" max="<?php $hoy=date("Y-m-d"); $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>" onchange="fecha_n()"/></label>
-							<label style="font-weight: normal;font-family: Arial;position: absolute;left: 190px;color:#fff;">Hasta: <input class="formControlReport" type="date" id="bd-hasta" name="Hasta"  max="<?php $hoy=date("Y-m-d"); $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>"  onchange="fecha_d()"/></label>
-							<input name="buscar" id="rango_fecha" class="btn btn-sm btn-primary" type="submit" value='Buscar' style="position:absolute;left:660px;top:70px;font-family: Arial;">
-							<!-- BOTON PARA EXPORTAR EL RANGO DE FECHAS -->
-							<input name='report' id='reporte' type="submit" value="Exportar PDF" class=" btn btn-sm btn-danger" style="position: absolute;top: 70px;left:725px;font-family: Arial;">
-                            <input name='todo' type="submit" value="Mostrar todo" class=" btn btn-sm btn-success" style="position: absolute;top: 70px;left:830px;font-family: Arial;">
-                            <!---SELECT PARA SELECCIONAR SECCIONES-->
-                            <label style="font-weight: normal; font-family: Arial;position: absolute;margin-left:348px;color:#fff;">Secciones:</label>
-                            <label style="font-weight: normal; font-family: Arial;position: absolute;margin-left:480px;color:#fff;">Subsecciones:</label>
-
-                            <select class="formControlSelect"  name="cbx_seccion" id="cbx_seccion"  style="position:absolute;margin-left:350px;margin-top:5.1%;font-family: Arial;">
-                                 <option value="0">Sección</option>
-                                 <?php while($row=$res_secc->fetch_assoc()){?>
-                                 <option value="<?php echo $row['id'];?>"><?php echo $row['nombre'];?>
-                                 </option>
-                                 <?php } ?>
-                            </select>
-                            <!---SELECT PARA SELECCIONAR SUBSECCIONES-->
-                            <select  onchange="valida()" class="formControlSelect2" id="cbx_subseccion" name="cbx_subseccion"  style="position:absolute;margin-left:477px;margin-top:5.1%;font-family: Arial;">   
-                            </select>
-                            <!--<input name="buscar2"  class="btn btn-sm btn-primary" type="submit" value='Buscar' style="position:absolute;left:1075px;top:70px;font-family: Arial;">-->
-                         </form>
-  </div>
-</div>
-		
-
-			<table class="table table-striped table-fixed" style="top: 260px;position: absolute;left: 83px;">
+                
+                <table class="table table-striped table-fixed" style="position: absolute;margin-top:24%;left:3%;">
 					<thead class="thead-light">
 					   <tr width="680px">
 						   <th scope="col" width="50px" style="font-family: Arial;" >N°</th>
@@ -457,14 +463,9 @@ $res_secc=$mysqli -> query($seccion);
                      
 				      	?>
 				    </tbody>
-			</table>
-
-</div>
-
-
-
-
-</body>
+                </table>
+        </div>
+    </body>
 </html>
 <script>
         
@@ -521,3 +522,47 @@ $res_secc=$mysqli -> query($seccion);
 <?php
 ob_end_flush();
 ?>
+
+<style>
+
+.table-fixed tbody{
+    top:20%;
+	width:1260px; 
+    height:200px;
+	overflow-y:auto;
+   
+
+}
+
+.formControlSelect{
+	display: block;
+	width: 100%;
+	height: calc(1.5em + .22rem + 0px);
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #495057;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-radius: .25rem;
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.formControlSelect2{
+
+	display: block;
+	width: 125%;
+	height: calc(1.5em + .22rem + 0px);
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #495057;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-radius: .25rem;
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;}
+
+</style>

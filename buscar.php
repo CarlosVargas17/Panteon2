@@ -57,10 +57,10 @@
                     <td>".$fila['fecha_def']."</td>
                     <td>".$fila['ubicacion']."</td>
                     <td>
-                    <a class='btn btn-primary' id='boton' onclick='abre(this)'>
+                    <a class='btn btn-primary' id='boton' onclick='abre(this)' alt='Editar registro'>
                         <i class='fas fa-marker'></i>
                     </a>
-                    <a href='elimina_dif.php?id=".$fila['id']."' class='btn btn-danger'>
+                    <a onclick='elimina(this)' class='btn btn-danger' alt='Elminar registro'>
                         <i class='fas fa-trash-alt'></i>
                     </a>
                     </td>
@@ -70,6 +70,7 @@
             }
             $salida.="</tbody></table>";
         }else{
+            $i=0;
             $salida.="<table class='table table-striped table-bordered table-hover'>
             <thead class='thead-dark'>
                 <tr>
@@ -90,9 +91,6 @@
             </thead>
             <tbbody>";
             while($fila = $resultado->fetch_assoc()){
-                $con="SELECT * FROM difuntos WHERE id=".$fila['id_difunto'];
-                $res=$mysqli->query($con);
-                $fila2=$res->fetch_assoc();
                 $salida.="<tr>
                             <td>".$fila['id']."</td>
                             <td>".$fila['nombre_c']."</td>
@@ -105,16 +103,17 @@
                             <td>".$fila['num_recibo']."</td>
                             <td>".$fila['usuario']."</td>
                             <td>".$fila['presidente']."</td>
-                            <td>".$fila2['ubicacion']."</td>
+                            <td>".$fila['ubicacion']."</td>
                             <td>
-                            <a class='btn btn-primary' id='boton' onclick='abre2(this)'>
+                            <a class='btn btn-primary' id='boton' onclick='abre2(this)' alt='Editar registro'>
                                 <i class='fas fa-marker'></i>
                             </a>
-                            <a href='elimina_dif.php?id=".$fila2['id']."' class='btn btn-danger'>
+                            <a onclick='elimina(this)' class='btn btn-danger' alt='Eliminar registro'>
                                 <i class='fas fa-trash-alt'></i>
                             </a>
                             </td>
                         </tr>";
+                echo "<input type='hidden' id='".$fila['id']."' name='".$fila['id']."' value='".$fila['referencia']."' >";
             
             }
             $salida.="</tbody></table>";
@@ -124,7 +123,7 @@
     }
     echo $salida;
     for($i=1;$i<=$tot_pages;$i++){
-        echo "<a href='busqueda.php?page=".$i."&table=".$t."' class='btn btn-success'>$i</>";
+        echo "<a href='busqueda.php?page=$i&table=$t&orden=$o' class='btn btn-success'>$i</>";
     }
     $mysqli->close();
 

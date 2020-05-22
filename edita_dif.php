@@ -21,9 +21,14 @@ $referencia = $_POST['referencia'];
 $estado = $_POST['estado'];
 
 
-$query = "UPDATE difuntos 
-SET nombre='$nombre', ape_pa='$ape_pa', ape_ma='$ape_ma', fecha_nac='$fecha_nac', fecha_def='$fecha_def',
-ubicacion='$ubicacion' WHERE id=$id";
+if($id!="nuevo"){
+    $query = "UPDATE difuntos 
+        SET nombre='$nombre', ape_pa='$ape_pa', ape_ma='$ape_ma', fecha_nac='$fecha_nac', fecha_def='$fecha_def',
+        ubicacion='$ubicacion' WHERE id=$id";
+}else{
+    $query = "INSERT INTO difuntos(nombre,ape_pa,ape_ma,fecha_nac,fecha_def,ubicacion) 
+    VALUES ('$nombre','$ape_pa','$ape_ma','$fecha_nac','$fecha_def','$ubicacion')";
+}
 echo $query;
 if($nombre!="" and $ape_pa!="" and $ape_ma!="" and $fecha_nac!="" and $fecha_def!=""){
     $res=$mysqli->query($query);
@@ -47,12 +52,14 @@ if (!$res){
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 
-$query="UPDATE fosas SET estado='$estado' WHERE ubicacion='$ubicacion'";
-$res=$mysqli->query($query);
-if (!$res){
-    $mysqli->rollback();
-    $_SESSION['message']='error';
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+if(isset($_POST['estado']) and $_POST['estado']!=""){
+    $query="UPDATE fosas SET estado='$estado' WHERE ubicacion='$ubicacion'";
+    $res=$mysqli->query($query);
+    if (!$res){
+        $mysqli->rollback();
+        $_SESSION['message']='error';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
 }
 
 $mysqli->commit();

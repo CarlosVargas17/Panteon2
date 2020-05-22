@@ -2,7 +2,9 @@ var num_pp=document.getElementById('num_pp').value;
 var start=document.getElementById('start').value;
 var tabla = document.getElementById("tabla");
 var strta = tabla.options[tabla.selectedIndex].value;
-$(buscar_d('','','id',strta,num_pp,start));
+var orden = document.getElementById("orden");
+var stror = orden.options[orden.selectedIndex].value;
+$(buscar_d('','',stror,strta,num_pp,start));
 
 function buscar_d(consulta, filtro1, orden, tabla, num_pp, start){
     $.ajax({
@@ -58,11 +60,12 @@ $(document).change('#orden', function(){
     var strsel = e.options[e.selectedIndex].value;
     var ord = document.getElementById("orden");
     var stror = ord.options[ord.selectedIndex].value;
-    var valor = document.getElementById("caja_busqueda").value
+    var valor = document.getElementById("caja_busqueda").value;
     var tabla = document.getElementById("tabla");
     var strta = tabla.options[tabla.selectedIndex].value;
     var num_pp=document.getElementById('num_pp').value;
     var start=document.getElementById('start').value;
+    console.log("Aqui cambia orden");
     if(valor != ""){
         buscar_d(valor,strsel,stror,strta,num_pp,start);
     }else{
@@ -70,7 +73,8 @@ $(document).change('#orden', function(){
     }
 });
 
-$(document).change('#tabla', function(){
+function cambia_tabla(){
+    actualiza();
     var e = document.getElementById("filtro1");
     var strsel = e.options[e.selectedIndex].value;
     var ord = document.getElementById("orden");
@@ -84,4 +88,4 @@ $(document).change('#tabla', function(){
     }else{
         buscar_d('','',stror,strta,5,0);
     }
-});
+}

@@ -140,7 +140,9 @@ if ($vista == 'ven'){
         <div class="w3-modal-content">
         <div class="w3-container">
             <span onclick="document.getElementById('id01').style.display='none'" style="font-size: 20px; text-align:right;" class="w3-display-topright btncanc"><a>Cancelar</a></span>
-            <div style="text-align: center; font-size:20px; margin-top:50px">
+            <div style="text-align: center; font-size:20px; margin-top:5%">
+                <select name="num_d" id="num_d" onchange="cambia_d()" style="width: 20%; font-size:20px">
+                </select>
                 <p>Ubicación:                  <a id="modal_ubicacion"></a></p>
                 <p>Nombre:                     <a id="modal_name"></a></p>
                 <p>Apellido paterno:           <a id="modal_ape_pa"></a></p>
@@ -149,12 +151,43 @@ if ($vista == 'ven'){
                 <p>Fecha de defunción:         <a id="modal_fecha_def"></a></p>
                 <br>
                 <a href="#" id="boton_r" class="b_recibo"><p>Imprimir recibo</p></a>
+                <a onclick="abremodal3()" style="position:absolute;top:75%;left:30%" id="boton2" class="b_modal"><p>Agregar Difunto</p></a>
             </div>
             
         </div>
         </div>
 </div>
+<style>
+    .b_modal {
+        position: absolute;
+        top: 460px;
+        width: 46%;
+        height: 50px;
+        color: white;
+        border: 0px;
+        background: linear-gradient(90grad, #0061a7,#007dc1 );
+        font-weight: 300;
+        cursor: pointer;
+        font-size: 22px;
+        top:480px;
+        left:20px;
+    }
+    .b_modal p{
 
+        position: absolute;
+        top: -14px;
+        left: 24%;
+    }
+    .b_modal:hover {
+    	background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+    	background-color:#0061a7;
+    }
+    .b_modal:active {
+    	position:relative;
+    	top:1px;
+    }
+
+</style>
 
 <?php
 }
@@ -369,6 +402,74 @@ if ($vista == 'ven'){
 
 ?>
 
+
+
+<div id="id03" class="w3-modal">
+    <div class="w3-modal-content">
+        <div class="w3-container">
+        <span onclick="document.getElementById('id03').style.display='none'"  class="w3-display-topright btncanc"><a>Cancelar</a></span>
+        <div class="container">
+            <div class="row">
+                <div class="col mx-auto">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <h3 style="font-size: 36px; margin-top: 5px; margin-left: 15%;" >Agrega difunto a la tumba</h3>
+                        </div>
+                        <div class="card-body">               
+                            <form action="guarda_dif2.php" method="POST" id="formulario_agrega">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4 mx-auto datdif" style="margin-left:35%;">
+                                            <h5>Datos del difunto</h5>
+
+                                            <input type="text" name="ubicacion2" class="form-control" 
+                                            style="margin-top:10px" id="ubi2" >
+                                            
+                                            <input type="hidden" name="ubicacion" class="form-control" 
+                                            placeholder="Ubicacion" style="margin-top:10px" id="ubicacion2" >
+                                            
+                                            
+
+                                            <input id="name2" type="text" name="nombre" class="form-control" 
+                                            placeholder="Nombre" autofocus required>
+
+                                            <input id="ape_p2" type="text" name="ape_pa" class="form-control" 
+                                            placeholder="Apellido paterno" style="margin-top:10px" required>
+
+                                            <input id="ape_m2" type="text" name="ape_ma" class="form-control" 
+                                            placeholder="Apellido materno" style="margin-top:10px" required>
+
+                                            <label id="la_nac2" for="fecha_nac" style="margin-top:10px">Fecha de nacimiento</label>
+                                            <input id="nac2" type="date" name="fecha_nac" class="form-control" max="<?php $hoy=date("Y-m-d"); 
+                                            $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>" onchange="fecha_n2()" required>
+                                            <label for="fecha_def" id="la_def2" style="margin-top:10px">Fecha de defunción</label>
+                                            <input type="date" name="fecha_def" class="form-control" id="def2"  max="<?php $hoy=date("Y-m-d"); 
+                                            $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>" onchange="fecha_d2()" required>
+                                            
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                    <input type="submit" class="btn btn-success btnvent" 
+                                    name="guarda_dif2" value="Guardar"  id="submit" style="margin-top:20px">
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
 <div id="id02" class="w3-modal">
     <div class="w3-modal-content">
         <div class="w3-container">
@@ -391,17 +492,17 @@ if ($vista == 'ven'){
                                             <input type="hidden" name="ubicacion" class="form-control" 
                                             placeholder="Ubicación" style="margin-top:10px" id="ubicacion" >
                                             <input id="name" type="text" name="nombre" class="form-control" 
-                                            placeholder="Nombre" autofocus >
+                                            placeholder="Nombre" autofocus required>
                                             <input id="ape_p" type="text" name="ape_pa" class="form-control" 
-                                            placeholder="Apellido paterno" style="margin-top:10px" >
+                                            placeholder="Apellido paterno" style="margin-top:10px" required>
                                             <input id="ape_m" type="text" name="ape_ma" class="form-control" 
-                                            placeholder="Apellido materno" style="margin-top:10px" >
+                                            placeholder="Apellido materno" style="margin-top:10px" required>
                                             <label id="la_nac" for="fecha_nac" style="margin-top:10px">Fecha de nacimiento</label>
                                             <input id="nac" type="date" name="fecha_nac" class="form-control" max="<?php $hoy=date("Y-m-d"); 
-                                            $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>" onchange="fecha_n()">
+                                            $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>" onchange="fecha_n()" required>
                                             <label for="fecha_def" id="la_def" style="margin-top:10px">Fecha de defunción</label>
                                             <input type="date" name="fecha_def" class="form-control" id="def"  max="<?php $hoy=date("Y-m-d"); 
-                                            $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>" onchange="fecha_d()">
+                                            $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>" onchange="fecha_d()" required>
                                             
 
                                             
@@ -462,6 +563,41 @@ function agregarEvento(id_s,id_ss,num){
     el.removeEventListener("mouseup", agregarEvento, false);
     el.addEventListener("click",()=>{
         informacionventas(id_s,id_ss,num)
+    })
+}
+
+function abremodal3(){
+    console.log("asdfas")
+    var modal=document.getElementById("id03")
+    var ubicacion1=document.getElementById("ubi2")
+    var ubicacion2=document.getElementById("ubicacion2")
+    ubicacion1.value=document.getElementById("modal_ubicacion").innerHTML
+    ubicacion2.value=document.getElementById("modal_ubicacion").innerHTML
+    ubicacion1.disabled=true
+    console.log(document.getElementById("modal_ubicacion").innerHTML)
+    modal.style.display="block"
+}
+
+function cambia_d(){
+    var ubicacion=document.getElementById("modal_ubicacion").innerHTML
+    var num = document.getElementById("num_d").value;
+    var name=document.getElementById("modal_name")
+    var ape_pa=document.getElementById("modal_ape_pa")
+    var ape_ma=document.getElementById("modal_ape_ma")
+    var fecha_nac=document.getElementById("modal_fecha_nac")
+    var fecha_def=document.getElementById("modal_fecha_def")
+    let form1= new FormData();
+    form1.append("num",num);
+    form1.append("fosa",ubicacion);
+    fetch('get_difuntos.php',{method:'POST', body:form1})
+    .then(res=>res.json())
+    .then(data=>{
+        var datos=data['datos_d'];
+        name.innerHTML=datos['nombre'];
+        ape_pa.innerHTML=datos['ape_pa'];
+        ape_ma.innerHTML=datos['ape_ma'];
+        fecha_nac.innerHTML=datos['fecha_nac']
+        fecha_def.innerHTML=datos['fecha_def']
     })
 }
 
@@ -642,6 +778,23 @@ fetch('cambios.php',{method:'POST',body:datos})
 
         var ubicacion2=document.getElementById("ubicacion")
         var ubicacion3=document.getElementById("ubi")
+
+        var sel_dif =document.getElementById("num_d");
+
+            let form1= new FormData();
+            form1.append("ubicacion",id);
+
+            fetch('get_difuntos.php',{method:'POST', body:form1})
+            .then(res=>res.json())
+            .then(data=>{
+                sel_dif.options.length = 0;
+                var datos1 = data['datos_d'];
+                var numero=datos1['COUNT(*)'];
+                var i=0;
+                for(i=1;i<=numero;i++){
+                    sel_dif.options[sel_dif.options.length] = new Option(i, i);
+                }
+            });
         
         
         console.log("Zenbu")
@@ -702,6 +855,12 @@ fetch('cambios.php',{method:'POST',body:datos})
                 document.getElementById("nac").style.visibility = "hidden";
                 document.getElementById("def").style.visibility = "hidden";
                 document.getElementById("la_def").style.visibility = "hidden";
+                document.getElementById("name").required=false;
+                document.getElementById("ape_p").required=false;
+                document.getElementById("ape_m").required=false;
+                document.getElementById("nac").required=false;
+                document.getElementById("def").required=false;
+                document.getElementById("def").required=false;
 
             }else{
                 document.getElementById("name").style.visibility = "visible";
@@ -712,6 +871,12 @@ fetch('cambios.php',{method:'POST',body:datos})
                 document.getElementById("def").style.visibility = "visible";
                 document.getElementById("def").style.visibility = "visible";
                 document.getElementById("la_def").style.visibility = "visible";
+                document.getElementById("name").required=true;
+                document.getElementById("ape_p").required=true;
+                document.getElementById("ape_m").required=true;
+                document.getElementById("nac").required=true;
+                document.getElementById("def").required=true;
+                document.getElementById("def").required=true;
             }
         }
         function check(e) {
@@ -766,6 +931,48 @@ fetch('cambios.php',{method:'POST',body:datos})
                 document.getElementById("nac").setAttribute("max", today);
             }else{
                 document.getElementById("nac").setAttribute("max", max);
+            }
+            
+        }
+        function fecha_n2(){
+            var min = document.getElementById("nac2").value;
+            if (min==""){
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                var yyyy = today.getFullYear();
+                 if(dd<10){
+                        dd='0'+dd
+                    } 
+                    if(mm<10){
+                        mm='0'+mm
+                    } 
+                
+                today = yyyy+'-'+mm+'-'+dd;
+                document.getElementById("def2").setAttribute("max", today);
+            }
+            document.getElementById("def2").setAttribute("min", min);
+            
+            
+        }
+        function fecha_d2(){
+            var max = document.getElementById("def2").value;
+            if (max==""){
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                var yyyy = today.getFullYear();
+                 if(dd<10){
+                        dd='0'+dd
+                    } 
+                    if(mm<10){
+                        mm='0'+mm
+                    } 
+                
+                today = yyyy+'-'+mm+'-'+dd;
+                document.getElementById("nac2").setAttribute("max", today);
+            }else{
+                document.getElementById("nac2").setAttribute("max", max);
             }
             
         }

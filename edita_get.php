@@ -9,7 +9,7 @@ if(isset($_POST["id"])){
     $t = $_POST["tabla"];
     if ($t=="difuntos"){
         $ubi = $_POST['ubi'];
-        $query="SELECT * FROM ventas WHERE id_difunto=$id";
+        $query="SELECT * FROM ventas WHERE ubicacion='$ubi'";
         $query2="SELECT estado FROM fosas WHERE ubicacion='$ubi'";
     }else{
         $query="SELECT * FROM difuntos WHERE ubicacion='$id'";

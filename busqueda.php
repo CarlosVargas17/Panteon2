@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="overflow:auto;background:white;">
+<html lang="en" style="overflow:hidden;background:white;">
 <head>
     <meta charset="UTF-8">
     <link rel="icon"  type="image/png" href="Icon.png">
@@ -12,6 +12,9 @@
     <script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
     <script src="md/bootstrap.min.js"></script>
     <script src="js/push.min.js"></script>
+    <link rel="stylesheet" href="css/alertify.min.css" />
+    <link rel="stylesheet" href="css/themes/default.min.css" />
+    <script src="alertify.min.js"></script>
 </head>
 <body style="background: white; overflow:auto;scrollbar-color: rgba(0, 0, 0, .5) rgba(0, 0, 0, 0);
     scrollbar-width: thin;text-align:center;width:100%;">
@@ -89,17 +92,17 @@
 
 <div id="modal1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content" style="left: 10%;position: fixed;width: 80%;">
+    <div class="modal-content modaloc" style="left: 10%;position: fixed;width: 80%; top:0%;overflow: hidden;">
       <div class="modal-header">
         <h4 class="modal-title">Editar registro</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" >
       <form action="edita_dif.php" method="POST" id="formulario_venta">
     <div class="form-group">
-        <div class="row" style="box-sizing: border-box !important;">
+        <div class="row">
             <div class="col-md-3 mx-auto">
                 <h5>Datos del difunto</h5>
                 <select name="num_d" id="num_d" class="form-control" onchange="cambia_d()">
@@ -208,7 +211,7 @@
                 <option value="ape_ma">Ape. Ma.</option>
                 <option value="ubicacion">Ubicación</option>
             </select>
-            <label style="margin-left: 50px" for="orden">Ordenar por:</label>
+            <label style="margin-left: 80px" for="orden">Ordenar por:</label>
             <select class="browser-default custom-select" name="orden" id="orden"
             style="width: 200px;">
                 <option value="id">ID</option>
@@ -217,7 +220,7 @@
                 <option value="ape_ma">Ape. Ma.</option>
                 <option value="ubicacion">Ubicación</option>
             </select>
-            <label style="margin-left: 50px" for="tabla">Buscar en:</label>
+            <label style="margin-left: 71px" for="tabla">Buscar en:</label>
             <select class="browser-default custom-select" name="tabla" id="tabla"
             style="width: 200px;" onchange="cambia_tabla()">
                 <option value="difuntos">Difuntos</option>
@@ -467,12 +470,25 @@
             form.append("id",id);
             form.append("ubicacion",ubicacion);
             form.append("tabla",tabla);
-            fetch('elimina_dif.php',{method:'POST',body:form})
-            .then(res=>res.json())
-            .then(data=>{
-                console.log(data);
+            if (tabla=='difuntos'){
+                var confirm= alertify.confirm('ELIMINAR','¿Está seguro que desea eliminar este difunto?',null,null).set('labels', {ok:'Eliminar', cancel:'Cancelar'});
+            }else{
+                var confirm= alertify.confirm('ELIMINAR','¿Está seguro que desea eliminar este difunto?\nSe eliminarán todos los difuntos ligados a esta venta',null,null).set('labels', {ok:'Eliminar', cancel:'Cancelar'});
+            }
+            confirm.set({transition:'slide'});
+            confirm.set('onok', function(){ //callbak al pulsar botón positivo
+                fetch('elimina_dif.php',{method:'POST',body:form})
+                .then(res=>res.json())
+                .then(data=>{
+                    console.log(data);
+                });
+                alertify.success('Se ha eliminado eliminado correctamente.');
+                setTimeout(recarga,3000);
             });
 
+        }
+        function recarga(){
+            location.reload();
         }
         function upt_es(){
             obj=document.getElementById("es");
