@@ -53,7 +53,12 @@ require "Conector.php";
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="style/index_style.css">
-	<link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/alertify.min.css" />
+ 
+    <link rel="stylesheet" href="css/themes/default.min.css" />
+    
+    <script src="alertify.min.js"></script>
 </head>
 <body>
 
@@ -117,12 +122,15 @@ require "Conector.php";
                 
                 $query = "SELECT * FROM subsecciones WHERE seccion = '$id' ORDER BY id+0";
                 $result = $mysqli->query($query);
+                $num=mysqli_num_rows($result);
+                $i=1;
                 if ($result->num_rows > 0){
                     while($row = $result->fetch_assoc()) {
                         $nombre = $row["nombre"];
                         $id2 = $row["id"];
                         echo "<a style='color: white;' class='btn btn-success' 
-                        href='vista.php?id_s=$id&id_ss=$id2' >$nombre</a>";
+                        href='vista.php?id_s=$id&id_ss=$id2' id='$i' name1='$id' name2='$id2'>$nombre</a>";
+                        $i++;
                     }
                 }
             ?>
@@ -136,9 +144,75 @@ require "Conector.php";
 <p>GESTOR DE SUBSECCIONES</p>
 
 </div>
+<div class="ubicass" >
+		<p>
+			Sección: <?php echo($id_s);?>
+		</p>
+		
 </div>
 
+<style>
 
+.ubicass{
+    position: absolute;
+    top: 75px;
+    right: 90px;
+    filter: drop-shadow(0px 3px 0px #444);
+
+}
+.ubicass p{
+    color: white;
+font-size: 170%;
+}
+</style>
+</div>
+
+<script src="plugins/CtxMenu-Javascript-master/ctxmenu/ctxmenu.js"></script>
+<script src="plugins/sweetAlert2/sweetalert2.all.min.js"></script>
+
+<script src="/jquery.min.js"></script>
+<script>
+    var num=<?php echo $num; ?>;
+    for(var i=1;i<=num;i++){
+        var id="#"+i;
+        var menusec = CtxMenu(id);
+        menusec.addItem("Eliminar sección",elimina,Icon = "imagenes/borrar.svg");
+    }
+    function elimina(element){
+        objeto=element.id;
+        sec=element.getAttribute("name1");
+        sub=element.getAttribute("name2");
+        var confirm= alertify.confirm('ELIMINAR','Confirmas eliminar este elemento?',null,null).set('labels',
+        {ok:'Eliminar', cancel:'No, conservalo'}); 	
+
+                        confirm.set({transition:'slide'});   	
+
+                        confirm.set('onok', function(){ //callbak al pulsar botón positivo
+                                eliminaok(objeto,sec,sub);
+
+
+                        });
+
+                        confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+                            alertify.error('Has manetenido este elemento');
+
+                        });
+    }
+    function eliminaok(objeto,sec,sub){
+        var ele=objeto;
+        var secc=sec;
+        var subs=sub;
+        
+        $(document).ready(function(){
+            $("#"+objeto).load('subsecciones_back.php',{ele:ele,sec:secc,sub:subs});
+
+    });
+}
+function recarga(){
+    location.reload();
+}
+
+</script>
     
 </body>
 </html>

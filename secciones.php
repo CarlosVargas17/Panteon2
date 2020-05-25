@@ -22,7 +22,7 @@ else{
 if ($res[5]=='No aprobado' or $usuario==''){
     header("Location: denegado.php");
   }
-
+ 
 else{
 if ($accesoedit!=$acceder){
     header("Location: denegado2.php");
@@ -44,11 +44,18 @@ require "Conector.php";
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="style/index_style.css">
-	<link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/alertify.min.css" />
+ 
+    <link rel="stylesheet" href="css/themes/default.min.css" />
+    
+    <script src="alertify.min.js"></script>
 
 
 </head>
 <body>
+
+
 
 
 <!--   AQUI COMIENZA EL MENÚ   -->
@@ -109,12 +116,15 @@ require "Conector.php";
                 $query = "SELECT * FROM secciones ORDER BY id+0";
                 $result = $mysqli->query($query);
                 $val="adios";
+                $num=mysqli_num_rows($result);
+                $i=1;
                 if ($result->num_rows > 0){
                     while($row = $result->fetch_assoc()) {
                         $nombre = $row["nombre"];
                         $id = $row["id"];
                         echo "<a style='color: white;' class='btn btn-success' 
-                        href='subsecciones.php?id=$id'>$nombre</a>";
+                        href='subsecciones.php?id=$id' id='$i' name1='$id'>$nombre</a>";
+                        $i=$i+1;
                     }
                 }  
             ?>
@@ -122,6 +132,8 @@ require "Conector.php";
             </div>
     
     </div>
+<script src="plugins/CtxMenu-Javascript-master/ctxmenu/ctxmenu.js"></script>
+<script src="plugins/sweetAlert2/sweetalert2.all.min.js"></script>
     
 
 
@@ -131,6 +143,48 @@ require "Conector.php";
 
 </div>
 </div>
+
+<script src="/jquery.min.js"></script>
+<script>
+    var num=<?php echo $num; ?>;
+    for(var i=1;i<=num;i++){
+        var id="#"+i;
+        var menusec = CtxMenu(id);
+        menusec.addItem("Eliminar sección",elimina,Icon = "imagenes/borrar.svg");
+    }
+    function elimina(element){
+        objeto=element.id;
+        ubicacion=element.getAttribute("name1");
+        var confirm= alertify.confirm('ELIMINAR','Confirmas eliminar este elemento?',null,null).set('labels', 
+        {ok:'Eliminar', cancel:'No, conservalo'}); 	
+
+                        confirm.set({transition:'slide'});   	
+
+                        confirm.set('onok', function(){ //callbak al pulsar botón positivo
+                                eliminaok(objeto,ubicacion);
+
+
+                        });
+
+                        confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+                            alertify.error('Has manetenido este elemento');
+
+                        });
+    }
+    function eliminaok(objeto,ubicacion){
+        var ele=objeto;
+        var ubicacion=ubicacion;
+        
+        $(document).ready(function(){
+            $("#"+objeto).load('secciones_back.php',{ele:ele,ubicacion:ubicacion});
+
+    });
+}
+function recarga(){
+    location.reload();
+}
+
+</script>
 
 </body>
 </html>

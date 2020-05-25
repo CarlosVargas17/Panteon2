@@ -63,11 +63,13 @@ if ($accesoedit!=$acceder){
        if( screen.width < screen.height){
            
         document.write('<link rel="stylesheet" type="text/css" href="css/style3.css">');
+        
 
 
        }
        else{
         document.write('<link rel="stylesheet" type="text/css" href="css/style2.css">');
+        document.write('<link rel="stylesheet" type="text/css" href="css/burbujas.css">');
 
 
        }
@@ -84,9 +86,7 @@ if ($accesoedit!=$acceder){
 <script src="js/modernizr-2.6.2.min.js"></script>
 <script src="js/push.min.js"></script>
 <link rel="stylesheet" href="css/alertify.min.css" />
- 
 <link rel="stylesheet" href="css/themes/default.min.css" />
- 
 <script src="alertify.min.js"></script>
 
 <script language="JavaScript">
@@ -193,6 +193,8 @@ if ($vista == 'ven'){
 <?php
 }
 
+
+$ub='vista.php?id_s='.$id_s.'&id_ss='.$id_ss;
 ?>
 
 <!--   AQUI COMIENZA EL MENÚ   -->
@@ -209,8 +211,8 @@ if ($vista == 'ven'){
 		</div>
 
 		<div class="contenedor" id="dos2">
-		<a href="javascript: history.go(-1)" class="texto"><img class="icon" 
-            src="pictures/back.png" > <p class="texto"  href="javascript: history.go(-1)" >Atrás</p> </a>
+		<a href="<?php echo($ub) ;?>" class="texto"><img class="icon" 
+            src="pictures/back.png" > <p class="texto"  href="<?php echo($ub) ;?>" >Atrás</p> </a>
             
 		</div>
 
@@ -310,6 +312,28 @@ if ($vista == 'ven'){
                 $_SESSION['message2']=''; } ?>
                 <!-- Aqui termina la notificación -->
 
+
+
+<section class="example2">
+        
+    <ul class="cuadrados">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+            
 
  <div class="paleta"></div>
 
@@ -425,13 +449,80 @@ if ($vista == 'ven'){
 
 
 <script>
-    document.getElementById('droppable').style.setProperty("top","15%");
+    document.getElementById('droppable').style.setProperty("top","14%");
 </script>
 
 <?php
 }
 
 ?>
+
+<style>
+
+
+.modal-contenido{
+  background-color:white;
+  width:29%;
+  padding: 10px 20px;
+  margin: 15% auto;
+  position: relative;
+  z-index:1050;
+  border-radius: 5px;
+}
+.modal{
+  background-color: rgba(0,0,0,.6);
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  opacity:0;
+  pointer-events:none;
+  transition: all 0.5s;
+  z-index:1049;
+}
+#miModal:target{
+  opacity:1;
+  pointer-events:auto;
+}
+
+
+</style>
+</ul>
+</section>
+
+<!-- Button trigger modal -->
+<button  style="z-index: 999; position: absolute;width: 2%;height: 3.5%;background: transparent;border-style: none;right: 2.5%;top: 130px;">
+<a href="#miModal"> 
+<img src="pictures/informacion.png" alt="" style="width:100%; height:100%;"></a> 
+</button>
+
+<!-- Modal -->
+
+
+<div id="miModal" class="modal">
+    <div class="modal-contenido">
+        <div style="background-color: #f2f2f2;width: 107%;height: 14%;float: none;margin-left: -14px;margin-top: -16px;">
+        
+        <h2 style="font-family: Arial;letter-spacing: 0.171em;margin-left: 15px;margin-top: 15px;" >Simbología</h2>
+        <p style="font-family: Arial;letter-spacing: 0.171em;font-weight: 700;margin-left: 13px;margin-top: -2px;">Sección: <?php echo($id_s);?> , subsección: <?php echo($id_ss);?></p>
+        <button type="button" style="position: absolute;top: 1%;right: 2%;background-color: transparent;border-style: none; font-weight: 900;">
+            <a href="#" style="font-size: 200%; color: red;" > &times;
+            </a>
+          
+        </button>
+        </div>
+        <br>
+        
+        <div><a style="font-family: Arial;font-weight: 600;line-height: 0px;" ><img src="imagenes/tumbamin002.png" alt="" style=" width:5%;">   Tumba disponible sin dueño</a></div><br>
+        <div><a style="font-family: Arial;font-weight: 600;line-height: 0px;" ><img src="imagenes/tumbamin1.png"   alt="" style=" width:5%;">   Tumba pagada y ocupada</a></div><br>
+        <div><a style="font-family: Arial;font-weight: 600;line-height: 0px;" ><img src="imagenes/tumbamin.png"    alt="" style=" width:5%;">   Tumba pagada pero sin ocupar</a></div><br>
+        <div><a style="font-family: Arial;font-weight: 600;line-height: 0px;" ><img src="imagenes/tumbamin3.png"   alt="" style=" width:5%;">   Tumba en pagos y sin ocupar</a></div><br>
+        <div><a style="font-family: Arial;font-weight: 600;line-height: 0px;" ><img src="imagenes/tumbamin4.png"   alt="" style=" width:5%;">   Tumba en pagos y ocupada</a></div>
+    </div>
+</div>
+
+
 
 
 
@@ -1250,3 +1341,12 @@ else{
 
 </body>
 </html>
+
+<style>
+
+.modal-backdrop{
+
+    width: 200vw !important;
+height: 200vh !important;
+}    
+</style>

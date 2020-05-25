@@ -38,7 +38,11 @@ if ($accesoedit!=$acceder){
     $id_s=$_GET['id_s'];
     $id_ss=$_GET['id_ss'];
 
-      $nombre="Seccion ".$id_s." Subseccion ".$id_ss." Vista";
+	  $nombre="Seccion ".$id_s." Subseccion ".$id_ss." Vista";
+	  
+
+
+	$ub='subsecciones.php?id='.$id_s;
 ?>
 
 
@@ -80,8 +84,8 @@ function startTime() {
 		</div>
 
 		<div class="contenedor" id="dos2">
-		<a href="javascript: history.go(-1)" class="texto"><img class="icon" 
-			src="pictures/back.png" > <p class="texto"  href="javascript: history.go(-1)" >Atrás</p> </a>
+		<a href="<?php echo($ub) ;?>" class="texto"><img class="icon" 
+			src="pictures/back.png" > <p class="texto"  href="<?php echo($ub) ;?>" >Atrás</p> </a>
 		</div>
 
 		<div class="contenedor" id="tres">
@@ -106,7 +110,27 @@ function startTime() {
 		
 </header>
 
+<div class="ubicass" >
+		<p>
+			Sección: <?php echo($id_s);?> , subsección: <?php echo($id_ss);?>
+		</p>
+		
+</div>
 
+<style>
+
+.ubicass{
+    position: absolute;
+    top: 75px;
+    right: 10px;
+    filter: drop-shadow(0px 3px 0px #444);
+
+}
+.ubicass p{
+    color: white;
+font-size: 170%;
+}
+</style>
 
  <!--   AQUI TERMINA EL MENU -->
 <div class="vistadivis">

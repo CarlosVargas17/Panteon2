@@ -18,9 +18,15 @@ $res = (mysqli_fetch_row($stmt));
 	<meta charset="UTF-8">
 	<title>Pantalla Principal</title>
 	<link rel="icon"  type="image/png" href="Icon.png">
-	<link rel="stylesheet" href="style/index_style.css">
-	<link rel="stylesheet" href="css/estilos.css">
 	<link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="style/index_style.css">
+	<link rel="stylesheet" href="css/estylo.css">
+	
+	<link rel="stylesheet" href="css/themes/default.min.css" />
+	<link rel="stylesheet" href="md/bootstrap.min.css">
+<script src="md/bootstrap.min.js"></script>
 
 	<script language="JavaScript">
 function startTime() {
@@ -167,6 +173,7 @@ function checkTime(i) {
 			<h4 class="b">Cambia datos gubernamentales cuando lo necesites</h4>
 			
 		</ul>
+
 	</div>
 	<div class="lista2" style="text-align: right;">
 		<ul>
