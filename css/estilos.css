@@ -56,7 +56,7 @@ body{
 .container-form{
     width: 100%;
     padding: 8%;
-    background: #FFFFFF;
+    background: linear-gradient(180deg, #3D476A 0%, #27304D 100%);
     opacity: 0.97;
     height: 600px;
 
@@ -92,8 +92,9 @@ width: 50%;
 .title{
     text-align: center;
     margin-top: 10px;
-    font-weight: 300;
-    color: #7a7a7a;
+    color: #fff;
+font-family: roboto;
+font-weight: 800;
 
 }
 label {
@@ -101,7 +102,9 @@ label {
     margin-top: 30px;
     font-size: 17px;
     font-weight: 300;
-    color: #7a7a7a;
+    color: #fff;
+font-family: roboto;
+font-weight: 800;
 
 
 }
@@ -115,7 +118,7 @@ input[type="text"], input[type="password"], input[type="email"]
     border: none ;
     outline: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.175);
-    color: rgb(15, 65, 228);
+    color: #CF9EFF;
     font-size: 16px;
    
 }
@@ -125,7 +128,8 @@ input[type="text"], input[type="password"], input[type="email"]
     height: 50px;
     color: white;
     border: 0px;
-    background: linear-gradient(90grad, #5F9FFF,rgb(165, 229, 255) );
+    background: linear-gradient(90grad, #F8498D,#917AED );
+
     font-weight: 300;
     cursor: pointer;
     font-size: 18px;
@@ -134,7 +138,8 @@ input[type="text"], input[type="password"], input[type="email"]
 
 }
 .logreg:hover{
-    background: linear-gradient(90grad,  rgb(165, 229, 255), #5F9FFF );
+    
+    background: linear-gradient(90grad, #917AED ,#F8498D );
  
 }
 .logreg2{
@@ -142,7 +147,7 @@ input[type="text"], input[type="password"], input[type="email"]
     height: 50px;
     color: white;
     border: 0px;
-    background: linear-gradient(90grad, #5F9FFF,rgb(165, 229, 255) );
+    background: linear-gradient(90grad, #F8498D,#917AED );
     font-weight: 300;
     cursor: pointer;
     font-size: 18px;
@@ -151,7 +156,7 @@ input[type="text"], input[type="password"], input[type="email"]
 
 }
 .logreg2:hover{
-    background: linear-gradient(90grad,  rgb(165, 229, 255), #5F9FFF );
+    background: linear-gradient(90grad, #917AED ,#F8498D );
  
 }
 .text-footer{
@@ -273,7 +278,7 @@ input[type="text"], input[type="password"], input[type="email"]
     .container-form{
         margin: auto;
         width: 100%;
-        background: white;
+        background: linear-gradient(180deg, #3D476A 0%, #27304D 100%);
     }
 }
 
@@ -301,7 +306,7 @@ overflow: hidden;
     margin-top: 60px;
     color: white;
     border: 0px;
-    background: linear-gradient(90grad, #5F9FFF,rgb(165, 229, 255) );
+    background: linear-gradient(90grad, #F8498D,#917AED );
     font-weight: 300;
     cursor: pointer;
     font-size: 18px;
@@ -310,14 +315,14 @@ overflow: hidden;
     left: 35%;
 }
 .logact:hover{
-    background: linear-gradient(90grad,  rgb(165, 229, 255), #5F9FFF );
+    background: linear-gradient(90grad, #917AED ,#F8498D );
  
 }
 .container-form2{
 
     width: 30%;
     padding: 40px;
-    background: #FFFFFF;
+    background: linear-gradient(180deg, #3D476A 0%, #27304D 100%);
     opacity: 0.97;
     height: 400px;
     position: absolute;
@@ -329,7 +334,7 @@ overflow: hidden;
 .container-form3{
     width: 91.5%;
 padding: 40px;
-background: #FFFFFF;
+background: linear-gradient(180deg, #3D476A 0%, #27304D 100%);
 opacity: 0.97;
 height: 400px;
 position: absolute;
@@ -340,7 +345,7 @@ border-radius: 2%;
 .container-form4{
     width: 91.5% !important;
 padding: 40px;
-background: #FFFFFF;
+background: linear-gradient(180deg, #3D476A 0%, #27304D 100%);
 opacity: 0.97;
 height: 400px;
 position: absolute;
@@ -354,10 +359,7 @@ left: 1%;
 /*-----------CUADRADOS----------------*/
 
 .example2 {
-    background: #08B;
-    background: -webkit-linear-gradient(180deg, #0BF 0%, #056 100%);
-    background: -moz-linear-gradient(180deg, #0BF 0%, #056 100%);
-    background: linear-gradient(180deg, #017EDC 0%, #48CD82 100%);
+    background: linear-gradient(200grad, #17163D 10%,#6068A1 100%);
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -839,12 +841,13 @@ z-index: 99999;
 .title2{
     text-align: center;
     margin-top: 10px;
-    color: #7a7a7a;
+    color: #fff;
     font-size: 37px;
     line-height: 9px;
     letter-spacing: 0.097em;
     font-weight: 700;
     font-style: normal;
+    
 
 }
 
@@ -902,7 +905,7 @@ top: 3px;
 .container-forminfo{
     width: 70.5%;
 padding: 40px;
-background: #FFFFFF;
+background: linear-gradient(180deg, #3D476A 0%, #27304D 100%);
 opacity: 1;
 height: 405px;
 position: absolute;
@@ -915,7 +918,7 @@ font-style:Verdana;
 .container-forminfo2{
     width: 38%;
 padding: 10px;
-background: rgb(232, 237, 240);
+background: linear-gradient(180deg, #3D476A 0%, #27304D 100%);
 opacity: 1;
 height: 350px;
 position:absolute;

@@ -113,7 +113,7 @@ $res = (mysqli_fetch_row($stmt));
         ?>
           <div class="table-responsive">
             <div class="container-all">
-              <div id="tablausers" class="container-form4" >
+              <div id="tablausers" class="container-form4" style="background:white;" >
               </div>
             </div>
           </div>
@@ -155,7 +155,7 @@ $res = (mysqli_fetch_row($stmt));
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel" style="position: absolute">Edicion de usuario</h4>
+        <h4 class="modal-title" id="myModalLabel" style="position: absolute">Edición de usuario</h4>
       </div>
       <div class="modal-body">
         <label>User</label>

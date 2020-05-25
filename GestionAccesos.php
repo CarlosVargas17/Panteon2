@@ -113,7 +113,7 @@ $res = (mysqli_fetch_row($stmt));
         ?>
           <div class="table-responsive">
             <div class="container-all">
-              <div id="tablapaginas" class="container-form4" >
+              <div id="tablapaginas" class="container-form4" style="background:white;" >
               </div>
             </div>
           </div>

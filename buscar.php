@@ -13,13 +13,11 @@
     }
     $q2 = "SELECT * FROM $t where ape_pa <> ''";
 
-    $r2 = $mysqli->query($q2);
-    $total = mysqli_num_rows($r2);
-    $tot_pages = ceil($total/$num_pp);
 
     if(isset($_POST['consulta']) and $_POST['consulta']!=''){
         $q = $mysqli->real_escape_string($_POST['consulta']);
         $f = $mysqli->real_escape_string($_POST['filtro']);
+        $q2 = "SELECT * FROM $t where $f LIKE '%".$q."%' and ape_pa <> ''";
         if($o=="id"){
             $query = "SELECT * FROM $t WHERE $f LIKE '%".$q."%' and ape_pa <> '' ORDER BY $o+0 limit $start,$num_pp";
         }else{
@@ -28,6 +26,9 @@
     }
 
     $resultado = $mysqli->query($query);
+    $r2 = $mysqli->query($q2);
+    $total = mysqli_num_rows($r2);
+    $tot_pages = ceil($total/$num_pp);
     $c=0;
     if($resultado->num_rows > 0){
         if ($t=='difuntos'){

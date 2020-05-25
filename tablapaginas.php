@@ -5,7 +5,7 @@ require_once "Conector.php";
 <div class="row">
     <div class="col-sm-12" style="flex: 0 0 97% !important;">
 
-        <h1 class="title2">Ajustes de acceso</h1>
+        <h1 class="title2" style="color: black;font-family: Arial;font-weight: 700;">Ajustes de acceso</h1>
         <br>
         
         <caption>

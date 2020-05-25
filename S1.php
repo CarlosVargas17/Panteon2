@@ -143,6 +143,7 @@ if ($vista == 'ven'){
             <div style="text-align: center; font-size:20px; margin-top:5%">
                 <select name="num_d" id="num_d" onchange="cambia_d()" style="width: 20%; font-size:20px">
                 </select>
+                <input type="hidden" id="id12">
                 <p>Ubicación:                  <a id="modal_ubicacion"></a></p>
                 <p>Nombre:                     <a id="modal_name"></a></p>
                 <p>Apellido paterno:           <a id="modal_ape_pa"></a></p>
@@ -277,6 +278,36 @@ if ($vista == 'ven'){
                         </script>';
                     }
                 $_SESSION['message']=''; } ?>
+
+                <?php 
+                
+                if (isset($_SESSION['message2']) and $_SESSION['message2']!=""){
+                    if ($_SESSION['message2']=='success'){
+                        echo '<script>
+                            Push.create("Éxito",{
+                                body: "Difunto agregado correctamente.",
+                                icon: "pictures/success.png",
+                                timeout: 5000,
+                                onClick: function () {
+                                    
+                                    this.close();
+                                }
+                            });
+                        </script>';
+                    }else{
+                        echo '<script>
+                            Push.create("Error",{
+                                body: "Ha ocurrido un error, revise sus datos.",
+                                icon: "pictures/error.png",
+                                timeout: 5000,
+                                onClick: function () {
+                                    
+                                    this.close();
+                                }
+                            });
+                        </script>';
+                    }
+                $_SESSION['message2']=''; } ?>
                 <!-- Aqui termina la notificación -->
 
 
@@ -421,7 +452,7 @@ if ($vista == 'ven'){
                                     <div class="row">
                                         <div class="col-md-4 mx-auto datdif" style="margin-left:35%;">
                                             <h5>Datos del difunto</h5>
-
+                                            <input type="hidden" id="id_d2" name="id" class="form-control">
                                             <input type="text" name="ubicacion2" class="form-control" 
                                             style="margin-top:10px" id="ubi2" >
                                             
@@ -573,6 +604,11 @@ function abremodal3(){
     var ubicacion2=document.getElementById("ubicacion2")
     ubicacion1.value=document.getElementById("modal_ubicacion").innerHTML
     ubicacion2.value=document.getElementById("modal_ubicacion").innerHTML
+    if(document.getElementById("modal_name").innerHTML==""){
+        document.getElementById("id_d2").value=document.getElementById("id12").value;
+    }else{
+        document.getElementById("id_d2").value="nuevo";
+    }
     ubicacion1.disabled=true
     console.log(document.getElementById("modal_ubicacion").innerHTML)
     modal.style.display="block"
@@ -611,7 +647,7 @@ var modal1 = document.getElementById('id01')
 var modal2 = document.getElementById('id02')
 var formulario = document.getElementById("formulario_venta")
 
-console.log("sol")
+console.log("zenbu")
 var datos= new FormData()
 datos.append("idventa",id)
 fetch('cambios.php',{method:'POST',body:datos})
@@ -819,6 +855,7 @@ fetch('cambios.php',{method:'POST',body:datos})
                 var datos = data['datos']
                 cambiacolortumbasimple(num,datos['estado'])
                 var id_dif=datos["id"];
+                document.getElementById("id12").value=datos['id'];
                 modal1.style.display='block'
                 boton.href="Recibo_pdf.php?variable1="+id_dif+"&variable2="+id
                 name.innerHTML=datos["nombre"]

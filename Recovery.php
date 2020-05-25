@@ -117,7 +117,7 @@ input[type="email"]
     border: none ;
     outline: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.175);
-    color: rgb(15, 65, 228);
+    color: #CF9EFF;
     font-size: 16px;
    
 }

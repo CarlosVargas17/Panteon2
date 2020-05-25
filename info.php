@@ -85,7 +85,7 @@ $res = (mysqli_fetch_row($stmt));
 	
 
 <div class="container-all">
-<div class="container-forminfo" style='border:8px outset; color:#4070c6;'>
+<div class="container-forminfo" style='background: white; border:8px outset; color:#4070c6;'>
 
     <br>
     
@@ -94,7 +94,7 @@ $res = (mysqli_fetch_row($stmt));
     <div class='logo-Fab'><img src='pictures/fabrica.png'width='400' height='270'></div>
     <div class='logo-Fab3'><img src='pictures/ref.png'></div>
     <hr style="height: 2px;border: 0;color: #2860c1; background-color: #40c68d;">
-    <div class="container-forminfo2" >
+    <div class="container-forminfo2" style="background: #E8EDF0 !important;">
     <div class="listainfo" style="text-align:left;">
     
     <h4 style='font-family: fantasy;font-size: 22px;' >Acerca de:</h4>

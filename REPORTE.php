@@ -31,6 +31,7 @@ if ($accesoedit!=$acceder){
 ?>
 
 
+
 <?php
 require "Conector.php";
 ?> 
@@ -58,8 +59,8 @@ $res_secc=$mysqli -> query($seccion);
 	<meta charset="UTF-8">
   <link rel="icon"  type="image/png" href="Icon.png">
 	<title>Reportes</title>
-  <link rel="stylesheet" href="css/style2.css">
-	<link rel="stylesheet" href="style/index_style.css">
+  <link rel="stylesheet" href="style/index_style.css">
+  
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/report.css">
 	<link rel="stylesheet" href="md/bootstrap.min.css">
@@ -126,23 +127,45 @@ $res_secc=$mysqli -> query($seccion);
 		
 </header>
 
-<div class="centrado" style="text-align: center;font-size:1px"><p>Reportes</p></div>
-        <div>
+<section class="example2">
+    
+    <ul class="cuadrados">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+
+
+<div class="centrado" style="text-align: center;font-size:1px;"><p>Reportes</p></div>
+        
          
                   <form method="GET" >
-				<!-- RANGO DE FECHAS A BUSCAR Y EXPORTAR -->
-						<label style="font-weight: normal; font-family: Arial;position: absolute;margin-top:16%;left: 3%;color:#fff">Desde: <input style='' class="formControlReport" type="date" id="bd-desde" name="Desde" max="<?php $hoy=date("Y-m-d"); $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>" onchange="fecha_n()"/></label>
-						<label style="font-weight: normal;font-family: Arial;position: absolute;margin-top:16%;left:20%;color:#fff;">Hasta: <input style='' class="formControlReport" type="date" id="bd-hasta" name="Hasta"  max="<?php $hoy=date("Y-m-d"); $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>"  onchange="fecha_d()"/></label>
+			 	                 <!-- RANGO DE FECHAS A BUSCAR Y EXPORTAR -->
+					             	<label style="font-weight: normal; font-family: Arial;position: absolute;margin-top:16%;left: 3%;color:#fff;width: 11%;">Desde: <input style='' class="formControlReport" type="date" id="bd-desde" name="Desde" max="<?php $hoy=date("Y-m-d"); $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>" onchange="fecha_n()"/></label>
+						            <label style="font-weight: normal;font-family: Arial;position: absolute;margin-top:16%;left:20%;color:#fff;width: 11%;">Hasta: <input style='' class="formControlReport" type="date" id="bd-hasta" name="Hasta"  max="<?php $hoy=date("Y-m-d"); $hoy2=strtotime($hoy."- 0 days"); echo date("Y-m-d",$hoy2);?>"  onchange="fecha_d()"/></label>
                         
                         <input name="buscar" id="rango_fecha" class="btn btn-sm btn-primary" type="submit" value='Buscar' style="position:absolute;margin-top:18%;left:68%;font-family: Arial;">
-						   <!-- BOTON PARA EXPORTAR EL RANGO DE FECHAS -->
-						<input name='report' id='reporte' type="submit" value="Exportar PDF" class=" btn btn-sm btn-danger" style="position: absolute;margin-top:18%;left:76%;font-family: Arial;">
+						             <!-- BOTON PARA EXPORTAR EL RANGO DE FECHAS -->
+					            	<input name='report' id='reporte' type="submit" value="Exportar PDF" class=" btn btn-sm btn-danger" style="position: absolute;margin-top:18%;left:76%;font-family: Arial;">
                         <input name='todo' type="submit" value="Mostrar todo" class=" btn btn-sm btn-success" style="position: absolute;margin-top:18%;left:87%;font-family: Arial;">
                         
                         <!---SELECT PARA SELECCIONAR SECCIONES-->
                        
                         
-                        <label style="font-weight: normal; font-family: Arial;position: absolute;margin-top:16%;left:37%;color:#fff;">Secciones:
+                        <label style="font-weight: normal; font-family: Arial;position: absolute;margin-top:16%;left:35%;color:#fff; width:10%;">Secciones:
                               <select class="formControlSelect"  name="cbx_seccion" id="cbx_seccion"  style="">
                                <option value="0">Sección</option>
                                <?php while($row=$res_secc->fetch_assoc()){?>
@@ -151,7 +174,7 @@ $res_secc=$mysqli -> query($seccion);
                                <?php } ?> 
                                </select> 
                         </label>
-                        <label style="font-weight: normal; font-family: Arial;position: absolute;margin-top:16%;left:50%;color:#fff;">Subsecciones:
+                        <label style="font-weight: normal; font-family: Arial;position: absolute;margin-top:16%;left:50%;color:#fff; width:12%;">Subsecciones:
                                 <!---SELECT PARA SELECCIONAR SUBSECCIONES-->
                                 <select  onchange="valida()" class="formControlSelect2" id="cbx_subseccion" name="cbx_subseccion"  style="">   
                                </select>
@@ -160,21 +183,21 @@ $res_secc=$mysqli -> query($seccion);
                         <!--<input name="buscar2"  class="btn btn-sm btn-primary" type="submit" value='Buscar' style="position:absolute;left:1075px;top:70px;font-family: Arial;">--> 
                   </form>
                
-
-                
-                <table class="table table-striped table-fixed" style="position: absolute;margin-top:24%;left:3%;">
-					<thead class="thead-light">
-					   <tr width="680px">
-						   <th scope="col" width="50px" style="font-family: Arial;" >N°</th>
-						   <th scope="col" width="238px" style="font-family: Arial;">Comprador</th>
-						   <th scope="col" width="130px" style="font-family: Arial;">Fecha</th>
-						   <th scope="col" width="180px" style="font-family: Arial;">Número de recibo</th>
-						   <th scope="col" width="150px"  style="font-family: Arial;">Id de difunto</th>
-						   <th scope="col"  width="170px" style="font-family: Arial;">Ubicación</th>
-						   <th scope="col"  width="164px" style="font-family: Arial;">Usuario</th>
-				    	</tr>
-                    </thead>
-                    <tbody style="background: white;">
+        
+              
+                <table class="table table-striped table-fixed" style="position:absolute;margin-top:23%;left:3%;">
+				            	<thead class="thead-light" >
+                      <tr  >
+						                <th scope="col" width="2.5%" style="font-family: Arial;" >N°</th>
+						                <th scope="col" width="18%" style="font-family: Arial;">Comprador</th>
+						                <th scope="col" width="9.7%" style="font-family: Arial;">Fecha</th>
+						                <th scope="col" width="13%" style="font-family: Arial;">Número de recibo</th>
+						                <th scope="col"  width="12%" style="font-family: Arial;">Difuntos en fosa</th>
+						                <th scope="col"  width="9.5%" style="font-family: Arial;">Ubicación</th>
+						                <th scope="col"  width="12.5%" style="font-family: Arial;">Usuario</th>
+				             	</tr>
+                       </thead>
+                      <tbody style="background: white;">
                     <script>$('#reporte').attr("disabled", true);</script>
                     <?php
                     
@@ -209,9 +232,8 @@ $res_secc=$mysqli -> query($seccion);
                                     $Desde0=$_GET['Desde'];
                                     $Hasta0=$_GET['Hasta'];  
                                     //------------------VERIFICAR SI HAY RANGO-------------------------
-                                    $NFind="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
-                                            v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
-                                            WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0'";
+                                    $NFind="SELECT DISTINCT * FROM ventas
+                                            WHERE fecha BETWEEN '$Desde0' AND '$Hasta0'";
                                     $Fech_Find=$mysqli -> query($NFind);
                                     $Find=mysqli_fetch_array($Fech_Find);
                                     //------------------------------------------------------------------
@@ -323,35 +345,37 @@ $res_secc=$mysqli -> query($seccion);
                    
                     require "Conector.php";
 
-                    $mixt="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
-                    v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
-                    WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' AND d.ubicacion LIKE '".$var."%'";
+                    $mixt="SELECT DISTINCT * FROM ventas WHERE fecha BETWEEN '$Desde0' AND '$Hasta0' AND ubicacion LIKE '".$var."%'";
                     $mix_result=$mysqli -> query($mixt);
                     $ab=0;
                     if (mysqli_num_rows($mix_result)!=0){
 				          while ($fila = mysqli_fetch_assoc($mix_result))
-			                    {   $ab+=1;
+                          {   $ab+=1;
+                            $ubi=$fila['ubicacion'];
+                            $q="SELECT ubicacion FROM difuntos WHERE ubicacion='$ubi'";
+                            $r=$mysqli->query($q);
+                            $num=mysqli_num_rows($r);
 				      	            echo'<tr>
-                                         <td scope="col" width="50px">'.$ab.'</td>
-                                         <td scope="col" width="238px">'.$fila["nombre_c"]." ".$fila["ape_pa"]." ".$fila["ape_ma"].'</td>
-                                         <td scope="col" width="130px">'.$fila["fecha"].'</td>
-                                         <td scope="col" width="180px">'.$fila["num_recibo"].'</td>
-                                         <td scope="col" width="150px">'.$fila["id_difunto"].'</td>
-                                         <td scope="col"  width="160px">'.$fila["ubicacion"].'</td>
-                                         <td scope="col"  width="174px">'.$fila['usuario'].'</td>
+                                         <td scope="col" width="2.7%">'.$ab.'</td>
+                                         <td scope="col" width="20%">'.$fila["nombre_c"]." ".$fila["ape_pa"]." ".$fila["ape_ma"].'</td>
+                                         <td scope="col" width="12.3%">'.$fila["fecha"].'</td>
+                                         <td scope="col" width="14%">'.$fila["num_recibo"].'</td>
+                                         <td scope="col"  width="12%">'.$num.'</td>
+                                         <td scope="col"  width="12%">'.$fila["ubicacion"].'</td>
+                                         <td scope="col"  width="11.5%">'.$fila['usuario'].'</td>
                                </tr>';
                                echo"<script>$('#reporte').attr('disabled', false);</script>";
                                 }
                     }
                     else{
                                          echo'<tr>
-                                         <td scope="col" width="50px">'.''.'</td>
-                                         <td scope="col" width="238px">'.''.'</td>
-                                         <td scope="col" width="130px">'.''.'</td>
-                                         <td scope="col" width="180px">'.'Búsqueda   sin   resultados'.'</td>
-                                         <td scope="col" width="150px">'.''.'</td>
-                                         <td scope="col"  width="160px">'.''.'</td>
-                                         <td scope="col"  width="174px">'.''.'</td>
+                                         <td scope="col" width="2.7%>'.''.'</td>
+                                         <td scope="col" width="20%">'.''.'</td>
+                                         <td scope="col" width="12.3%">'.''.'</td>
+                                         <td scope="col" width="14%">'.'Búsqueda   sin   resultados'.'</td>
+                                         <td scope="col"  width="12%">'.''.'</td>
+                                         <td scope="col"  width="12%">'.''.'</td>
+                                         <td scope="col"  width="11.5%">'.''.'</td>
                                          </tr>';
                                          //$_SESSION['Desde']='';
                                          //$_SESSION['Hasta']='';
@@ -374,34 +398,41 @@ $res_secc=$mysqli -> query($seccion);
                       function DATOS($Desde0,$Hasta0){
                           if($Desde0!="" and $Hasta0!=""){
                             require "Conector.php";
-                            $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
-                            v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
-                            WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' ORDER BY v.fecha";
+                            $fecha_c="SELECT DISTINCT * FROM ventas 
+                            WHERE ubicacion AND fecha BETWEEN '$Desde0' AND '$Hasta0'";
+                            //$fecha_c="SELECT DISTINCT * FROM ventas 
+                            //WHERE fecha BETWEEN '$Desde0' AND '$Hasta0' ORDER BY fecha";
+      
+
                             $res_fech=$mysqli -> query($fecha_c);
                             $a=0;
 				            while ($fila = mysqli_fetch_assoc($res_fech))
-			                	{ $a+=1;
+                        { $a+=1;
+                          $ubi=$fila['ubicacion'];
+                          $q="SELECT ubicacion FROM difuntos WHERE ubicacion='$ubi'";
+                          $r=$mysqli->query($q);
+                          $num=mysqli_num_rows($r);
 				      	            echo'<tr>
-                                         <td scope="col" width="50px">'.$a.'</td>
-                                         <td scope="col" width="238px">'.$fila["nombre_c"]." ".$fila["ape_pa"]." ".$fila["ape_ma"].'</td>
-                                         <td scope="col" width="130px">'.$fila["fecha"].'</td>
-                                         <td scope="col" width="180px">'.$fila["num_recibo"].'</td>
-                                         <td scope="col" width="150px">'.$fila["id_difunto"].'</td>
-                                         <td scope="col"  width="160px">'.$fila["ubicacion"].'</td>
-                                         <td scope="col"  width="174px">'.$fila['usuario'].'</td>
+                                         <td scope="col" width="2.7%">'.$a.'</td>
+                                         <td scope="col" width="20%">'.$fila["nombre_c"]." ".$fila["ape_pa"]." ".$fila["ape_ma"].'</td>
+                                         <td scope="col" width="10.3%">'.$fila["fecha"].'</td>
+                                         <td scope="col" width="14%">'.$fila["num_recibo"].'</td>
+                                         <td scope="col"  width="12%">'.$num.'</td>
+                                         <td scope="col" width="12%">'.$fila["ubicacion"].'</td>
+                                         <td scope="col"  width="11.5%">'.$fila['usuario'].'</td>
                                </tr>';
                                echo"<script>$('#reporte').attr('disabled', false);</script>";
                                 }
                            }
                           else{
                             echo'<tr>
-                            <td scope="col" width="50px">'.''.'</td>
-                            <td scope="col" width="238px">'.''.'</td>
-                            <td scope="col" width="130px">'.''.'</td>
-                            <td scope="col" width="180px">'.'Búsqueda   sin   resultados'.'</td>
-                            <td scope="col" width="150px">'.''.'</td>
-                            <td scope="col"  width="160px">'.''.'</td>
-                            <td scope="col"  width="174px">'.''.'</td>
+                            <td scope="col" width="2.7%">'.''.'</td>
+                            <td scope="col" width="20%">'.''.'</td>
+                            <td scope="col" width="10.3%">'.''.'</td>
+                            <td scope="col" width="14%">'.'Búsqueda   sin   resultados'.'</td>
+                            <td scope="col"  width="12%">'.''.'</td>
+                            <td scope="col"  width="12%">'.''.'</td>
+                            <td scope="col"  width="11.5%">'.''.'</td>
                             </tr>';
                            }
                           
@@ -417,23 +448,25 @@ $res_secc=$mysqli -> query($seccion);
                         
                           require "Conector.php";
 
-                        $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
-                        v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
-                        WHERE v.id_difunto = d.id AND d.ubicacion LIKE '".$var."%'";
+                        $fecha_c="SELECT DISTINCT * FROM ventas WHERE ubicacion LIKE '".$var."%'";
                         $res_fech=$mysqli -> query($fecha_c);
                         $i=0;
                         
                         if (mysqli_num_rows($res_fech)!=0){
                            while ($fila = mysqli_fetch_assoc($res_fech)){
                                 $i+=1;
+                                $ubi=$fila['ubicacion'];
+                                $q="SELECT ubicacion FROM difuntos WHERE ubicacion='$ubi'";
+                                $r=$mysqli->query($q);
+                                $num=mysqli_num_rows($r);
                                 echo'<tr>
-                                             <td scope="col" width="50px">'.$i.'</td>
-                                             <td scope="col" width="238px">'.$fila["nombre_c"]." ".$fila["ape_pa"]." ".$fila["ape_ma"].'</td>
-                                             <td scope="col" width="130px">'.$fila["fecha"].'</td>
-                                             <td scope="col" width="180px">'.$fila["num_recibo"].'</td>
-                                             <td scope="col" width="150px">'.$fila["id_difunto"].'</td>
-                                             <td scope="col"  width="160px">'.$fila["ubicacion"].'</td>
-                                             <td scope="col"  width="174px">'.$fila['usuario'].'</td>
+                                             <td scope="col" width="2.7%">'.$i.'</td>
+                                             <td scope="col" width="20%">'.$fila["nombre_c"]." ".$fila["ape_pa"]." ".$fila["ape_ma"].'</td>
+                                             <td scope="col" width="10.3%">'.$fila["fecha"].'</td>
+                                             <td scope="col" width="14%">'.$fila["num_recibo"].'</td>
+                                             <td scope="col"  width="12%">'.$num.'</td>
+                                             <td scope="col"  width=12%">'.$fila["ubicacion"].'</td>
+                                             <td scope="col"  width="11.5%">'.$fila['usuario'].'</td>
                                    </tr>';
                                    echo"<script>$('#reporte').attr('disabled', false);</script>";
                             }
@@ -441,13 +474,13 @@ $res_secc=$mysqli -> query($seccion);
                         elseif(mysqli_num_rows($res_fech)==0)
                          {
                             echo'<tr>
-                            <td scope="col" width="50px">'.''.'</td>
-                            <td scope="col" width="238px">'.''.'</td>
-                            <td scope="col" width="130px">'.''.'</td>
-                            <td scope="col" width="180px">'.'Búsqueda   sin   resultados'.'</td>
-                            <td scope="col" width="150px">'.''.'</td>
-                            <td scope="col"  width="160px">'.''.'</td>
-                            <td scope="col"  width="174px">'.''.'</td>
+                            <td scope="col" width="2.7%">'.''.'</td>
+                            <td scope="col" width="20%">'.''.'</td>
+                            <td scope="col" width="10.3%">'.''.'</td>
+                            <td scope="col" width="14%">'.'Búsqueda   sin   resultados'.'</td>
+                            <td scope="col"  width="12%">'.''.'</td>
+                            <td scope="col"  width=12%">'.''.'</td>
+                            <td scope="col"  width="11.5%">'.''.'</td>
                             </tr>';
                             $_SESSION['Desde']='';
                             $_SESSION['Hasta']='';
@@ -466,6 +499,9 @@ $res_secc=$mysqli -> query($seccion);
                 </table>
         </div>
     </body>
+
+    </ul>
+    </section>
 </html>
 <script>
         
@@ -523,46 +559,64 @@ $res_secc=$mysqli -> query($seccion);
 ob_end_flush();
 ?>
 
-<style>
 
+<style>
+.formControlSelect{
+	display: block !important;
+	width: 100% !important;
+	height: calc(1.5em + .22rem + 0px) !important;
+	padding: .375rem .75rem !important;
+	font-size: 1rem !important;
+	font-weight: 400 !important;
+	line-height: 1.5 !important;
+	color: #495057 !important;
+	background-color: #fff !important;
+	background-clip: padding-box !important;
+	border: 1px solid #ced4da !important;
+	border-radius: .25rem !important;
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
+}
+.formControlSelect2{
+
+display: block!important;
+width: 110%!important;
+height: calc(1.5em + .22rem + 0px)!important;
+padding: .375rem .75rem!important;
+font-size: 1rem!important;
+font-weight: 400!important;
+line-height: 1.5!important;
+color: #495057!important;
+background-color: #fff!important;
+background-clip: padding-box!important;
+border: 1px solid #ced4da!important;
+border-radius: .25rem!important;
+transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out!important;
+}
 .table-fixed tbody{
-    top:20%;
-	width:1260px; 
-    height:200px;
-	overflow-y:auto;
+ 
+ width:93%!important; 
+   height:250px!important;
+ overflow-y:auto!important;
+  
+
+}
+
+
+
+.table-fixed tbody,
+.table-fixed th{
+   
+   display:grid!important;
    
 
 }
 
-.formControlSelect{
-	display: block;
-	width: 100%;
-	height: calc(1.5em + .22rem + 0px);
-	padding: .375rem .75rem;
-	font-size: 1rem;
-	font-weight: 400;
-	line-height: 1.5;
-	color: #495057;
-	background-color: #fff;
-	background-clip: padding-box;
-	border: 1px solid #ced4da;
-	border-radius: .25rem;
-	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+.table-fixed thead > tr > th{
+ float:left!important;
+ border-bottom-width:0 !important;
 }
-.formControlSelect2{
 
-	display: block;
-	width: 125%;
-	height: calc(1.5em + .22rem + 0px);
-	padding: .375rem .75rem;
-	font-size: 1rem;
-	font-weight: 400;
-	line-height: 1.5;
-	color: #495057;
-	background-color: #fff;
-	background-clip: padding-box;
-	border: 1px solid #ced4da;
-	border-radius: .25rem;
-	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;}
-
+.thead-light{
+  display: contents !important;
+}
 </style>

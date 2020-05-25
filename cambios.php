@@ -51,9 +51,9 @@ elseif(isset($_POST['idventa'])){
 
     $datosventa = null;
     if(isset($fila['id'])){
-        $consu = "SELECT * from ventas where id_difunto = '".$fila['id']."'";
+        $consu = "SELECT * from ventas where ubicacion = '".$_POST['idventa']."'";
         $cc = $mysqli->query($consu);
-        $datosventa =mysqli_fetch_assoc($cc);
+        $datosventa = mysqli_fetch_assoc($cc);
     }
     
     //printf("Errormessage: %s\n", $mysqli->error);

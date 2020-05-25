@@ -51,6 +51,7 @@ $mostrar=mysqli_fetch_array($res);
     
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/burbujas.css">
     <link rel="stylesheet" href="style/index_style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="md/bootstrap.min.css">
@@ -131,7 +132,25 @@ $mostrar=mysqli_fetch_array($res);
                     }
                 $_SESSION['update']=''; } ?> <!---ELEMENTO ERR-->
 
-
+<section class="example2">
+    
+    <ul class="cuadrados">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
 
 
     <div class="containergob" style="position: absolute;top: 100px;width: 100%;height: 66%;">
@@ -182,6 +201,10 @@ $mostrar=mysqli_fetch_array($res);
     </div>
     <script src='js/jquery.js'></script>
     <script src='js/bootstrap.min.js'></script>
+
+
+</ul>
+</section>
 </body>
 </html>
 

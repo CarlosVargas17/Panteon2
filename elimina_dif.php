@@ -7,7 +7,7 @@ if (isset($_POST['id'])){
     $ubicacion=$_POST['ubicacion'];
     if ($tabla=='difuntos'){
         $mysqli->begin_transaction();
-        $q="SELECT * FROM difuntos";
+        $q="SELECT * FROM difuntos WHERE ubicacion='$ubicacion'";
         $r=$mysqli->query($q);
         $num=mysqli_num_rows($r);
         if ($num==1){

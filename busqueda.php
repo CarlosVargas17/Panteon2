@@ -1,5 +1,37 @@
+<?php
+require_once "Conector.php";
+session_start();
+$usuario = $_SESSION["User"];
+$stmt = $mysqli->query("SELECT * FROM usuarios WHERE User='$usuario' ");
+$stmt2 = $mysqli->query("SELECT * FROM ventanas WHERE ventana='Búsqueda' ");
+$res = (mysqli_fetch_row($stmt));
+$res2 = (mysqli_fetch_row($stmt2));
+$accesoedit=$res2[1];
+if ($res[4]=='Administrador'){
+    if ($accesoedit=='Administrador'){
+        $acceder='Administrador';
+    }
+    else{
+    $acceder='Administrador/Usuario';
+}
+}
+else{
+	$acceder='Administrador/Usuario';
+}
+
+if ($res[5]=='No aprobado' or $usuario==''){
+    header("Location: denegado.php");
+  }
+
+else{
+if ($accesoedit!=$acceder){
+    header("Location: denegado.php");
+    }
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en" style="overflow:hidden;background:white;">
+<html lang="en" style="overflow:hidden;">
 <head>
     <meta charset="UTF-8">
     <link rel="icon"  type="image/png" href="Icon.png">
@@ -15,8 +47,9 @@
     <link rel="stylesheet" href="css/alertify.min.css" />
     <link rel="stylesheet" href="css/themes/default.min.css" />
     <script src="alertify.min.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body style="background: white; overflow:auto;scrollbar-color: rgba(0, 0, 0, .5) rgba(0, 0, 0, 0);
+<body style="background: linear-gradient(200grad, #17163D 10%,#6068A1 100%) !important; overflow:auto;scrollbar-color: rgba(0, 0, 0, .5) rgba(0, 0, 0, 0);
     scrollbar-width: thin;text-align:center;width:100%;">
 
 
@@ -55,7 +88,6 @@
     </header>
     
 
-
   <!-- Aqui empieza la notificación -->
   <?php 
     session_start();
@@ -90,7 +122,8 @@
 
 
 
-<div id="modal1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog">
+
+ <div id="modal1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content modaloc" style="left: 10%;position: fixed;width: 80%; top:0%;overflow: hidden;">
       <div class="modal-header">
@@ -189,19 +222,38 @@
         $num_pp=5;
         $start=($page-1)*5;
     ?>
+<section class="example2">
+    
+    <ul class="cuadrados">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
     
 
     <input type="hidden" id="num_pp" value=<?php echo $num_pp; ?>>
     <input type="hidden" id="start" value=<?php echo $start; ?>>
    <section style="position: absolute;top: 100px;text-align:center;width:100%;" >
 
-        <h1 style="font-size:32px;">Búsqueda</h1>
+        <h1 style="font-size:32px;color: white;font-family: Arial;font-weight: 800;">Búsqueda</h1>
         <div class="div1" style="font-size: 20px;">
             <label for="caja_busqueda">Buscar:</label>
-            <input type="text" name="caja_busqueda" id="caja_busqueda">
+            <input type="text" name="caja_busqueda" id="caja_busqueda" style="width:12% !important; height: 22px !important; background: white !important;">
 
         </div>
-        <div class="div1" style="font-size: 20px;">
+        <div class="div1" style="font-size: 20px; width: 100%; letter-spacing: 0.115em;">
             <label style="margin-left: 50px" for="filtro1">Buscar por:</label>
             <select class="browser-default custom-select" name="filtro1" id="filtro1"
             style="width: 200px;">
@@ -220,13 +272,24 @@
                 <option value="ape_ma">Ape. Ma.</option>
                 <option value="ubicacion">Ubicación</option>
             </select>
-            <label style="margin-left: 71px" for="tabla">Buscar en:</label>
-            <select class="browser-default custom-select" name="tabla" id="tabla"
-            style="width: 200px;" onchange="cambia_tabla()">
-                <option value="difuntos">Difuntos</option>
-                <option value="ventas">Ventas</option>
-            </select>
 
+            <script>
+                if( screen.width < screen.height){  
+                 document.write('<div>');
+                 document.write('<label style="margin-left: 71px" for="tabla">Buscar en:</label>');
+                 document.write('<select class="browser-default custom-select" name="tabla" id="tabla" style="width: 200px;" onchange="cambia_tabla()">')
+                 document.write('<option value="difuntos">Difuntos</option>')
+                 document.write('<option value="ventas">Ventas</option>')
+                 document.write('</select>')
+                 document.write('</div>')
+                }else{
+                document.write('<label style="margin-left: 71px" for="tabla">Buscar en:</label>');
+                document.write('<select class="browser-default custom-select" name="tabla" id="tabla" style="width: 200px;" onchange="cambia_tabla()">')
+                document.write('<option value="difuntos">Difuntos</option>')
+                document.write('<option value="ventas">Ventas</option>')
+                document.write('</select>')
+                }
+            </script>
             
             <script>
                 function actualiza(){
@@ -277,7 +340,7 @@
             
         </div>
         
-        <div id="datos" style="font-size:18px;margin-top:20px;text-align:center;width:99%;margin-left: 0.5%;">
+        <div id="datos" style="font-size:18px;margin-top:20px;text-align:center;width:99%;margin-left: 0.5%;background: white; overflow-x: scroll;">
 
         </div>
     </section>
@@ -344,6 +407,18 @@
                 }else{
                     document.getElementById("es").disabled=false;
                 }
+                if(estado['estado']=="apartada"){
+                    var es=document.getElementById("es");
+                    es.options.length = 0;
+                    es.options[es.options.length] = new Option("Apartada", "apartada");
+                    es.options[es.options.length] = new Option("Vendida y ocupada", "ocupada");
+                }
+                else if(estado['estado']=="pagos_oc"){
+                    var es=document.getElementById("es");
+                    es.options.length = 0;
+                    es.options[es.options.length] = new Option("A pagos y ocupada", "pagos_oc");
+                    es.options[es.options.length] = new Option("Vendida y ocupada", "ocupada");
+                }
             })
             $("#modal1").modal("show"); 
 
@@ -388,7 +463,7 @@
                 for(i=1;i<=numero;i++){
                     sel_dif.options[sel_dif.options.length] = new Option(i, i);
                 }
-                sel_dif.options[sel_dif.options.length] = new Option("Nuevo difunto", "nuevo");
+                
             });
 
             var tabla = document.getElementById("tabla");
@@ -418,6 +493,12 @@
                     document.getElementById("es").disabled=false;
                 }
                 if(estado['estado']=="pagos_lib" || estado['estado']=="apartada"){
+                    if(estado['estado']=="apartada"){
+                        var es=document.getElementById("es");
+                        es.options.length = 0;
+                        es.options[es.options.length] = new Option("Apartada", "apartada");
+                        es.options[es.options.length] = new Option("Vendida y ocupada", "ocupada");
+                    }
                     document.getElementById("name").style.visibility = "hidden";
                     document.getElementById("ape_p").style.visibility = "hidden";
                     document.getElementById("ape_m").style.visibility = "hidden";
@@ -426,6 +507,12 @@
                     document.getElementById("def").style.visibility = "hidden";
                     document.getElementById("la_def").style.visibility = "hidden";
                 }else{
+                    if(estado['estado']=="pagos_oc"){
+                        var es=document.getElementById("es");
+                        es.options.length = 0;
+                        es.options[es.options.length] = new Option("A pagos y ocupada", "pagos_oc");
+                        es.options[es.options.length] = new Option("Vendida y ocupada", "ocupada");
+                    }
                     document.getElementById("name").style.visibility = "visible";
                     document.getElementById("ape_p").style.visibility = "visible";
                     document.getElementById("ape_m").style.visibility = "visible";
@@ -436,6 +523,7 @@
                     document.getElementById("la_def").style.visibility = "visible";
                 }
                 if (datos['nombre']!=""){
+                    sel_dif.options[sel_dif.options.length] = new Option("Nuevo difunto", "nuevo");
                     document.getElementsByName("nombre")[0].readOnly = true;
                     document.getElementsByName("ape_pa")[0].readOnly = true;
                     document.getElementsByName("ape_ma")[0].readOnly = true;
@@ -482,7 +570,7 @@
                 .then(data=>{
                     console.log(data);
                 });
-                alertify.success('Se ha eliminado eliminado correctamente.');
+                alertify.success('Se ha eliminado correctamente.');
                 setTimeout(recarga,3000);
             });
 
@@ -632,7 +720,25 @@ function fecha_d(){
         }
     }
     </script>
-
+    </ul>
+</section>
 
 </body>
 </html>
+
+
+<style>
+
+Label{
+    display: contents !important;
+    color: white;
+font-family: Arial;
+font-weight: 800;
+}
+
+.col-md-3 input[type="text"]{
+    width:100% !important;
+background: white !important;
+}
+
+</style>

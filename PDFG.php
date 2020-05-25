@@ -99,9 +99,8 @@ require "Conector.php";
         $this->Cell(50,5,utf8_decode("Fecha consultada: ".$Desde0));
         $this->Ln(7);}
     elseif($Desde0==$Hasta0 and $Desde0!="" and $Hasta0!="" and $Seccion0!="" and $Subseccion0!=""){
-        $fecha_cc="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
-        v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
-        WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' AND d.ubicacion LIKE '".$var0."%' ";
+        $fecha_cc="SELECT DISTINCT * FROM ventas 
+        WHERE fecha BETWEEN '$Desde0' AND '$Hasta0' AND ubicacion LIKE '".$var0."%' ";
         
         $res_fechcc=$mysqli -> query($fecha_cc);
         $rowc = mysqli_fetch_assoc($res_fechcc);
@@ -183,8 +182,8 @@ $pdf->Cell(15,8,utf8_decode('Nº'),1,0,'C',1);
 $pdf->Cell(47,8,utf8_decode('Comprador'),1,0,'C',1);
 $pdf->Cell(20,8,'Fecha',1,0,'C',1);
 $pdf->Cell(30,8,utf8_decode('Número de recibo'),1,0,'C',1);
-$pdf->Cell(25,8,"Id de difunto",1,0,'C',1);
-$pdf->Cell(30,8,utf8_decode('Ubicación'),1,0,'C',1);
+$pdf->Cell(30,8,"Difuntos en fosa",1,0,'C',1);
+$pdf->Cell(25,8,utf8_decode('Ubicación'),1,0,'C',1);
 $pdf->Cell(25,8,utf8_decode("Usuario"),1,1,'C',1);
 $pdf->SetTextColor(0,0,0);
 
@@ -209,46 +208,37 @@ if(empty($Desde0) and empty($Hasta0)){
 
 //---------------------------------------------------------------------------------------------------------------
 if($Desde0!="" and $Hasta0!=""and $Desde0!=$Hasta0  and $Seccion0!="" and $Subseccion0!=""){
-    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
-v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
-WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' AND d.ubicacion LIKE '".$var0."%' ";
+    $fecha_c="SELECT DISTINCT * FROM ventas
+WHERE fecha BETWEEN '$Desde0' AND '$Hasta0' AND ubicacion LIKE '".$var0."%' ";
 }
 elseif($Desde0==$Hasta0 and $Desde0==""and  $Hasta0=="" and $Seccion0!="" and $Subseccion0==""){
-    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
-    v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
-    WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' AND d.ubicacion LIKE '".$var0."%'";
+    $fecha_c="SELECT DISTINCT * FROM ventas  
+    WHERE fecha BETWEEN '$Desde0' AND '$Hasta0' AND ubicacion LIKE '".$var0."%'";
 }
 elseif($Desde0==$Hasta0 and $Desde0!="" and  $Hasta0!="" and $Seccion0!="" and $Subseccion0!=""){
-    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
-    v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
-    WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' AND d.ubicacion LIKE '".$var0."%'";
+    $fecha_c="SELECT DISTINCT * FROM ventas 
+    WHERE fecha BETWEEN '$Desde0' AND '$Hasta0' AND ubicacion LIKE '".$var0."%'";
 }
 elseif($Desde0!="" and $Hasta0!="" and $Desde0==$Hasta0 and $Subseccion0=="" and $Seccion0!=""){
-    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
-    v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
-    WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' AND d.ubicacion LIKE '".$var0."%'";}
+    $fecha_c="SELECT DISTINCT * FROM ventas 
+    WHERE fecha BETWEEN '$Desde0' AND '$Hasta0' AND ubicacion LIKE '".$var0."%'";}
 elseif($var0==""){
-    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
-    v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
-    WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' ORDER BY v.fecha";
+    $fecha_c="SELECT DISTINCT * FROM ventas  
+    WHERE fecha BETWEEN '$Desde0' AND '$Hasta0' ORDER BY fecha";
 }
 elseif($Seccion0!="" and $Desde0=="" and $Hasta0==""){
-    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
-    v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
-    WHERE v.id_difunto = d.id AND d.ubicacion LIKE '".$var0."%'";
+    $fecha_c="SELECT DISTINCT * FROM ventas 
+    WHERE ubicacion LIKE '".$var0."%'";
 }
-
 //---------------------------------------------------------------------------------------------------------------
 elseif($Desde0=="" and $Hasta0=="" or $Desde0!="" and $Hasta0!=""){
-    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
-    v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
-    WHERE v.id_difunto = d.id AND v.fecha BETWEEN '$Desde0' AND '$Hasta0' ORDER BY v.fecha";
+    $fecha_c="SELECT DISTINCT * FROM ventas 
+    WHERE fecha BETWEEN '$Desde0' AND '$Hasta0' ORDER BY fecha";
 }
 
 else{
-    $fecha_c="SELECT DISTINCT v.id,v.nombre_c,v.ape_pa,v.ape_ma,v.fecha, v.num_recibo,
-    v.id_difunto,d.ubicacion,v.usuario FROM ventas v, difuntos d 
-    WHERE v.id_difunto = d.id AND d.ubicacion LIKE '".$var0."%'";
+    $fecha_c="SELECT DISTINCT * FROM ventas 
+    WHERE ubicacion LIKE '".$var0."%'";
 }
 //----------------------------------------------------------------------------------------------------------------
 
@@ -260,7 +250,10 @@ $i=1;
 $res_fech=$mysqli -> query($fecha_c);
 $count=1;
 while ($row = mysqli_fetch_assoc($res_fech)){
-    
+    $ubi=$row['ubicacion'];
+    $q="SELECT ubicacion FROM difuntos WHERE ubicacion='$ubi'";
+    $r=$mysqli->query($q);
+    $num=mysqli_num_rows($r);
     if ($i%2==0)
     { 
         $pdf->SetFillColor(255,255,255);
@@ -272,8 +265,8 @@ while ($row = mysqli_fetch_assoc($res_fech)){
 	$pdf->Cell(47,8,utf8_decode($row["nombre_c"])." ".utf8_decode($row["ape_pa"])." ".utf8_decode($row["ape_ma"]),1,0,'C',1);
 	$pdf->Cell(20,8,utf8_decode($row["fecha"]),1,0,'C',1);
 	$pdf->Cell(30,8,utf8_decode($row["num_recibo"]),1,0,'C',1);
-	$pdf->Cell(25,8,utf8_decode($row["id_difunto"]),1,0,'C',1);
-	$pdf->Cell(30,8,utf8_decode($row["ubicacion"]),1,0,'C',1);
+	$pdf->Cell(30,8,utf8_decode($num),1,0,'C',1);
+	$pdf->Cell(25,8,utf8_decode($row["ubicacion"]),1,0,'C',1);
     $pdf->Cell(25,8,utf8_decode($row["usuario"]),1,1,'C',1);
     $i++;
     $count++;

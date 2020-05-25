@@ -17,7 +17,7 @@ html, body {
 	font-family: Verdana,sans-serif;
 	font-size: 15px;
 	line-height: 1.5;
-	background: linear-gradient(0deg, #006384 0%, #00dbff 70%);
+	background: linear-gradient(200grad, #17163D 10%,#6068A1 100%) !important;
 	/*background-image: url(../imagenes/338.jpg);*/
 	width: 100%;
 	height: 100%;
@@ -88,7 +88,7 @@ filter: drop-shadow(0px 3px 0px #444);
 	left: 25px;
 	
 }
-.lista ul li.a{
+.lista ul h4.a{
 
 	color: white;
 	font-family: 'Catamaran', sans-serif;
@@ -99,20 +99,20 @@ filter: drop-shadow(0px 3px 0px #444);
 	filter: drop-shadow(0px 3px 0px #444);
 
 }
-.lista ul li.b{
+.lista ul h4.b{
 
 	color: white;
 	font-family: 'Catamaran', sans-serif;
 	font-weight:300;
-	line-height: 42px;
-	font-size: 20px;
+
+
 	list-style-type: none;
 	margin-left: 20px;
 	-webkit-transition: padding-left .4s;
 	opacity: 0.8;
 }
 
-div.lista:hover li.b{
+div.lista:hover h4.b{
 	padding-left: 10px;
 	opacity: 1;
 }
@@ -127,7 +127,7 @@ div.lista:hover li.b{
 	RIGHT: 25px;
 	
 }
-.lista2 ul li.a2{
+.lista2 ul h4.a2{
 
 	color: white;
 	font-family: 'Catamaran', sans-serif;
@@ -139,20 +139,18 @@ div.lista:hover li.b{
 	
 
 }
-.lista2 ul li.b2{
+.lista2 ul h4.b2{
 
 	color: white;
 	font-family: 'Catamaran', sans-serif;
 	font-weight:300;
-	line-height: 42px;
-	font-size: 20px;
 	list-style-type: none;
 	margin-right: 20px;
 	-webkit-transition: padding-right .4s;
 	opacity: 0.8;
 }
 
-div.lista2:hover li.b2{
+div.lista2:hover h4.b2{
 	padding-right: 10px;
 	opacity: 1;
 }
@@ -223,35 +221,35 @@ div.contenedor20{
 }
 
 div#uno{
-	background-color: rgb(22,107,162);
+	background: linear-gradient(90grad, #595BBF,#5A82BD);
 }
 div#uno2{
 	background-color: rgb(0, 180, 30);
 }
 
 div#dos{
-	background-color: rgb(22,145,190);
+	background: linear-gradient(90grad, #CC834E,#CF4ABF);
 }
 div#dos2{
 	background-color: rgb(0, 180, 30);
 }
 
 div#tres{
-	background-color: rgb(22,107,162);
+	background: linear-gradient(90grad, #11B087,#26ACD0);
 }
 div#tres2{
 	background-color: rgb(0, 180, 30);
 }
 
 div#cuatro{
-	background-color: rgb(22,145,190);
+	background: linear-gradient(90grad, #D27B2A,#FFBA37);
 }
 div#cuatro2{
 	background-color: rgb(0, 180, 30);
 }
 
 div#cinco{
-	background-color: rgb(22,107,162);
+	background: linear-gradient(90grad, rgb(91, 101, 255), #A4002E );
 }
 div#cinco2{
 	background-color: rgb(0, 180, 30);
@@ -491,7 +489,7 @@ left: 2.5%;
 	background-size: 100% 100%;
 	position: absolute;
 	width: 100%;
-	height: 89%;
+	height: 100%;
 
 
 }
@@ -745,11 +743,25 @@ width: 100%;
 .msghola{
 
 	position: absolute;
-	top: 80px;
+	top: 100px;
 	right: 20px;
 
 }
 .msghola p{
+
+	color: white;
+	font-size: 27px;
+	font-family: 'Catamaran', sans-serif;
+}
+
+.msgversion{
+
+	position: absolute;
+	top: 100px;
+	left: 20px;
+
+}
+.msgversion p{
 
 	color: white;
 	font-size: 27px;
