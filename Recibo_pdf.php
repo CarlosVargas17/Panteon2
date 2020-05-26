@@ -79,7 +79,7 @@ $difunto_id=$_GET['variable1'];
 $ubica=$_GET['variable2'];
 
 
-$query = "SELECT * FROM `ventas` WHERE id_difunto = '$difunto_id'";
+$query = "SELECT * FROM `ventas` WHERE ubicacion = '$ubica'";
 $resul=mysqli_query($mysqli, $query);
 $row= mysqli_fetch_assoc($resul);
 

@@ -93,7 +93,7 @@ $mostrar=mysqli_fetch_array($res);
 
             </form>
             </div>
-            <span class="text-footer" style="top: 74% !important;">¿Ya te has registrado?<a href="index.php">Inicia sesión</a>
+            <span class="text-footer" style="top: 77% !important;">¿Ya te has registrado?<a href="index.php">Inicia sesión</a>
             </span>
 
         </div>
